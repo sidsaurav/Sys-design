@@ -1,6 +1,6 @@
 # 2.5 Data modelling: keys, constraints, and denormalisation
 
-[Syllabus](../SYLLABUS.md) · Phase 2 · Previous: [2.4 Concurrency control in application code](04-concurrency-control.md) · Next: 2.6 The database as a shared resource *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 2 · Previous: [2.4 Concurrency control in application code](04-concurrency-control.md) · Next: [2.6 The database as a shared resource](06-database-as-shared-resource.md)
 
 > **Time:** about 50 minutes to read, 75 minutes of practice.
 > **You need:** [Chapter 2.1](01-how-databases-store-data.md) (B-trees) and [Chapter 2.4](04-concurrency-control.md) (constraints as the net under your code), and a PostgreSQL for the examples — see [the phase overview](README.md).
@@ -444,7 +444,7 @@ CREATE INDEX order_items_product ON order_items (product_id);    -- indexes the 
 - Normalise by default: each fact once. Denormalise on purpose, for a measured reason, knowing which copy is the truth.
 - Copying a value into the record of an event is not duplication. It is history.
 
-**Next:** 2.6 The database as a shared resource *(planned)* — connections, locks and timeouts, and how one query takes down everything else.
+**Next:** [2.6 The database as a shared resource](06-database-as-shared-resource.md) — connections, locks and timeouts, and how one query takes down everything else.
 
 ---
 
