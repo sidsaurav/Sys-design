@@ -1,6 +1,6 @@
 # 2.8 Choosing a datastore
 
-[Syllabus](../SYLLABUS.md) · Phase 2 · Previous: [2.7 Changing schemas without downtime](07-schema-changes.md) · Next: 2.9 Durability, backups, and restore *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 2 · Previous: [2.7 Changing schemas without downtime](07-schema-changes.md) · Next: [2.9 Durability, backups, and restore](09-durability-backups-restore.md)
 
 > **Time:** about 45 minutes to read, 45 minutes of practice.
 > **You need:** [Chapter 2.1](01-how-databases-store-data.md) (how a storage engine is organised), [Chapter 2.2](02-indexes-and-query-plans.md) (indexes) and [Chapter 2.5](05-data-modelling.md) (modelling). One example is plain Go; the other needs a PostgreSQL — see [the phase overview](README.md).
@@ -361,7 +361,7 @@ Notice what the evidence is in each case: a measurement, or a user complaint —
 - Start with one relational database, plus object storage for files. Add a store when measurements demand it.
 - Every additional store is a copy that can disagree, and a system to operate. Keep one system of record, and make everything else derivable from it.
 
-**Next:** 2.9 Durability, backups, and restore *(planned)* — what "saved" really means, and how to get the data back when the worst happens.
+**Next:** [2.9 Durability, backups, and restore](09-durability-backups-restore.md) — what "saved" really means, and how to get the data back when the worst happens.
 
 ---
 

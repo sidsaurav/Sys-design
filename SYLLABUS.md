@@ -9,7 +9,7 @@ Every chapter is anchored on **one production failure** — the thing that goes 
 | Phase | Theme | Chapters | Status |
 |---|---|---|---|
 | 1 | [Foundations: one server, one request](#phase-1--foundations-one-server-one-request) | 7 + capstone | **Written** |
-| 2 | [Data: correct and fast on one node](#phase-2--data-correct-and-fast-on-one-node) | 9 + capstone | In progress (2.1–2.8 written) |
+| 2 | [Data: correct and fast on one node](#phase-2--data-correct-and-fast-on-one-node) | 9 + capstone | In progress (2.1–2.9 written; capstone to come) |
 | 3 | [Scaling out: load balancing, caching, read scaling](#phase-3--scaling-out-load-balancing-caching-and-read-scaling) | 7 + capstone | Planned |
 | 4 | [Asynchronous systems: queues, streams, events](#phase-4--asynchronous-systems-queues-streams-and-events) | 7 + capstone | Planned |
 | 5 | [Distributed data: replication, partitioning, consistency](#phase-5--distributed-data-replication-partitioning-and-consistency) | 7 + capstone | Planned |
@@ -51,7 +51,7 @@ Every chapter is anchored on **one production failure** — the thing that goes 
 | 2.6 | [The database as a shared resource](phase-2-data/06-database-as-shared-resource.md) | One slow report query takes the whole product down. | Connection limits and poolers; long transactions; lock queues; statement and lock timeouts; separating workloads. |
 | 2.7 | [Changing schemas without downtime](phase-2-data/07-schema-changes.md) | `ALTER TABLE` takes a lock and the site is down for six minutes. | Which changes lock and for how long; expand → migrate → contract; backfills; building indexes concurrently; deploy ordering. |
 | 2.8 | [Choosing a datastore](phase-2-data/08-choosing-a-datastore.md) | A document store chosen for "flexibility" that now needs joins and transactions. | Relational, key-value, document, wide-column, search, object storage, analytical (columnar) stores: the access pattern each is built for. |
-| 2.9 | Durability, backups, and restore | The backups existed; nobody had ever tried to restore one. | `fsync` and what "committed" means; logical vs physical backups; point-in-time recovery; RPO and RTO; restore drills. |
+| 2.9 | [Durability, backups, and restore](phase-2-data/09-durability-backups-restore.md) | The backups existed; nobody had ever tried to restore one. | `fsync` and what "committed" means; logical vs physical backups; point-in-time recovery; RPO and RTO; restore drills. |
 | C2 | Capstone: ticket booking — never sell the same seat twice | — | Schema, indexes, transactions and isolation for a seat-reservation system, with a zero-downtime migration and a restore plan. |
 
 ---
