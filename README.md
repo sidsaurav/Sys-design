@@ -1,0 +1,95 @@
+# Backend System Design: From CRUD to Production
+
+A self-paced course that starts where a new graduate is — you have built CRUD apps and done an internship — and builds, one step at a time, to what a senior engineer needs in order to design and run a production backend.
+
+It does not skip steps and it does not hand-wave. Each chapter starts from a concrete production failure, explains the idea that prevents it, shows it working in runnable code or in a named company's published design, and makes you practise it.
+
+**Start here:** [Chapter 1.1 — What production demands](phase-1-foundations/01-what-production-demands.md) · **Full plan:** [SYLLABUS.md](SYLLABUS.md)
+
+---
+
+## Who this is for
+
+You can build an application that creates, reads, updates and deletes rows in a database, and you can write basic SQL. You have probably never had to care how many requests per second it handles, what happens when the network drops a response, or how to change a schema while the system is serving traffic.
+
+By the end you should be able to take a product requirement and produce a design you can defend — with numbers, with the failure modes named, and with the trade-offs stated — and then operate what you designed.
+
+## The course at a glance
+
+| Phase | Theme | You come out able to… | Status |
+|---|---|---|---|
+| 1 | [Foundations: one server, one request](phase-1-foundations/README.md) | Follow a request end to end, design an API that survives retries, and say with numbers what one server can do. | In progress |
+| 2 | Data: correct and fast on one node | Make queries fast, pick isolation levels on purpose, migrate schemas live, restore from backup. | Planned |
+| 3 | Scaling out: load balancing, caching, read scaling | Go from one server to many and put the right cache in the right place. | Planned |
+| 4 | Asynchronous systems: queues, streams, events | Move work off the request path without losing or duplicating it. | Planned |
+| 5 | Distributed data: replication, partitioning, consistency | Say precisely what a replicated or sharded store guarantees. | Planned |
+| 6 | Reliability: designing for failure | Stop one failure from becoming an outage. | Planned |
+| 7 | Observability and operations | See what the system is doing, alert on what matters, run an incident. | Planned |
+| 8 | Security | Find the trust boundaries and get authentication, authorization and data protection right. | Planned |
+| 9 | Shipping and running: deployment, architecture, cost | Ship without downtime, choose service boundaries, plan capacity, explain the bill. | Planned |
+
+Nine phases, 65 chapters, nine capstones. The chapter-by-chapter plan, with the production failure each chapter exists to prevent, is in [SYLLABUS.md](SYLLABUS.md).
+
+## How every chapter is built
+
+Every chapter has the same parts, in the same order, so you always know where you are:
+
+1. **The problem** — a concrete failure or bottleneck that makes the idea necessary.
+2. **The concept** — in plain language, with a diagram where a diagram helps.
+3. **A real example** — runnable Go code, or how a named company solved it, with a link to the source.
+4. **Trade-offs** — when to use it, when not to, and what it costs.
+5. **Practice** — two or three questions to answer *before reading on*, then a hands-on exercise or a small design problem with a worked solution.
+6. **Production tips and common mistakes.**
+7. **Key takeaways** and **sources.**
+
+Each phase ends with a **capstone**: one real system designed end to end using everything covered so far.
+
+## How to study
+
+- **Go in order.** Later chapters assume earlier ones. Phase 1 is short on purpose; do not skip it because it looks familiar.
+- **Answer the questions before you open the answers.** They are collapsed for a reason. Trying to recall an answer, even wrongly, is what makes the material stick; reading the answer feels like learning and mostly is not.
+- **Run the code and change it.** Every program prints numbers. Predict them first, then change a constant and predict again.
+- **Do the capstone on paper before reading the worked design.** The gap between your design and the worked one is the most useful thing in the phase.
+
+## Running the code
+
+The examples are written in **Go** and use only the standard library unless a chapter says otherwise. You need Go 1.22 or newer.
+
+```bash
+git clone https://github.com/sidsaurav/Sys-design.git
+cd Sys-design
+go run ./phase-1-foundations/code/ch01-tail
+```
+
+Each chapter gives the exact command for its example and shows the output you should expect. To check that everything builds:
+
+```bash
+go vet ./... && go build ./...
+```
+
+Why Go: every example fits in one short file, runs with one command, and the language's built-in HTTP server, timeouts and concurrency make the systems ideas visible without a framework in the way. You do not need to know Go already — the examples are commented, and none of the ideas are Go-specific.
+
+## How claims are sourced
+
+- Technical claims are based on primary or standard sources — RFCs, official documentation, original papers, company engineering blogs, standard textbooks — and **the link is placed next to the claim**, not in a distant bibliography.
+- Text in quotation marks is quoted from the linked source.
+- Scenarios used to motivate a chapter are labelled *illustrative* when they are not a documented real incident.
+- Numbers printed by the example programs come from actually running them. Timing-based output varies between machines; the chapters say so where it matters.
+- Where something could not be verified, the chapter says so instead of guessing.
+
+Links were checked when each chapter was written. If you find a dead link or a claim that the linked source does not support, please open an issue.
+
+## Repository layout
+
+```text
+README.md                 this file
+SYLLABUS.md               every phase and chapter, in learning order
+go.mod                    one Go module for all example code
+phase-1-foundations/
+  README.md               phase overview
+  01-…md … 07-…md         chapters
+  capstone-….md           the phase capstone
+  code/                   runnable examples, one directory per program
+tools/
+  check_links.py          checks every link in every chapter
+```
