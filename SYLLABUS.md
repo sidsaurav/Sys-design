@@ -9,7 +9,7 @@ Every chapter is anchored on **one production failure** — the thing that goes 
 | Phase | Theme | Chapters | Status |
 |---|---|---|---|
 | 1 | [Foundations: one server, one request](#phase-1--foundations-one-server-one-request) | 7 + capstone | **Written** |
-| 2 | [Data: correct and fast on one node](#phase-2--data-correct-and-fast-on-one-node) | 9 + capstone | In progress (2.1–2.3 written) |
+| 2 | [Data: correct and fast on one node](#phase-2--data-correct-and-fast-on-one-node) | 9 + capstone | In progress (2.1–2.4 written) |
 | 3 | [Scaling out: load balancing, caching, read scaling](#phase-3--scaling-out-load-balancing-caching-and-read-scaling) | 7 + capstone | Planned |
 | 4 | [Asynchronous systems: queues, streams, events](#phase-4--asynchronous-systems-queues-streams-and-events) | 7 + capstone | Planned |
 | 5 | [Distributed data: replication, partitioning, consistency](#phase-5--distributed-data-replication-partitioning-and-consistency) | 7 + capstone | Planned |
@@ -46,7 +46,7 @@ Every chapter is anchored on **one production failure** — the thing that goes 
 | 2.1 | [How a database stores and finds data](phase-2-data/01-how-databases-store-data.md) | You tune by superstition because the database is a black box. | Pages and the buffer cache; B-trees; the write-ahead log; LSM-trees and where they win. |
 | 2.2 | [Indexes and query plans](phase-2-data/02-indexes-and-query-plans.md) | A query takes 30 ms in staging and 30 s in production. | Reading `EXPLAIN`; composite, partial and covering indexes; selectivity; the N+1 query; what indexes cost on writes. |
 | 2.3 | [Transactions and isolation levels](phase-2-data/03-transactions-and-isolation.md) | Two requests each read a balance of 100, each withdraw 80, and both succeed. | What ACID does and does not promise; read committed, repeatable read, serializable; the anomalies each allows; MVCC; deadlocks. |
-| 2.4 | Concurrency control in application code | "Check then act" code that is correct in every test and wrong under load. | Lost updates; `SELECT … FOR UPDATE`; optimistic locking with version columns; unique constraints as the simplest lock; retrying serialization failures. |
+| 2.4 | [Concurrency control in application code](phase-2-data/04-concurrency-control.md) | "Check then act" code that is correct in every test and wrong under load. | Lost updates; `SELECT … FOR UPDATE`; optimistic locking with version columns; unique constraints as the simplest lock; retrying serialization failures. |
 | 2.5 | Data modelling: keys, constraints, and denormalisation | A schema that makes every new feature a migration project, or lets bad data in. | Primary key choices (sequences, UUIDs, time-ordered IDs); constraints as the last line of defence; normalisation and when to break it; JSON columns; soft deletes. |
 | 2.6 | The database as a shared resource | One slow report query takes the whole product down. | Connection limits and poolers; long transactions; lock queues; statement and lock timeouts; separating workloads. |
 | 2.7 | Changing schemas without downtime | `ALTER TABLE` takes a lock and the site is down for six minutes. | Which changes lock and for how long; expand → migrate → contract; backfills; building indexes concurrently; deploy ordering. |

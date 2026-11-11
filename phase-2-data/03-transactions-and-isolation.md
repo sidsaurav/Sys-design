@@ -1,6 +1,6 @@
 # 2.3 Transactions and isolation levels
 
-[Syllabus](../SYLLABUS.md) · Phase 2 · Previous: [2.2 Indexes and query plans](02-indexes-and-query-plans.md) · Next: 2.4 Concurrency control in application code *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 2 · Previous: [2.2 Indexes and query plans](02-indexes-and-query-plans.md) · Next: [2.4 Concurrency control in application code](04-concurrency-control.md)
 
 > **Time:** about 55 minutes to read, 60 minutes of practice.
 > **You need:** [Chapter 2.1](01-how-databases-store-data.md) (the write-ahead log, row versions), and a PostgreSQL to run the example on — see [the phase overview](README.md).
@@ -397,7 +397,7 @@ if c == 0:
 - The cheapest fixes need no isolation change: do the check and the write in one statement, and state invariants as constraints.
 - Level names differ between databases. Read the documentation, or test.
 
-**Next:** 2.4 Concurrency control in application code *(planned)* — locks, version columns, and the cases a single statement cannot cover.
+**Next:** [2.4 Concurrency control in application code](04-concurrency-control.md) — locks, version columns, and the cases a single statement cannot cover.
 
 ---
 
