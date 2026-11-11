@@ -1,6 +1,6 @@
 # 2.1 How a database stores and finds data
 
-[Syllabus](../SYLLABUS.md) · Phase 2 · Previous: [Phase 1 capstone](../phase-1-foundations/capstone-url-shortener.md) · Next: 2.2 Indexes and query plans *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 2 · Previous: [Phase 1 capstone](../phase-1-foundations/capstone-url-shortener.md) · Next: [2.2 Indexes and query plans](02-indexes-and-query-plans.md)
 
 > **Time:** about 50 minutes to read, 60 minutes of practice.
 > **You need:** basic SQL, and [Chapter 1.1](../phase-1-foundations/01-what-production-demands.md) (how slow a disk is compared with memory). A PostgreSQL to experiment on is strongly recommended — see [the phase overview](README.md) for a one-line way to start one.
@@ -405,7 +405,7 @@ The lesson is the same as Chapter 1.4's pagination experiment, at larger scale: 
 - In PostgreSQL an update writes a new row version. Vacuum makes the old one's space reusable; it does not return it to the operating system.
 - B-trees update in place and favour reads; LSM-trees append and merge, and favour writes and compact storage.
 
-**Next:** 2.2 Indexes and query plans *(planned)* — choosing which indexes to build, and reading what the database decided to do with them.
+**Next:** [2.2 Indexes and query plans](02-indexes-and-query-plans.md) — choosing which indexes to build, and reading what the database decided to do with them.
 
 ---
 

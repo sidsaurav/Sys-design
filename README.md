@@ -53,7 +53,7 @@ Each phase ends with a **capstone**: one real system designed end to end using e
 
 ## Running the code
 
-The examples are written in **Go** and use only the standard library unless a chapter says otherwise. You need Go 1.22 or newer.
+The examples are written in **Go** and use only the standard library unless a chapter says otherwise. You need Go 1.22 or newer. From Phase 2 on, many examples are SQL scripts and Go programs that run against PostgreSQL; the [Phase 2 overview](phase-2-data/README.md) shows how to start one with a single command.
 
 ```bash
 git clone https://github.com/sidsaurav/Sys-design.git
