@@ -1,6 +1,6 @@
 # 2.7 Changing schemas without downtime
 
-[Syllabus](../SYLLABUS.md) · Phase 2 · Previous: [2.6 The database as a shared resource](06-database-as-shared-resource.md) · Next: 2.8 Choosing a datastore *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 2 · Previous: [2.6 The database as a shared resource](06-database-as-shared-resource.md) · Next: [2.8 Choosing a datastore](08-choosing-a-datastore.md)
 
 > **Time:** about 50 minutes to read, 60 minutes of practice.
 > **You need:** [Chapter 2.6](06-database-as-shared-resource.md) (the lock queue, `lock_timeout`), [Chapter 2.2](02-indexes-and-query-plans.md) (indexes) and [Chapter 2.5](05-data-modelling.md) (constraints), and a PostgreSQL for the examples — see [the phase overview](README.md).
@@ -437,7 +437,7 @@ Seven lines became nine steps and at least three deploys. That is what the chang
 - Make incompatible changes as expand, migrate, contract: add the new, write both, backfill and verify, switch reads, stop writing the old, remove it.
 - Backfill in small restartable batches, and fix rows that differ, not only rows that are empty.
 
-**Next:** 2.8 Choosing a datastore *(planned)* — what relational, key-value, document, wide-column, search and analytical stores are each built for.
+**Next:** [2.8 Choosing a datastore](08-choosing-a-datastore.md) — what relational, key-value, document, wide-column, search and analytical stores are each built for.
 
 ---
 

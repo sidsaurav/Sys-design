@@ -6,7 +6,7 @@ Phase 1 ended with a list of what breaks first, and most of the list was about d
 
 **After this phase you can** explain why a query is slow and fix it, pick an isolation level on purpose, prevent lost updates and double-bookings, change a schema while the system is serving traffic, and restore from backup with confidence.
 
-> **Status: in progress.** Chapters 2.1 to 2.7 are written. The rest are planned; see the [syllabus](../SYLLABUS.md#phase-2--data-correct-and-fast-on-one-node).
+> **Status: in progress.** Chapters 2.1 to 2.8 are written. The rest are planned; see the [syllabus](../SYLLABUS.md#phase-2--data-correct-and-fast-on-one-node).
 
 ## Chapters
 
@@ -19,7 +19,7 @@ Phase 1 ended with a list of what breaks first, and most of the list was about d
 | 2.5 | [Data modelling: keys, constraints, and denormalisation](05-data-modelling.md) | A key that runs out after two billion rows; a schema that lets bad data in. | [`ch05-modelling`](code/ch05-modelling/modelling.sql) — types, constraints, foreign-key indexes, key order; [`review_solution.sql`](code/ch05-modelling/review_solution.sql) |
 | 2.6 | [The database as a shared resource](06-database-as-shared-resource.md) | One slow report takes the whole product down. | [`ch06-shared`](code/ch06-shared/main.go) — the connection limit, three timeouts, the lock queue, a starved pool |
 | 2.7 | [Changing schemas without downtime](07-schema-changes.md) | `ALTER TABLE` takes a lock and the site is down for six minutes. | [`ch07-locks`](code/ch07-locks/main.go) — what each schema change blocks, measured; [`ch07-expand-contract`](code/ch07-expand-contract/main.go) — renaming a column under traffic, three ways |
-| 2.8 | Choosing a datastore | A store chosen for "flexibility" that now needs joins and transactions. | *planned* |
+| 2.8 | [Choosing a datastore](08-choosing-a-datastore.md) | A store chosen for "flexibility" that now needs joins and transactions. | [`ch08-layouts`](code/ch08-layouts/main.go) — the same data row by row and column by column; [`ch08-search`](code/ch08-search/search.sql) — a text search with and without an inverted index |
 | 2.9 | Durability, backups, and restore | The backups existed; nobody had ever restored one. | *planned* |
 | C2 | Capstone: ticket booking — never sell the same seat twice | — | *planned* |
 
