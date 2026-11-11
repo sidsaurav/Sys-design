@@ -1,6 +1,6 @@
 # 2.6 The database as a shared resource
 
-[Syllabus](../SYLLABUS.md) · Phase 2 · Previous: [2.5 Data modelling](05-data-modelling.md) · Next: 2.7 Changing schemas without downtime *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 2 · Previous: [2.5 Data modelling](05-data-modelling.md) · Next: [2.7 Changing schemas without downtime](07-schema-changes.md)
 
 > **Time:** about 45 minutes to read, 60 minutes of practice.
 > **You need:** [Chapter 1.6](../phase-1-foundations/06-concurrency-pools-queues.md) (pools, queues, Little's law) and [Chapter 2.4](04-concurrency-control.md) (row locks), and a PostgreSQL for the example — see [the phase overview](README.md).
@@ -356,7 +356,7 @@ The fourth and fifth rows are the ones most dashboards lack. A long-open transac
 - A waiting schema change blocks every query behind it. One idle transaction plus one quick `ALTER TABLE` is an outage; a lock timeout turns it into a retry.
 - When the database is stuck, `pg_stat_activity` and `pg_blocking_pids` show the chain. Go to its root.
 
-**Next:** 2.7 Changing schemas without downtime *(planned)* — how to alter a table that is in use, one safe step at a time.
+**Next:** [2.7 Changing schemas without downtime](07-schema-changes.md) — how to alter a table that is in use, one safe step at a time.
 
 ---
 
