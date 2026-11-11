@@ -47,19 +47,19 @@ Google's SRE book gives a short list that has become the standard starting point
 | **Errors** | How many requests fail? | Including the ones that fail *fast*. |
 | **Saturation** | How full are we? | Queue lengths, pool waits, requests in flight (Chapter 1.6). |
 
-None of the four means much alone. Latency is meaningless without the traffic it was measured at (Chapter 1.1). A falling latency is bad news if errors are rising — failures are often quick, and the SRE book warns both ways: counting fast errors into your latency "might result in misleading calculations", while "a slow error is even worse than a fast error". And saturation is the early warning for the other three; the same chapter notes that "many systems degrade in performance before they achieve 100% utilization" — which you saw as a table in Chapter 1.6.
+None of the four means much alone. Latency is meaningless without the traffic it was measured at (Chapter 1.1). A falling latency is bad news if errors are rising — failures are often quick, and the [SRE book](https://sre.google/sre-book/monitoring-distributed-systems/) warns both ways: counting fast errors into your latency "might result in misleading calculations", while "a slow error is even worse than a fast error". And saturation is the early warning for the other three; the same chapter notes that "many systems degrade in performance before they achieve 100% utilization" — which you saw as a table in Chapter 1.6.
 
 ### 2. Recording latency so that the numbers mean something
 
-**Averages hide the tail.** You know this from Chapter 1.1. The SRE book's version: "If you run a web service with an average latency of 100 ms at 1,000 requests per second, 1% of requests might easily take 5 seconds." And because of fan-out, "the 99th percentile of one backend can easily become the median response of your frontend."
+**Averages hide the tail.** You know this from Chapter 1.1. The [SRE book's](https://sre.google/sre-book/monitoring-distributed-systems/) version: "If you run a web service with an average latency of 100 ms at 1,000 requests per second, 1% of requests might easily take 5 seconds." And because of fan-out, "the 99th percentile of one backend can easily become the median response of your frontend."
 
-**Record a histogram, not a number.** To compute a percentile you need the distribution. Storing every individual latency is expensive, so services keep a **histogram**: a set of buckets and a count of the requests that fell in each. The SRE book describes it: "collect request counts bucketed by latencies… how many requests did I serve that took between 0 ms and 10 ms, between 10 ms and 30 ms, between 30 ms and 100 ms, between 100 ms and 300 ms, and so on?" Any percentile can be estimated afterwards from the counts.
+**Record a histogram, not a number.** To compute a percentile you need the distribution. Storing every individual latency is expensive, so services keep a **histogram**: a set of buckets and a count of the requests that fell in each. The [SRE book](https://sre.google/sre-book/monitoring-distributed-systems/) describes it: "collect request counts bucketed by latencies… how many requests did I serve that took between 0 ms and 10 ms, between 10 ms and 30 ms, between 30 ms and 100 ms, between 100 ms and 300 ms, and so on?" Any percentile can be estimated afterwards from the counts.
 
 **You cannot average percentiles.** This is the mistake that follows directly from the last point. Suppose you have ten servers, each reporting its own p99, and you want the p99 of the whole service. Averaging the ten numbers is tempting and wrong. The Prometheus documentation is blunt: "averaging the quantiles yields statistically nonsensical values" ([Prometheus, *Histograms and summaries*](https://prometheus.io/docs/practices/histograms/)).
 
 A small example shows why. Server A handled 9,900 requests with a p99 of 20 ms. Server B, which was nearly idle and sick, handled 100 requests with a p99 of 2 s. The average of the two p99s is about one second — a number that describes nothing. Server B's requests are 1% of the total and should count for 1%, not for half.
 
-The correct method is to **add up the histograms** — bucket counts from different servers simply sum — and compute the percentile from the combined histogram. This is the reason to record histograms in the first place: unlike precomputed percentiles, they are "represented in a way that can be aggregated with each other" (same page).
+The correct method is to **add up the histograms** — bucket counts from different servers simply sum — and compute the percentile from the combined histogram. This is the reason to record histograms in the first place: unlike precomputed percentiles, they are "represented in a way that can be aggregated with each other" ([same page](https://prometheus.io/docs/practices/histograms/)).
 
 **Mind the window.** A p99 over 24 hours can look healthy while containing five catastrophic minutes. Look at short windows as well as long ones, and look at the maximum.
 
@@ -76,7 +76,7 @@ There are two fundamentally different ways for a load generator — or a real po
 
 Traffic from the public internet is far closer to open. The person opening your app at 09:00:03 does not know, or care, that the request sent at 09:00:02 has not been answered yet.
 
-The paper's finding is that "there is a vast difference in behavior between open and closed models", and that "system designers pay little attention to whether a workload generator is closed or open." Here is why it matters so much for latency.
+The [paper's](https://www.usenix.org/legacy/event/nsdi06/tech/schroeder.html) finding is that "there is a vast difference in behavior between open and closed models", and that "system designers pay little attention to whether a workload generator is closed or open." Here is why it matters so much for latency.
 
 Suppose the server freezes for 300 ms. Watch what each kind of generator does:
 
@@ -126,7 +126,7 @@ A test only predicts production to the extent that it resembles production. The 
 - **Client behaviour.** Do real clients reuse connections? Retry? Time out?
 - **Where the generator runs.** On the same machine as the server, it competes with the server for CPU. And an overloaded generator produces latency numbers about *itself*.
 
-Gregg's advice for making a test trustworthy is to watch the system while it runs: "While the benchmark is running, analyze the performance of all components involved using other tools, to identify the true limiter of the benchmark." If you cannot say what was limiting throughput during the test, you do not yet know what you measured.
+[Gregg's advice](https://www.brendangregg.com/activebenchmarking.html) for making a test trustworthy is to watch the system while it runs: "While the benchmark is running, analyze the performance of all components involved using other tools, to identify the true limiter of the benchmark." If you cannot say what was limiting throughput during the test, you do not yet know what you measured.
 
 **Finding capacity.** Raise the arrival rate in steps, holding each step long enough to settle, and record the p99 at each. The result is the curve from Chapter 1.6: flat, then a knee. Your capacity is the highest rate at which you still meet your objective — **not** the rate at which the server falls over, which is far past the point where users stopped being served well.
 
@@ -140,7 +140,7 @@ If something is saturated while the CPU is quiet, you have a *waiting* problem, 
 
 **Step 2 — If it is working, profile it.** When the CPU is the busy resource, a **profiler** tells you where the time goes. It samples the running program many times a second and records which function it finds executing; functions that appear in many samples are where the time is spent. Go builds one in: "Profiling tools analyze the complexity and costs of a Go program such as its memory usage and frequently called functions to identify the expensive sections" ([Go, *Diagnostics*](https://go.dev/doc/diagnostics)). The results are usually read as a sorted table or as a [flame graph](https://www.brendangregg.com/flamegraphs.html), Gregg's visualisation "of profiled software so that the most frequent code-paths can be identified quickly and accurately".
 
-One caution that saves hours: a CPU profile shows where a program spends its time "while actively consuming CPU cycles (as opposed to while sleeping or waiting for I/O)" (Go, *Diagnostics*). A request that spends 2 s waiting for a database connection and 1 ms computing will show the 1 ms. **If the problem is waiting, a CPU profile will point you at the wrong thing.** That is why Step 1 comes first.
+One caution that saves hours: a CPU profile shows where a program spends its time "while actively consuming CPU cycles (as opposed to while sleeping or waiting for I/O)" ([Go, *Diagnostics*](https://go.dev/doc/diagnostics)). A request that spends 2 s waiting for a database connection and 1 ms computing will show the 1 ms. **If the problem is waiting, a CPU profile will point you at the wrong thing.** That is why Step 1 comes first.
 
 **Step 3 — Change one thing, and run the same test again.** If the number did not move, you did not fix the bottleneck — however sensible the change looked. If it did move, the bottleneck is now somewhere else; go back to Step 1.
 

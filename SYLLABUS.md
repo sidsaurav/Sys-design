@@ -8,7 +8,7 @@ Every chapter is anchored on **one production failure** — the thing that goes 
 
 | Phase | Theme | Chapters | Status |
 |---|---|---|---|
-| 1 | [Foundations: one server, one request](#phase-1--foundations-one-server-one-request) | 7 + capstone | In progress |
+| 1 | [Foundations: one server, one request](#phase-1--foundations-one-server-one-request) | 7 + capstone | **Written** |
 | 2 | [Data: correct and fast on one node](#phase-2--data-correct-and-fast-on-one-node) | 9 + capstone | Planned |
 | 3 | [Scaling out: load balancing, caching, read scaling](#phase-3--scaling-out-load-balancing-caching-and-read-scaling) | 7 + capstone | Planned |
 | 4 | [Asynchronous systems: queues, streams, events](#phase-4--asynchronous-systems-queues-streams-and-events) | 7 + capstone | Planned |

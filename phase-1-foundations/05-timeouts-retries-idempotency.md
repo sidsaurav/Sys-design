@@ -45,12 +45,12 @@ sequenceDiagram
     Note over S: nothing happened
     Note over C,S: Case B: the server fails part-way
     C->>S: POST /payments
-    Note over S: charged the card, crashed before saving the order
+    Note over S: charged the card, then crashed
     Note over C,S: Case C: the response is lost
     C->>S: POST /payments
     Note over S: charged, saved, done
     S--xC: 201 Created
-    Note over C: In all three cases the client sees the same thing: a timeout
+    Note over C,S: In all three cases the client sees only a timeout
 ```
 
 From the client's side, cases A, B and C are indistinguishable. This is not a limitation of a particular library or protocol; a client that hears nothing cannot tell silence-because-it-did-not-arrive from silence-because-the-answer-was-lost.
@@ -74,7 +74,7 @@ That is how one slow dependency takes down a healthy service: every request that
 - Too **long**, and a failing dependency holds your resources for the whole of that time.
 - Too **short**, and you abandon requests that were about to succeed. Each of those becomes a retry, which adds load to a dependency that was merely a little slow.
 
-Amazon's practice, from the same article: "we choose an acceptable rate of false timeouts (such as 0.1%). Then, we look at the corresponding latency percentile on the downstream service (p99.9 in this example)." In other words: **set the timeout from the dependency's measured latency distribution**, at the percentile that matches how many healthy requests you are prepared to give up on. This is Chapter 1.1's percentiles being used for something.
+Amazon's practice, from [the same article](https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/): "we choose an acceptable rate of false timeouts (such as 0.1%). Then, we look at the corresponding latency percentile on the downstream service (p99.9 in this example)." In other words: **set the timeout from the dependency's measured latency distribution**, at the percentile that matches how many healthy requests you are prepared to give up on. This is Chapter 1.1's percentiles being used for something.
 
 **Timeouts come in layers.** A complete setup has:
 
@@ -99,7 +99,7 @@ The useful property is the comment: a deadline derived from a parent context can
 
 ### 3. Retries: what, how many, how fast
 
-A retry turns "unknown" or "failed" into another chance. It also sends more load to something that may be failing *because of* load. The AWS article has the right word for this: "Retries are 'selfish.' In other words, when a client retries, it spends more of the server's time to get a higher chance of success." That is fine when failures are rare. But "when failures are caused by overload, retries that increase load can make matters significantly worse."
+A retry turns "unknown" or "failed" into another chance. It also sends more load to something that may be failing *because of* load. The [AWS article](https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/) has the right word for this: "Retries are 'selfish.' In other words, when a client retries, it spends more of the server's time to get a higher chance of success." That is fine when failures are rare. But "when failures are caused by overload, retries that increase load can make matters significantly worse."
 
 Four rules keep retries on the helpful side.
 
@@ -115,7 +115,7 @@ Four rules keep retries on the helpful side.
 
 **Rule 2 — Stop after a small number of attempts**, and stop when the overall deadline has passed. Three attempts is a common ceiling. If it has failed three times, the fourth is unlikely to work and the caller has stopped waiting anyway.
 
-**Rule 3 — Wait longer each time (backoff), and randomise the wait (jitter).** If a thousand clients fail at the same moment and all retry after exactly one second, the server is hit by a thousand requests at once, one second later — and again a second after that. Stripe's blog calls this "the thundering herd problem" and gives the cure: "adding some amount of random 'jitter' to each client's wait time. This will space out requests across all clients, and give the server some breathing room to recover."
+**Rule 3 — Wait longer each time (backoff), and randomise the wait (jitter).** If a thousand clients fail at the same moment and all retry after exactly one second, the server is hit by a thousand requests at once, one second later — and again a second after that. [Stripe's blog](https://stripe.com/blog/idempotency) calls this "the thundering herd problem" and gives the cure: "adding some amount of random 'jitter' to each client's wait time. This will space out requests across all clients, and give the server some breathing room to recover."
 
 The standard recipe is *capped exponential backoff with full jitter*: the upper limit doubles on every attempt, up to a cap, and the actual wait is a random time between zero and that limit. AWS's article on the subject compares several variants by simulation and concludes that jittered backoff "should be considered a standard approach for remote clients" ([AWS Architecture Blog, *Exponential Backoff And Jitter*](https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/)). In code it is three lines:
 
@@ -127,11 +127,11 @@ func backoff(attempt int, rng *rand.Rand) time.Duration {
 }
 ```
 
-**Rule 4 — Retry at one layer only.** Real systems are stacks of services calling services. If every layer retries, the retries multiply. The AWS article works the example: with "a five-deep stack of service calls" and three retries at each layer, when the database at the bottom starts failing, "the load on the database will increase 243x, making it unlikely to ever recover." Decide which layer owns retries — usually the one closest to the user — and have the others fail fast. Phase 6 returns to this with retry budgets and circuit breakers.
+**Rule 4 — Retry at one layer only.** Real systems are stacks of services calling services. If every layer retries, the retries multiply. The [AWS article](https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/) works the example: with "a five-deep stack of service calls" and three retries at each layer, when the database at the bottom starts failing, "the load on the database will increase 243x, making it unlikely to ever recover." Decide which layer owns retries — usually the one closest to the user — and have the others fail fast. Phase 6 returns to this with retry budgets and circuit breakers.
 
 ### 4. Idempotency: make the retry harmless
 
-Retries are only safe for operations that are **idempotent** — where doing it twice has the same effect as doing it once (Chapter 1.3). AWS's summary is the rule to remember: "APIs with side effects aren't safe to retry unless they provide idempotency."
+Retries are only safe for operations that are **idempotent** — where doing it twice has the same effect as doing it once (Chapter 1.3). [AWS's summary](https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/) is the rule to remember: "APIs with side effects aren't safe to retry unless they provide idempotency."
 
 Some operations are idempotent by nature. Reading is. `DELETE /carts/9` is. So is anything phrased as "make it so" — `PUT`ting the full new state, or "set the status to shipped". The dangerous ones are phrased as "do it": *create* an order, *add* to a balance, *charge* a card, *send* an email. For those, you have to add the idempotency yourself.
 
@@ -147,7 +147,7 @@ The ID usually travels in an `Idempotency-Key` header. That header is on its way
 Two rules for the client:
 
 - **One key per operation, not per attempt.** The key is created when the user's intent is created — when the checkout page loads, or when **Pay** is tapped — and every retry of that payment carries the same key. A fresh key on each attempt defeats the whole mechanism.
-- **Make it unique and keep it.** A random UUID is the usual choice (Stripe suggests "V4 UUIDs, or another random string with enough entropy to avoid collisions"). If the app can be restarted mid-payment, the key must be stored with the pending payment so that the restarted app reuses it.
+- **Make it unique and keep it.** A random UUID is the usual choice ([Stripe suggests](https://docs.stripe.com/api/idempotent_requests) "V4 UUIDs, or another random string with enough entropy to avoid collisions"). If the app can be restarted mid-payment, the key must be stored with the pending payment so that the restarted app reuses it.
 
 #### What the server does
 
@@ -172,13 +172,13 @@ In words:
    - the first request is *still running* — tell the client to come back;
    - a *finished response* — send that same response again and do nothing else.
 
-The status codes in the diagram are the ones the IETF draft recommends: `422` "if there is an attempt to reuse an idempotency key with a different request payload", and `409` "if the request is retried, while the original request is still being processed".
+The status codes in the diagram are the ones [the IETF draft](https://datatracker.ietf.org/doc/draft-ietf-httpapi-idempotency-key-header/) recommends: `422` "if there is an attempt to reuse an idempotency key with a different request payload", and `409` "if the request is retried, while the original request is still being processed".
 
 This is short to describe and easy to get subtly wrong. There are three classic mistakes.
 
 **Mistake 1: check, then insert.** "Look the key up; if it is not there, do the work and save it" is two steps. Two requests with the same key that arrive close together — an impatient retry, a double tap — both find nothing and both do the work. The claim must be a **single atomic operation**: in a database, an `INSERT` into a table with a unique constraint on the key, so that exactly one of two concurrent inserts wins. The example below shows the naive version charging twice.
 
-**Mistake 2: the work and the key are saved separately.** If the server charges the customer and then crashes before recording the key, the retry finds no key and charges again. If it records the key and then crashes before doing the work, the retry finds the key and nothing is ever done. The key and the effect have to succeed or fail **together**. AWS states the requirement: recording the token and performing the change must be "an 'all or nothing' or atomic process", to "avoid situations where we could potentially record the idempotent token and fail to create some resources or, alternatively, create the resources and fail to record the idempotent token." When everything lives in one database, that means *one transaction*.
+**Mistake 2: the work and the key are saved separately.** If the server charges the customer and then crashes before recording the key, the retry finds no key and charges again. If it records the key and then crashes before doing the work, the retry finds the key and nothing is ever done. The key and the effect have to succeed or fail **together**. [AWS states the requirement](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/): recording the token and performing the change must be "an 'all or nothing' or atomic process", to "avoid situations where we could potentially record the idempotent token and fail to create some resources or, alternatively, create the resources and fail to record the idempotent token." When everything lives in one database, that means *one transaction*.
 
 When the work includes a call to *another* system — the card network, an email provider — one transaction cannot cover it. The pattern then is to commit your own progress in steps and pass an idempotency key of your own to the downstream system, so that a retry can resume without repeating the external call. Brandur's article [*Implementing Stripe-like Idempotency Keys in Postgres*](https://brandur.org/idempotency-keys) works through exactly this with "atomic phases" and "recovery points"; read it when you have to build one.
 

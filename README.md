@@ -18,7 +18,7 @@ By the end you should be able to take a product requirement and produce a design
 
 | Phase | Theme | You come out able to… | Status |
 |---|---|---|---|
-| 1 | [Foundations: one server, one request](phase-1-foundations/README.md) | Follow a request end to end, design an API that survives retries, and say with numbers what one server can do. | In progress |
+| 1 | [Foundations: one server, one request](phase-1-foundations/README.md) | Follow a request end to end, design an API that survives retries, and say with numbers what one server can do. | **Written** |
 | 2 | Data: correct and fast on one node | Make queries fast, pick isolation levels on purpose, migrate schemas live, restore from backup. | Planned |
 | 3 | Scaling out: load balancing, caching, read scaling | Go from one server to many and put the right cache in the right place. | Planned |
 | 4 | Asynchronous systems: queues, streams, events | Move work off the request path without losing or duplicating it. | Planned |
@@ -77,7 +77,9 @@ Why Go: every example fits in one short file, runs with one command, and the lan
 - Numbers printed by the example programs come from actually running them. Timing-based output varies between machines; the chapters say so where it matters.
 - Where something could not be verified, the chapter says so instead of guessing.
 
-Links were checked when each chapter was written. If you find a dead link or a claim that the linked source does not support, please open an issue.
+Two scripts in [`tools/`](tools) keep this honest. `check_links.py` confirms that every link resolves. `check_quotes.py` downloads each linked page and confirms that the words quoted from it are really there. A few sources cannot be checked automatically — pages that refuse automated clients, and PDFs set in two columns — and those were checked by hand.
+
+If you find a dead link or a claim that the linked source does not support, please open an issue.
 
 ## Repository layout
 
@@ -91,5 +93,6 @@ phase-1-foundations/
   capstone-….md           the phase capstone
   code/                   runnable examples, one directory per program
 tools/
-  check_links.py          checks every link in every chapter
+  check_links.py          checks that every link in every chapter resolves
+  check_quotes.py         checks that quoted text appears in the page it cites
 ```

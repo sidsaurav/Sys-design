@@ -77,7 +77,7 @@ The slow tail of the distribution matters far more than its size suggests, for t
 
 **It is not a random 1%.** Amazon's Dynamo paper makes the point that heavy users have heavy requests: "customers with longer histories require more processing which impacts performance at the high-end of the distribution", so "an SLA stated in terms of mean or median response times will not address the performance of this important customer segment" ([DeCandia et al., *Dynamo*, SOSP 2007, §2.2](https://www.allthingsdistributed.com/files/amazon-dynamo-sosp2007.pdf)).
 
-**Fan-out multiplies it.** One user action is rarely one backend call. The same paper says that rendering one page on Amazon's site "typically requires the rendering engine to construct its response by sending requests to over 150 services." If a request has to wait for *n* calls made in parallel, it is as slow as the slowest of them:
+**Fan-out multiplies it.** One user action is rarely one backend call. The same paper says that rendering one page on Amazon's site "typically requires the rendering engine to construct its response by sending requests to over 150 services" ([*Dynamo*, §2.2](https://www.allthingsdistributed.com/files/amazon-dynamo-sosp2007.pdf)). If a request has to wait for *n* calls made in parallel, it is as slow as the slowest of them:
 
 ```mermaid
 flowchart LR
@@ -126,7 +126,7 @@ One more thing: the target is never 100%. The SRE book is blunt about it — "10
 
 ### 4. SLI, SLO, SLA: writing the target down
 
-Three terms from the [SRE book's chapter on service level objectives](https://sre.google/sre-book/service-level-objectives/) give the numbers a home.
+Three terms from the [SRE book's chapter on service level objectives](https://sre.google/sre-book/service-level-objectives/) give the numbers a home:
 
 - A **service level indicator (SLI)** is the measurement: "a carefully defined quantitative measure of some aspect of the level of service that is provided." Request latency and error rate are the usual ones. The SRE workbook recommends expressing an SLI as a ratio — "the number of good events divided by the total number of events" ([SRE workbook, *Implementing SLOs*](https://sre.google/workbook/implementing-slos/)).
 - A **service level objective (SLO)** is the target for that measurement: "a target value or range of values for a service level that is measured by an SLI."
@@ -247,7 +247,7 @@ The Dynamo paper gives an example of the kind of SLA its internal services agree
 
 Hold that sentence against the five-part anatomy above. It has a threshold (300 ms), a target (99.9%), and — the part most first attempts leave out — the **load at which the promise holds** (500 requests per second at peak). A latency target with no load attached is not a requirement, because any system meets it at one request per second.
 
-The paper also explains why Amazon stopped at 99.9% rather than going higher: the choice was "based on a cost-benefit analysis which demonstrated a significant increase in cost to improve performance that much." The target is an economic decision, not a matter of pride.
+The paper also explains why Amazon stopped at 99.9% rather than going higher: the choice was "based on a cost-benefit analysis which demonstrated a significant increase in cost to improve performance that much" ([*Dynamo*, §2.2](https://www.allthingsdistributed.com/files/amazon-dynamo-sosp2007.pdf)). The target is an economic decision, not a matter of pride.
 
 ---
 

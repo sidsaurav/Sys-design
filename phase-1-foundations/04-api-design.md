@@ -53,7 +53,7 @@ A few conventions carry most of the value:
 - **Collections are plural nouns** (`/orders`, not `/order` or `/getOrders`) — see [AIP-122](https://google.aip.dev/122).
 - **Nest only to show ownership**, and keep it shallow: `/customers/{id}/orders` is clear; four levels deep is not.
 - **Actions that are not create, read, update or delete** come in two flavours. Often the action is really a new thing: refunding an order *creates a refund*, so `POST /orders/{id}/refunds`. When that is forced, use an explicit verb on the resource; Google's convention is a colon, as in `POST /orders/{id}:cancel` ([AIP-136](https://google.aip.dev/136)).
-- **Be boringly consistent.** The same field names, the same timestamp format, the same pagination and the same error shape on every endpoint. When Slack redesigned its pagination, one of its stated requirements was that "it should be a consistent experience to paginate through different endpoints".
+- **Be boringly consistent.** The same field names, the same timestamp format, the same pagination and the same error shape on every endpoint. When Slack redesigned its pagination, one of its stated requirements was that "it should be a consistent experience to paginate through different endpoints" ([Slack Engineering](https://slack.engineering/evolving-api-pagination-at-slack/)).
 
 ### 2. Errors a program can act on
 
@@ -85,7 +85,7 @@ The rule that matters more than the format: **clients must never have to parse y
 
 ### 3. Pagination
 
-**Rule zero: every endpoint that returns a list is paginated from its first release.** Adding it later is a breaking change. Google's guidelines say so directly: list methods "must provide pagination at the outset, as it is a backwards-incompatible change to add pagination to an existing method" ([AIP-158](https://google.aip.dev/158)). Slack, having learned it the hard way, ends its article with: "if you're wondering whether or not you should paginate an endpoint that returns a list of data, no matter how small the dataset seems, we recommend you do."
+**Rule zero: every endpoint that returns a list is paginated from its first release.** Adding it later is a breaking change. Google's guidelines say so directly: list methods "must provide pagination at the outset, as it is a backwards-incompatible change to add pagination to an existing method" ([AIP-158](https://google.aip.dev/158)). Slack, having learned it the hard way, ends its article with: "if you're wondering whether or not you should paginate an endpoint that returns a list of data, no matter how small the dataset seems, we recommend you do" ([Slack Engineering](https://slack.engineering/evolving-api-pagination-at-slack/)).
 
 There are two ways to do it.
 
@@ -93,9 +93,9 @@ There are two ways to do it.
 
 The client sends a page number or an offset; the server runs `… ORDER BY created_at DESC LIMIT 20 OFFSET 4000000`. It is the obvious design, it lets a user jump to page 37, and it has two defects that cannot be fixed.
 
-**Defect one: the cost grows with the depth.** The database cannot jump to row 4,000,001. It has to produce the first four million rows and throw them away. PostgreSQL's manual: "The rows skipped by an OFFSET clause still have to be computed inside the server; therefore a large OFFSET might be inefficient" ([PostgreSQL docs, *LIMIT and OFFSET*](https://www.postgresql.org/docs/current/queries-limit.html)). Slack's summary: "As the offset increases the farther you go within the dataset, the database still has to read up to offset + count rows".
+**Defect one: the cost grows with the depth.** The database cannot jump to row 4,000,001. It has to produce the first four million rows and throw them away. PostgreSQL's manual: "The rows skipped by an OFFSET clause still have to be computed inside the server; therefore a large OFFSET might be inefficient" ([PostgreSQL docs, *LIMIT and OFFSET*](https://www.postgresql.org/docs/current/queries-limit.html)). Slack's summary: "As the offset increases the farther you go within the dataset, the database still has to read up to offset + count rows" ([Slack Engineering](https://slack.engineering/evolving-api-pagination-at-slack/)).
 
-**Defect two: the pages shift while the client is reading them.** Offsets count from the top of a list that is changing. If new rows arrive at the top between two requests, everything moves down and the client sees rows it has already seen. If a row is deleted, everything moves up and the client *never sees* one row. Slack describes it: "After requesting the first page of 10 messages, 10 messages are added to the channel. Now when we fetch the second page, we see the same results from the first page."
+**Defect two: the pages shift while the client is reading them.** Offsets count from the top of a list that is changing. If new rows arrive at the top between two requests, everything moves down and the client sees rows it has already seen. If a row is deleted, everything moves up and the client *never sees* one row. Slack describes it: "After requesting the first page of 10 messages, 10 messages are added to the channel. Now when we fetch the second page, we see the same results from the first page" ([Slack Engineering](https://slack.engineering/evolving-api-pagination-at-slack/)).
 
 #### Cursor pagination: "the 20 after the last one I saw"
 
@@ -123,9 +123,9 @@ Because the marker is a *value*, not a position, rows added or removed elsewhere
 
 Three details make it work:
 
-- **The sort order must be total.** If you sort only by `created_at` and two orders share a timestamp, the boundary between pages is ambiguous and a row can be skipped or repeated. Add a unique column as a tie-breaker — hence `(created_at, id)`. PostgreSQL's manual makes the general point: use "an ORDER BY clause that constrains the result rows into a unique order. Otherwise you will get an unpredictable subset of the query's rows."
-- **The cursor is opaque.** Hand the client an encoded string and promise nothing about its contents. AIP-158: page tokens "must be opaque (but URL-safe) strings, and must not be user-parseable. This is because if users are able to deconstruct these, they will do so." An opaque cursor lets you change what is inside it later. Slack does the same, "using Base64 to encode information on how to retrieve the next set of results within the cursor".
-- **The page size has a default and a maximum.** A missing `limit` gets the default. An excessive one is reduced: "the API should coerce down to the maximum permitted page size" (AIP-158).
+- **The sort order must be total.** If you sort only by `created_at` and two orders share a timestamp, the boundary between pages is ambiguous and a row can be skipped or repeated. Add a unique column as a tie-breaker — hence `(created_at, id)`. PostgreSQL's manual makes the general point: use "an ORDER BY clause that constrains the result rows into a unique order. Otherwise you will get an unpredictable subset of the query's rows" ([PostgreSQL docs](https://www.postgresql.org/docs/current/queries-limit.html)).
+- **The cursor is opaque.** Hand the client an encoded string and promise nothing about its contents. [AIP-158](https://google.aip.dev/158): page tokens "must be opaque (but URL-safe) strings, and must not be user-parseable. This is because if users are able to deconstruct these, they will do so." An opaque cursor lets you change what is inside it later. Slack does the same, "using Base64 to encode information on how to retrieve the next set of results within the cursor" ([Slack Engineering](https://slack.engineering/evolving-api-pagination-at-slack/)).
+- **The page size has a default and a maximum.** A missing `limit` gets the default. An excessive one is reduced: "the API should coerce down to the maximum permitted page size" ([AIP-158](https://google.aip.dev/158)).
 
 A response then looks like this, with `next_cursor` absent or empty on the last page:
 
@@ -136,7 +136,7 @@ A response then looks like this, with `next_cursor` absent or empty on the last 
 }
 ```
 
-What you give up is on Slack's list of trade-offs: "There is no concept of the total number of pages or results in the set. The client can't jump to a specific page." For feeds, exports, and "load more" buttons, nobody misses either.
+What you give up is on [Slack's list of trade-offs](https://slack.engineering/evolving-api-pagination-at-slack/): "There is no concept of the total number of pages or results in the set. The client can't jump to a specific page." For feeds, exports, and "load more" buttons, nobody misses either.
 
 ### 4. Compatibility and versioning
 
@@ -285,7 +285,7 @@ Stripe's API has had to change continuously since 2011 while old integrations ke
 - A client can opt in per request "by manually setting the Stripe-Version header", and upgrade when it is ready.
 - Inside Stripe, the code implements only the *current* behaviour. For an older client, the response is produced at the current version and then passed backwards through a chain of "version change modules", each of which undoes one breaking change, "until that target version is reached".
 
-The result, as of that article: "we've maintained compatibility with every version of our API since the company's inception in 2011." The cost is equally clear — every one of those change modules is code that has to keep working.
+The result, as of [that article](https://stripe.com/blog/api-versioning): "we've maintained compatibility with every version of our API since the company's inception in 2011." The cost is equally clear — every one of those change modules is code that has to keep working.
 
 ---
 
@@ -304,13 +304,13 @@ The result, as of that article: "we've maintained compatibility with every versi
 
 Offset is acceptable when the list is small and will stay small, or when a human really needs numbered pages in an internal tool. For anything a program will read to the end — feeds, exports, synchronisation — use a cursor. Zalando's public API guidelines put it as a rule: "prefer cursor-based pagination, avoid offset-based pagination" ([Zalando RESTful API Guidelines](https://opensource.zalando.com/restful-api-guidelines/)).
 
-**Total counts are more expensive than they look.** "Showing 1–20 of 4,812,112" requires counting every matching row on every request, and in PostgreSQL "a full count of rows in a table can be comparatively slow" ([PostgreSQL wiki, *Slow Counting*](https://wiki.postgresql.org/wiki/Slow_Counting)). Zalando's guidelines advise against returning one at all, "since calculating it is a costly operation that is usually not required by clients". If the interface needs a number, an estimate is usually enough.
+**Total counts are more expensive than they look.** "Showing 1–20 of 4,812,112" requires counting every matching row on every request, and in PostgreSQL "a full count of rows in a table can be comparatively slow" ([PostgreSQL wiki, *Slow Counting*](https://wiki.postgresql.org/wiki/Slow_Counting)). [Zalando's guidelines](https://opensource.zalando.com/restful-api-guidelines/) advise against returning one at all, "since calculating it is a costly operation that is usually not required by clients". If the interface needs a number, an estimate is usually enough.
 
 **Resources or RPC?** Resource modelling makes the common cases uniform and the odd cases awkward (is "merge these two accounts" a resource?). Accept a few explicit action endpoints rather than contorting the model. The goal is predictability, not purity.
 
 **A standard error format or your own?** Either is fine; having two is not. RFC 9457 saves you a design discussion and gives client libraries something to recognise.
 
-**Every version you keep alive is code you maintain.** Stripe's article names the cost of supporting old behaviour: "engineering time is diverted to maintaining old code." Path versioning makes each break cheap for the server and expensive for clients; pinned versions do the opposite. The cheapest version to maintain is the one you never needed, which is the argument for getting additive-only as far as it will go.
+**Every version you keep alive is code you maintain.** [Stripe's article](https://stripe.com/blog/api-versioning) names the cost of supporting old behaviour: "engineering time is diverted to maintaining old code." Path versioning makes each break cheap for the server and expensive for clients; pinned versions do the opposite. The cheapest version to maintain is the one you never needed, which is the argument for getting additive-only as far as it will go.
 
 ---
 
@@ -397,7 +397,7 @@ A practical trick: fetch `limit + 1` rows. If the extra row comes back, there is
 
 **3. What is in the cursor**
 
-`(created_at, id)` of the last item returned, plus the filters the list was requested with (here `status`). If a client sends a cursor with *different* filters from the ones it was issued for, reject it — otherwise it resumes at a position that means nothing in the new list. Encode the lot as base64 so clients treat it as opaque. Zalando's guidelines describe the same contents: the cursor "encodes the page position… and the applied query filters".
+`(created_at, id)` of the last item returned, plus the filters the list was requested with (here `status`). If a client sends a cursor with *different* filters from the ones it was issued for, reject it — otherwise it resumes at a position that means nothing in the new list. Encode the lot as base64 so clients treat it as opaque. [Zalando's guidelines](https://opensource.zalando.com/restful-api-guidelines/) describe the same contents: the cursor "encodes the page position… and the applied query filters".
 
 **4. Errors** (all as `application/problem+json`)
 
@@ -419,7 +419,7 @@ This is a new, additive capability first and a removal much later:
 5. Mark the `page` parameter deprecated: in the documentation, and with `Deprecation` and `Sunset` response headers on requests that use it.
 6. Watch the usage of `page` fall. Contact whoever is left. Remove it only when it is unused, or in the next major version.
 
-Slack did the same thing at larger scale, and named the property that made it possible: their new scheme does "forward pagination through an entire dataset in a backwards compatible way".
+[Slack](https://slack.engineering/evolving-api-pagination-at-slack/) did the same thing at larger scale, and named the property that made it possible: their new scheme does "forward pagination through an entire dataset in a backwards compatible way".
 
 </details>
 
@@ -435,7 +435,7 @@ Slack did the same thing at larger scale, and named the property that made it po
 - **Keep cursors opaque.** If a client must not be able to forge one, sign or encrypt it.
 - **Add; do not change.** A new field with a new name is free. Changing what an old field means breaks every client at once.
 - **Before you remove anything, find out who uses it.** Log which clients call which endpoints with which parameters. You cannot deprecate what you cannot measure.
-- **Design the API before the code.** Write the description — endpoints, fields, errors — and have someone else review it. Zalando makes this a rule: "define APIs first, before coding its implementation".
+- **Design the API before the code.** Write the description — endpoints, fields, errors — and have someone else review it. [Zalando](https://opensource.zalando.com/restful-api-guidelines/) makes this a rule: "define APIs first, before coding its implementation".
 - **Pick formats once.** Timestamps in [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339.html) form, in UTC (`2024-03-01T09:30:00Z`). Money as a whole number of the currency's smallest unit plus a currency code — Stripe's API expects amounts "in the currency's minor unit", so that 10.99 USD is sent as `1099` ([Stripe docs](https://docs.stripe.com/currencies)).
 
 **Common mistakes**

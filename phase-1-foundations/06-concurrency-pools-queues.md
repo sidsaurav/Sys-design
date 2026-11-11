@@ -59,7 +59,7 @@ Most backend requests spend most of their life waiting — for a database, a cac
 
 **An event loop.** One thread handles many connections by never waiting: it starts an I/O operation, moves on to another request, and comes back when the result is ready. Node.js works this way; its documentation explains that "the secret to the scalability of Node.js is that it uses a small number of threads to handle many clients" ([Node.js, *Don't Block the Event Loop*](https://nodejs.org/en/learn/asynchronous-work/dont-block-the-event-loop)). A waiting request costs only a little memory. The price is in the title of that page: if one request does something slow *on* the loop — a heavy computation, an accidental blocking call — every other request waits behind it.
 
-**Lightweight threads.** The language runtime provides threads of its own that are far cheaper than the operating system's, and parks them itself when they wait. You write simple blocking code and get roughly the efficiency of an event loop. Go's goroutines are the best-known example: "it is practical to create hundreds of thousands of goroutines in the same address space" ([Go FAQ](https://go.dev/doc/faq#goroutines)), and Go's HTTP server simply starts "a new service goroutine for each" connection ([`net/http`](https://pkg.go.dev/net/http#Serve)). Java's virtual threads (standard since Java 21) are the same idea: they "are cheap and plentiful, and thus should never be pooled" (JEP 444).
+**Lightweight threads.** The language runtime provides threads of its own that are far cheaper than the operating system's, and parks them itself when they wait. You write simple blocking code and get roughly the efficiency of an event loop. Go's goroutines are the best-known example: "it is practical to create hundreds of thousands of goroutines in the same address space" ([Go FAQ](https://go.dev/doc/faq#goroutines)), and Go's HTTP server simply starts "a new service goroutine for each" connection ([`net/http`](https://pkg.go.dev/net/http#Serve)). Java's virtual threads (standard since Java 21) are the same idea: they "are cheap and plentiful, and thus should never be pooled" ([JEP 444](https://openjdk.org/jeps/444)).
 
 | | A waiting request costs | Code style | The trap |
 |---|---|---|---|
@@ -79,7 +79,7 @@ There is one formula in this chapter, and it is worth memorising because it appl
 >
 > `L = λ × W`
 
-This is **Little's law**. JEP 444 states it in server terms: "For a given request-processing duration (i.e., latency), the number of requests an application handles at the same time (i.e., concurrency) must grow in proportion to the rate of arrival (i.e., throughput)", with the example that an application with "an average latency of 50ms" achieves "200 requests per second by processing 10 requests concurrently", and to reach 2,000 requests per second "will need to process 100 requests concurrently."
+This is **Little's law**. [JEP 444](https://openjdk.org/jeps/444) states it in server terms: "For a given request-processing duration (i.e., latency), the number of requests an application handles at the same time (i.e., concurrency) must grow in proportion to the rate of arrival (i.e., throughput)", with the example that an application with "an average latency of 50ms" achieves "200 requests per second by processing 10 requests concurrently", and to reach 2,000 requests per second "will need to process 100 requests concurrently."
 
 It is a statement about averages, it needs no assumptions about how requests arrive, and it holds for any part of a system you draw a boundary around: the whole server, one pool, one queue. Three ways to use it:
 
@@ -131,7 +131,7 @@ Look at the first line. The server "served" every request — and served them al
 
 Now the second line. The only change is that the queue may hold at most 20 waiting requests; a request that arrives to find it full is refused immediately. One request in ten is rejected — and the other nine are served in 43 ms. The rejected ones get a fast, honest `503` (with `Retry-After`, Chapter 1.3) instead of a slow timeout.
 
-**The server was 10% over capacity. It can fail 10% of requests quickly, or 100% of them slowly.** Those are the only two options, and the bounded queue chooses the first. AWS's summary: "Load shedding lets a server maintain its goodput and complete as many requests as it can, even as offered throughput increases." Chapter 6.4 develops this into a full strategy; the foundation is simply that **every queue has a limit**.
+**The server was 10% over capacity. It can fail 10% of requests quickly, or 100% of them slowly.** Those are the only two options, and the bounded queue chooses the first. [AWS's summary](https://aws.amazon.com/builders-library/using-load-shedding-to-avoid-overload/): "Load shedding lets a server maintain its goodput and complete as many requests as it can, even as offered throughput increases." Chapter 6.4 develops this into a full strategy; the foundation is simply that **every queue has a limit**.
 
 Unbounded queues are easy to create without noticing, because they are often the default:
 
@@ -337,7 +337,7 @@ What does *not* help: adding application servers. Each new server brings its own
 **Tips**
 
 - **Know your queues.** For each service, be able to list: where requests can wait, how long each queue can get, and what happens when it is full.
-- **Export saturation, not just utilisation.** Requests in flight; pool wait count and wait time; queue depth. These move before latency does. The USE method says it in one sentence: "For every resource, check utilization, saturation, and errors."
+- **Export saturation, not just utilisation.** Requests in flight; pool wait count and wait time; queue depth. These move before latency does. The [USE method](https://www.brendangregg.com/usemethod.html) says it in one sentence: "For every resource, check utilization, saturation, and errors."
 - **Set every pool's size on purpose**, working back from what the resource behind it can do, divided across all the instances that share it.
 - **Give every pool an acquire timeout**, shorter than the caller's own timeout.
 - **Bound every queue.** When it is full, refuse with `503` and `Retry-After`.
