@@ -1,6 +1,6 @@
 # 2.2 Indexes and query plans
 
-[Syllabus](../SYLLABUS.md) · Phase 2 · Previous: [2.1 How a database stores and finds data](01-how-databases-store-data.md) · Next: 2.3 Transactions and isolation levels *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 2 · Previous: [2.1 How a database stores and finds data](01-how-databases-store-data.md) · Next: [2.3 Transactions and isolation levels](03-transactions-and-isolation.md)
 
 > **Time:** about 55 minutes to read, 75 minutes of practice.
 > **You need:** [Chapter 2.1](01-how-databases-store-data.md) (pages, B-trees, "count pages, not milliseconds"), and a PostgreSQL to run the examples on — see [the phase overview](README.md).
@@ -481,7 +481,7 @@ It can already use the Q1 index: `tenant_id` is that index's leading column, so 
 - N+1 is many fast queries; its cost is round trips. Fix it with a join or a single query with a list.
 - Every index slows every write. Build the fewest that serve the queries that matter.
 
-**Next:** 2.3 Transactions and isolation levels *(planned)* — what happens when two of these queries run at the same moment.
+**Next:** [2.3 Transactions and isolation levels](03-transactions-and-isolation.md) — what happens when two of these queries run at the same moment.
 
 ---
 

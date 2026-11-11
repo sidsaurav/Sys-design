@@ -6,7 +6,7 @@ Phase 1 ended with a list of what breaks first, and most of the list was about d
 
 **After this phase you can** explain why a query is slow and fix it, pick an isolation level on purpose, prevent lost updates and double-bookings, change a schema while the system is serving traffic, and restore from backup with confidence.
 
-> **Status: in progress.** Chapters 2.1 and 2.2 are written. The rest are planned; see the [syllabus](../SYLLABUS.md#phase-2--data-correct-and-fast-on-one-node).
+> **Status: in progress.** Chapters 2.1 to 2.3 are written. The rest are planned; see the [syllabus](../SYLLABUS.md#phase-2--data-correct-and-fast-on-one-node).
 
 ## Chapters
 
@@ -14,7 +14,7 @@ Phase 1 ended with a list of what breaks first, and most of the list was about d
 |---|---|---|---|
 | 2.1 | [How a database stores and finds data](01-how-databases-store-data.md) | Tuning by superstition because the database is a black box. | [`ch01-storage`](code/ch01-storage/storage.sql) — pages, a B-tree's levels, the cost of a commit |
 | 2.2 | [Indexes and query plans](02-indexes-and-query-plans.md) | A query that is instant in staging and takes half a second for your biggest customer. | [`ch02-indexes`](code/ch02-indexes/indexes.sql) — eleven experiments on a skewed table; [`ch02-nplus1`](code/ch02-nplus1/main.go) — 501 round trips or one |
-| 2.3 | Transactions and isolation levels | Two requests each read a balance of 100, each withdraw 80, and both succeed. | *planned* |
+| 2.3 | [Transactions and isolation levels](03-transactions-and-isolation.md) | Two requests each read a balance of 100, each withdraw 80, and both succeed. | [`ch03-isolation`](code/ch03-isolation/main.go) — two real sessions, five experiments |
 | 2.4 | Concurrency control in application code | "Check then act" code that is right in every test and wrong under load. | *planned* |
 | 2.5 | Data modelling: keys, constraints, and denormalisation | A schema that lets bad data in, or makes every feature a migration. | *planned* |
 | 2.6 | The database as a shared resource | One slow report takes the whole product down. | *planned* |
