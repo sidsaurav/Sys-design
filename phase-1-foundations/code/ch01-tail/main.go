@@ -1,7 +1,9 @@
 // Chapter 1.1 — why the mean hides the tail, and why fan-out makes the tail
 // everybody's problem.
 //
-// Run:  go run ./phase-1-foundations/code/ch01-tail
+// Run:
+//
+//	go run ./phase-1-foundations/code/ch01-tail
 //
 // The backend modelled here is the one from "The Tail at Scale" (Dean and
 // Barroso, 2013): it usually answers in about 10 ms, but 1 request in 100
