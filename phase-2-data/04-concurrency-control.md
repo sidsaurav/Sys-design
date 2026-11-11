@@ -1,6 +1,6 @@
 # 2.4 Concurrency control in application code
 
-[Syllabus](../SYLLABUS.md) · Phase 2 · Previous: [2.3 Transactions and isolation levels](03-transactions-and-isolation.md) · Next: 2.5 Data modelling *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 2 · Previous: [2.3 Transactions and isolation levels](03-transactions-and-isolation.md) · Next: [2.5 Data modelling](05-data-modelling.md)
 
 > **Time:** about 50 minutes to read, 75 minutes of practice.
 > **You need:** [Chapter 2.3](03-transactions-and-isolation.md) (isolation levels, lost updates, write skew), and a PostgreSQL to run the example on — see [the phase overview](README.md).
@@ -404,7 +404,7 @@ One more thing to notice: after the first 100 succeed, every later request still
 - Deadlocks come from taking locks in different orders. Take them in one order, and retry the ones that still happen.
 - Locks are held for milliseconds. Never across slow work, never across a person.
 
-**Next:** 2.5 Data modelling *(planned)* — designing tables so that rules like these are easy for the database to enforce.
+**Next:** [2.5 Data modelling](05-data-modelling.md) — designing tables so that rules like these are easy for the database to enforce.
 
 ---
 
