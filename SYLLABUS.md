@@ -16,7 +16,7 @@ Every chapter is anchored on **one production failure** — the thing that goes 
 | 6 | [Reliability: designing for failure](#phase-6--reliability-designing-for-failure) | 7 + capstone | **Written** |
 | 7 | [Observability and operations](#phase-7--observability-and-operations) | 6 + capstone | **Written** |
 | 8 | [Security](#phase-8--security) | 6 + capstone | **Written** |
-| 9 | [Shipping and running: deployment, architecture, cost](#phase-9--shipping-and-running-deployment-architecture-and-cost) | 9 + final capstone | In progress (9.1–9.4 written) |
+| 9 | [Shipping and running: deployment, architecture, cost](#phase-9--shipping-and-running-deployment-architecture-and-cost) | 9 + final capstone | In progress (9.1–9.5 written) |
 
 ---
 
@@ -166,7 +166,7 @@ Every chapter is anchored on **one production failure** — the thing that goes 
 | 9.2 | [CI/CD and progressive delivery](phase-9-shipping/02-cicd-and-progressive-delivery.md) | A bad build reaches 100% of users in four minutes. | Rolling, blue-green and canary releases; feature flags; automated rollback. |
 | 9.3 | [Backward compatibility across deploys](phase-9-shipping/03-backward-compatibility.md) | Version N+1 writes data that version N cannot read, mid-rollout. | Evolving APIs, events and schemas when old and new code run side by side. |
 | 9.4 | [Configuration and infrastructure as code](phase-9-shipping/04-configuration-and-infrastructure.md) | A one-line config change causes a global outage. | Treating config as code; staged rollout of configuration; reproducible infrastructure. |
-| 9.5 | Service architecture | A monolith is split into thirty services that must all deploy together. | Monolith, modular monolith, microservices; finding service boundaries; what the split costs. |
+| 9.5 | [Service architecture](phase-9-shipping/05-service-architecture.md) | A monolith is split into thirty services that must all deploy together. | Monolith, modular monolith, microservices; finding service boundaries; what the split costs. |
 | 9.6 | Service-to-service communication | Hard-coded hostnames and a retry policy copied into forty codebases. | Service discovery; gRPC; API gateways; what a service mesh moves out of your code. |
 | 9.7 | Capacity planning and autoscaling | Autoscaling is "on" and the site still falls over at the daily peak. | Forecasting; headroom; what autoscaling can and cannot react to; load testing as a planning tool. |
 | 9.8 | Cost | The bill triples and nobody can say which feature did it. | The anatomy of a cloud bill; unit economics; the price of each extra nine; cost-aware design. |

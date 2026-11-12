@@ -1,6 +1,6 @@
 # 9.4 Configuration and infrastructure as code
 
-[Syllabus](../SYLLABUS.md) · Phase 9 · Previous: [9.3 Backward compatibility across deploys](03-backward-compatibility.md) · Next: 9.5 Service architecture *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 9 · Previous: [9.3 Backward compatibility across deploys](03-backward-compatibility.md) · Next: [9.5 Service architecture](05-service-architecture.md)
 
 > **Time:** about 30 minutes to read, 40 minutes of practice.
 > **You need:** the staged release of [Chapter 9.2](02-cicd-and-progressive-delivery.md), and the question *what changed?* from [Chapter 7.5](../phase-7-observability/05-debugging-production.md). The example needs only Go, and runs at once.
@@ -335,7 +335,7 @@ Common mistakes:
 - Give every change and every tool a ceiling, and keep the way back clear of it.
 - Declare infrastructure in files. The plan is what will happen, and it is what to review. Changes made by hand are drift, and will be undone.
 
-**Next:** 9.5 Service architecture *(planned)* — the system can now be changed safely. How many separately deployed parts it should have, and where the lines between them go, decides how often that has to be done, and by whom.
+**Next:** [9.5 Service architecture](05-service-architecture.md) — the system can now be changed safely. How many separately deployed parts it should have, and where the lines between them go, decides how often that has to be done, and by whom.
 
 ---
 
