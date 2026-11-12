@@ -8,7 +8,7 @@ So the phase starts with shipping: how a new version replaces an old one without
 
 **After this phase you can** ship changes to a running system without downtime, decide how to split (or not split) a system into services, plan capacity, and explain what a design costs.
 
-> **Status: in progress.** Chapters 9.1 to 9.5 are written. The rest are planned; see the [syllabus](../SYLLABUS.md#phase-9--shipping-and-running-deployment-architecture-and-cost).
+> **Status: in progress.** Chapters 9.1 to 9.6 are written. The rest are planned; see the [syllabus](../SYLLABUS.md#phase-9--shipping-and-running-deployment-architecture-and-cost).
 
 ## Chapters
 
@@ -19,7 +19,7 @@ So the phase starts with shipping: how a new version replaces an old one without
 | 9.3 | [Backward compatibility across deploys](03-backward-compatibility.md) | Version N+1 writes data that version N cannot read, mid-rollout. | [`ch03-compat`](code/ch03-compat/main.go) — a field is renamed while ten copies are replaced under traffic: in one deploy, and as expand, migrate and contract, with wrong reads, destroyed amounts and the cost of turning back counted; and a new value for an old field, writers first and readers first. |
 | 9.4 | [Configuration and infrastructure as code](04-configuration-and-infrastructure.md) | A one-line config change causes a global outage. | [`ch04-config`](code/ch04-config/main.go) — three mistakes in a configuration file, delivered to sixty servers three ways, round a real loader that checks a file and keeps the last good one; and a small plan-and-apply engine that shows an empty plan, drift, and a change that it refuses. |
 | 9.5 | [Service architecture](05-service-architecture.md) | A monolith is split into thirty services that must all deploy together. | [`ch05-boundaries`](code/ch05-boundaries/main.go) — one operation run as function calls and as chains of services over real HTTP, with the time and the failures of each arrangement; and twenty-four changes to a product counted against three ways of cutting it into services, to see how many could ship alone. |
-| 9.6 | Service-to-service communication | Hard-coded hostnames and a retry policy copied into forty codebases. | *planned* |
+| 9.6 | [Service-to-service communication](06-service-to-service-communication.md) | Hard-coded hostnames and a retry policy copied into forty codebases. | [`ch06-calls`](code/ch06-calls/) — four ways for a caller to find a service while its copies are replaced and one dies, against a registry with heartbeats; and forty callers, each behind a proxy of its own, that take one retry rule from a control plane, with the double charges that the wrong rule makes. |
 | 9.7 | Capacity planning and autoscaling | Autoscaling is "on" and the site still falls over at the daily peak. | *planned* |
 | 9.8 | Cost | The bill triples and nobody can say which feature did it. | *planned* |
 | 9.9 | The design process | A design is approved because nobody could follow it. | *planned* |

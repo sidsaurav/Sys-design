@@ -1,6 +1,6 @@
 # 9.5 Service architecture
 
-[Syllabus](../SYLLABUS.md) · Phase 9 · Previous: [9.4 Configuration and infrastructure as code](04-configuration-and-infrastructure.md) · Next: 9.6 Service-to-service communication *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 9 · Previous: [9.4 Configuration and infrastructure as code](04-configuration-and-infrastructure.md) · Next: [9.6 Service-to-service communication](06-service-to-service-communication.md)
 
 > **Time:** about 30 minutes to read, 40 minutes of practice.
 > **You need:** the cost of a call that can fail, from [Chapter 6.1](../phase-6-reliability/01-how-distributed-systems-fail.md); data that is split between owners, from [Chapter 5.7](../phase-5-distributed-data/07-distributed-transactions.md); and compatible changes, from [Chapter 9.3](03-backward-compatibility.md). The example needs only Go, and takes about four seconds.
@@ -323,7 +323,7 @@ Common mistakes:
 - Draw boundaries round business capabilities, round data with one owner, and round teams. Check them against the history: a change should stay inside one service.
 - Split for a reason that has a name, one piece at a time, data first. Merge when two parts always change together.
 
-**Next:** 9.6 Service-to-service communication *(planned)* — once there are several services, each has to find the others, call them, and survive them. Doing that separately in every codebase is the next thing that goes wrong.
+**Next:** [9.6 Service-to-service communication](06-service-to-service-communication.md) — once there are several services, each has to find the others, call them, and survive them. Doing that separately in every codebase is the next thing that goes wrong.
 
 ---
 
