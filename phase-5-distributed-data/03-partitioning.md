@@ -1,6 +1,6 @@
 # 5.3 Partitioning (sharding)
 
-[Syllabus](../SYLLABUS.md) · Phase 5 · Previous: [5.2 Multi-leader and leaderless replication](02-multi-leader-and-leaderless.md) · Next: 5.4 Consistency models and CAP *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 5 · Previous: [5.2 Multi-leader and leaderless replication](02-multi-leader-and-leaderless.md) · Next: [5.4 Consistency models and CAP](04-consistency-models-and-cap.md)
 
 > **Time:** about 35 minutes to read, 40 minutes of practice.
 > **You need:** indexes from [Chapter 2.2](../phase-2-data/02-indexes-and-query-plans.md); access patterns from [Chapter 2.8](../phase-2-data/08-choosing-a-datastore.md); partitions and keys in a log from [Chapter 4.4](../phase-4-async/04-logs-and-streams.md). The example needs only Go.
@@ -286,7 +286,7 @@ Why the workspace and not the channel: a workspace is the unit of nearly every r
 - A hot key lands on one shard however many there are. It needs its own remedy: a split key, its own shard, a cache.
 - A query without the partition key asks every shard and is as slow as the slowest; that worsens as shards are added. Global indexes and IDs that carry their location avoid it.
 
-**Next:** 5.4 Consistency models and CAP *(planned)* — the words for what a reader may see, and what a network fault forces you to choose.
+**Next:** [5.4 Consistency models and CAP](04-consistency-models-and-cap.md) — the words for what a reader may see, and what a network fault forces you to choose.
 
 ---
 
