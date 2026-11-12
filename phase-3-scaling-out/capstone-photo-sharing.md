@@ -503,4 +503,4 @@ This capstone applies the chapters of Phase 3, where the sources for each techni
 
 All output shown was produced by the reference implementation on PostgreSQL 16. The feed and follower-count timings in sections 5 and 8 were measured separately, on tables of 2 million photos and 7 million follows.
 
-**Next:** Phase 4 — Asynchronous systems *(planned)*: queues, streams and background work, which take on the items of *what breaks first* that say "a queue".
+**Next:** [Phase 4 — Asynchronous systems](../phase-4-async/README.md): queues, streams and background work, which take on the items of *what breaks first* that say "a queue". It begins with [4.1 Why go asynchronous](../phase-4-async/01-why-asynchronous.md).
