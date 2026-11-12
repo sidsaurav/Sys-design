@@ -12,7 +12,7 @@ Every chapter is anchored on **one production failure** — the thing that goes 
 | 2 | [Data: correct and fast on one node](#phase-2--data-correct-and-fast-on-one-node) | 9 + capstone | **Written** |
 | 3 | [Scaling out: load balancing, caching, read scaling](#phase-3--scaling-out-load-balancing-caching-and-read-scaling) | 7 + capstone | **Written** |
 | 4 | [Asynchronous systems: queues, streams, events](#phase-4--asynchronous-systems-queues-streams-and-events) | 7 + capstone | **Written** |
-| 5 | [Distributed data: replication, partitioning, consistency](#phase-5--distributed-data-replication-partitioning-and-consistency) | 7 + capstone | Planned |
+| 5 | [Distributed data: replication, partitioning, consistency](#phase-5--distributed-data-replication-partitioning-and-consistency) | 7 + capstone | In progress (5.1 written) |
 | 6 | [Reliability: designing for failure](#phase-6--reliability-designing-for-failure) | 7 + capstone | Planned |
 | 7 | [Observability and operations](#phase-7--observability-and-operations) | 6 + capstone | Planned |
 | 8 | [Security](#phase-8--security) | 6 + capstone | Planned |
@@ -96,7 +96,7 @@ Every chapter is anchored on **one production failure** — the thing that goes 
 
 | # | Chapter | The failure it prevents | What you learn |
 |---|---|---|---|
-| 5.1 | Leader–follower replication | A failover promotes a stale follower and an hour of writes disappears. | Synchronous vs asynchronous replication; failover; split brain; what is lost and when. |
+| 5.1 | [Leader–follower replication](phase-5-distributed-data/01-leader-follower-replication.md) | A failover promotes a stale follower and an hour of writes disappears. | Synchronous vs asynchronous replication; failover; split brain; what is lost and when. |
 | 5.2 | Multi-leader and leaderless replication | Two regions accept conflicting writes and one silently wins. | Quorums; conflict detection and resolution; last-write-wins and what it destroys. |
 | 5.3 | Partitioning (sharding) | One shard holds the celebrity account and melts while the others idle. | Range vs hash partitioning; consistent hashing; hot partitions; rebalancing; cross-shard queries and secondary indexes. |
 | 5.4 | Consistency models and CAP | "Eventually consistent" is accepted in a design review and nobody can say what users will see. | Linearizability, causal and eventual consistency; what CAP does and does not say; PACELC. |

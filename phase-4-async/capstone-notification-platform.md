@@ -436,4 +436,4 @@ Check your design against these. Each is a mistake that an experienced reviewer 
 
 This capstone applies the chapters of Phase 4, where the sources for each technique are given. All output shown was produced by the reference implementation on PostgreSQL 16.
 
-**Next:** Phase 5 — Distributed data *(planned)*: replication, partitioning and consistency — which take on the first items of this capstone's *what breaks first*, and of the two before it.
+**Next:** [Phase 5 — Distributed data](../phase-5-distributed-data/README.md): replication, partitioning and consistency — which take on the first items of this capstone's *what breaks first*, and of the two before it. It begins with [5.1 Leader–follower replication](../phase-5-distributed-data/01-leader-follower-replication.md).
