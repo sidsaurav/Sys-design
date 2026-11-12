@@ -1,6 +1,6 @@
 # 6.6 Multi-region architectures
 
-[Syllabus](../SYLLABUS.md) · Phase 6 · Previous: [6.5 Redundancy and failure domains](05-redundancy-and-failure-domains.md) · Next: 6.7 Disaster recovery and resilience testing *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 6 · Previous: [6.5 Redundancy and failure domains](05-redundancy-and-failure-domains.md) · Next: [6.7 Disaster recovery and resilience testing](07-disaster-recovery-and-resilience-testing.md)
 
 > **Time:** about 30 minutes to read, 40 minutes of practice.
 > **You need:** failure domains and static stability from [Chapter 6.5](05-redundancy-and-failure-domains.md); replication, failover and split brain from [Chapter 5.1](../phase-5-distributed-data/01-leader-follower-replication.md); multi-leader replication from [Chapter 5.2](../phase-5-distributed-data/02-multi-leader-and-leaderless.md); recovery objectives from [Chapter 2.9](../phase-2-data/09-durability-backups-restore.md). The example needs only Go.
@@ -316,7 +316,7 @@ Fail over on purpose each month, in both directions.
 - A failover that has not been practised will be practised during the outage.
 - Failing back is harder than failing over: the old region comes back as a follower, its stranded writes are judged one by one, and going back is a choice.
 
-**Next:** 6.7 Disaster recovery and resilience testing *(planned)* — recovery objectives as inputs to a design, restores that are rehearsed, and breaking things on purpose.
+**Next:** [6.7 Disaster recovery and resilience testing](07-disaster-recovery-and-resilience-testing.md) — recovery objectives as inputs to a design, restores that are rehearsed, and breaking things on purpose.
 
 ---
 

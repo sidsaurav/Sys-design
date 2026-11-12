@@ -8,7 +8,7 @@ This phase is about failures that the system makes for itself. A dependency slow
 
 **After this phase you can** predict how a system fails before it does, stop one slow dependency from taking everything down, and plan for the loss of a zone or a region.
 
-> **Status: in progress.** Chapters 6.1 to 6.6 are written. The rest are planned; see the [syllabus](../SYLLABUS.md#phase-6--reliability-designing-for-failure).
+> **Status: in progress.** Chapters 6.1 to 6.7 are written. The capstone is planned. The rest are planned; see the [syllabus](../SYLLABUS.md#phase-6--reliability-designing-for-failure).
 
 ## Chapters
 
@@ -20,7 +20,7 @@ This phase is about failures that the system makes for itself. A dependency slow
 | 6.4 | [Overload: rate limiting, load shedding, and admission control](04-overload.md) | The service accepts every request and completes none. | [`ch04-overload`](code/ch04-overload/main.go) — a model of a service sent more than it can do: queueing, dropping and refusing; a limit for each client; shedding by priority; a rate limit against a limit on requests in progress; and that limit as Go middleware |
 | 6.5 | [Redundancy and failure domains](05-redundancy-and-failure-domains.md) | Three replicas, one rack, one power failure. | [`ch05-domains`](code/ch05-domains/main.go) — a model: three copies in one rack, three racks and three zones over fifty simulated years; the capacity to lose a zone, with and without having to ask for it; and how far one customer's fault reaches with cells and with shuffle shards |
 | 6.6 | [Multi-region architectures](06-multi-region.md) | The failover runbook is tried for the first time during the outage. | [`ch06-regions`](code/ch06-regions/main.go) — a model: what a failover to another region loses and what losing nothing costs; how long users take to move, by DNS and by a balancer, and what is waiting for them; and the stranded writes of a failback |
-| 6.7 | Disaster recovery and resilience testing | A recovery plan that exists only as a document. | *planned* |
+| 6.7 | [Disaster recovery and resilience testing](07-disaster-recovery-and-resilience-testing.md) | A recovery plan that exists only as a document. | [`ch07-gameday`](code/ch07-gameday/main.go) — a game day over real HTTP: four fault-injection experiments on a small shop, each with a hypothesis and a guard; two are disproved, the shop is changed, and they are run again |
 | C6 | Capstone: a payments API that survives dependency and zone failures | — | *planned* |
 
 ## What you need
