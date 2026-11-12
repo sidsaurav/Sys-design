@@ -8,7 +8,7 @@ Its subject is what a team knows about its own system while it is running, and w
 
 **After this phase you can** instrument a service so that its failures are visible, set objectives that match what users feel, get paged only for things that matter, and run an incident.
 
-> **Status: in progress.** Chapters 7.1 and 7.2 are written. The rest are planned; see the [syllabus](../SYLLABUS.md#phase-7--observability-and-operations).
+> **Status: in progress.** Chapters 7.1 to 7.3 are written. The rest are planned; see the [syllabus](../SYLLABUS.md#phase-7--observability-and-operations).
 
 ## Chapters
 
@@ -16,7 +16,7 @@ Its subject is what a team knows about its own system while it is running, and w
 |---|---|---|---|
 | 7.1 | [Telemetry: metrics, logs, and traces](01-telemetry.md) | The dashboard is green and users are complaining. | [`ch01-telemetry`](code/ch01-telemetry/main.go) — a real HTTP service with one fault, seen through totals, through a labelled metric and through structured logs; what a label costs; and what sampling keeps and loses |
 | 7.2 | [SLIs, SLOs, and error budgets in practice](02-slis-slos-error-budgets.md) | "Five nines" on a slide, no measurement behind it. | [`ch02-slo`](code/ch02-slo/main.go) — a model of eight weeks of a service: one month counted from four places, an error budget spent incident by incident, a rolling window against a fixed one, and the same month against six targets. |
-| 7.3 | Alerting | Two hundred alerts a week, all ignored — including the real one. | *planned* |
+| 7.3 | [Alerting](03-alerting.md) | Two hundred alerts a week, all ignored — including the real one. | [`ch03-alerts`](code/ch03-alerts/main.go) — the same eight weeks watched by seven alert rules: which incidents each one reported, how soon, how often it fired for nothing, and what the page cost in budget. |
 | 7.4 | Distributed tracing and context propagation | A slow request crosses nine services and nobody knows which one was slow. | *planned* |
 | 7.5 | Debugging production | Guessing, restarting, and hoping. | *planned* |
 | 7.6 | Incidents | An outage with twelve people in a call and nobody in charge. | *planned* |

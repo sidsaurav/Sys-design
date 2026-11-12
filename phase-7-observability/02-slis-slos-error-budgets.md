@@ -1,6 +1,6 @@
 # 7.2 SLIs, SLOs, and error budgets in practice
 
-[Syllabus](../SYLLABUS.md) · Phase 7 · Previous: [7.1 Telemetry](01-telemetry.md) · Next: 7.3 Alerting *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 7 · Previous: [7.1 Telemetry](01-telemetry.md) · Next: [7.3 Alerting](03-alerting.md)
 
 > **Time:** about 35 minutes to read, 45 minutes of practice.
 > **You need:** SLI, SLO, SLA and error budget as [Chapter 1.1](../phase-1-foundations/01-what-production-demands.md) defined them; metrics, labels and histograms from [Chapter 7.1](01-telemetry.md); load shedding from [Chapter 6.4](../phase-6-reliability/04-overload.md). The example needs only Go, and runs in under a second.
@@ -464,7 +464,7 @@ There are 40,320 probes in four weeks, so the budget is 40 failed probes. The ex
 - The policy is what gives the objective force: agreed in advance, releases halted when the budget is spent, and the time given to reliability.
 - Choose the target from evidence: what users need, what the service does on a quiet day, what its dependencies allow. A good target is one that a bad month misses and a good month meets.
 
-**Next:** 7.3 Alerting *(planned)* — the budget says how four weeks went. A page has to say, within minutes, that the budget is being spent too fast.
+**Next:** [7.3 Alerting](03-alerting.md) — the budget says how four weeks went. A page has to say, within minutes, that the budget is being spent too fast.
 
 ---
 
