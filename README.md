@@ -25,7 +25,7 @@ By the end you should be able to take a product requirement and produce a design
 | 5 | [Distributed data: replication, partitioning, consistency](phase-5-distributed-data/README.md) | Say precisely what a replicated or sharded store guarantees. | **Written** |
 | 6 | [Reliability: designing for failure](phase-6-reliability/README.md) | Stop one failure from becoming an outage. | **Written** |
 | 7 | [Observability and operations](phase-7-observability/README.md) | See what the system is doing, alert on what matters, run an incident. | **Written** |
-| 8 | Security | Find the trust boundaries and get authentication, authorization and data protection right. | Planned |
+| 8 | [Security](phase-8-security/README.md) | Find the trust boundaries and get authentication, authorization and data protection right. | In progress |
 | 9 | Shipping and running: deployment, architecture, cost | Ship without downtime, choose service boundaries, plan capacity, explain the bill. | Planned |
 
 Nine phases, 65 chapters, nine capstones. The chapter-by-chapter plan, with the production failure each chapter exists to prevent, is in [SYLLABUS.md](SYLLABUS.md).
@@ -99,6 +99,7 @@ phase-4-async/            the same layout
 phase-5-distributed-data/ the same layout
 phase-6-reliability/       the same layout
 phase-7-observability/     the same layout
+phase-8-security/          the same layout; in progress
 tools/
   check_links.py          checks that every link in every chapter resolves
   check_quotes.py         checks that quoted text appears in the page it cites

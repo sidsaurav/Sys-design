@@ -15,7 +15,7 @@ Every chapter is anchored on **one production failure** — the thing that goes 
 | 5 | [Distributed data: replication, partitioning, consistency](#phase-5--distributed-data-replication-partitioning-and-consistency) | 7 + capstone | **Written** |
 | 6 | [Reliability: designing for failure](#phase-6--reliability-designing-for-failure) | 7 + capstone | **Written** |
 | 7 | [Observability and operations](#phase-7--observability-and-operations) | 6 + capstone | **Written** |
-| 8 | [Security](#phase-8--security) | 6 + capstone | Planned |
+| 8 | [Security](#phase-8--security) | 6 + capstone | In progress (8.1 written) |
 | 9 | [Shipping and running: deployment, architecture, cost](#phase-9--shipping-and-running-deployment-architecture-and-cost) | 9 + final capstone | Planned |
 
 ---
@@ -146,7 +146,7 @@ Every chapter is anchored on **one production failure** — the thing that goes 
 
 | # | Chapter | The failure it prevents | What you learn |
 |---|---|---|---|
-| 8.1 | Threat modelling and trust boundaries | Security is "added" after the design is finished. | Assets, actors and boundaries; a lightweight threat model; defence in depth. |
+| 8.1 | [Threat modelling and trust boundaries](phase-8-security/01-threat-modelling.md) | Security is "added" after the design is finished. | Assets, actors and boundaries; a lightweight threat model; defence in depth. |
 | 8.2 | Authentication | Passwords stored with a fast hash; tokens that cannot be revoked. | Password storage; sessions vs tokens; JWT pitfalls; OAuth 2.0 and OpenID Connect. |
 | 8.3 | Authorization | Changing an ID in the URL shows another customer's invoice. | Roles and attributes; object-level checks; tenant isolation. |
 | 8.4 | Protecting data | A database snapshot is copied to a public bucket. | TLS and mutual TLS; encryption at rest; key management; secrets handling. |

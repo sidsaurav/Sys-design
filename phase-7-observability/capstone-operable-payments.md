@@ -599,4 +599,4 @@ Check your design against these. Each is a mistake that an experienced reviewer 
 
 This capstone applies the chapters of Phase 7, where the sources for each technique are given. The policy in section 3 follows Google's [*Example Error Budget Policy*](https://sre.google/workbook/error-budget-policy/), and the alert thresholds are those of the SRE workbook's [*Alerting on SLOs*](https://sre.google/workbook/alerting-on-slos/). All output shown was produced by the reference implementation.
 
-**Next:** Phase 8 — Security *(planned)*. This phase assumed that everyone who could reach the service meant well. The next does not: who is asking, what they are allowed to do, and what an attacker would try first.
+**Next:** [Phase 8 — Security](../phase-8-security/README.md), beginning with [8.1 Threat modelling and trust boundaries](../phase-8-security/01-threat-modelling.md). This phase assumed that everyone who could reach the service meant well. The next does not: who is asking, what they are allowed to do, and what an attacker would try first.
