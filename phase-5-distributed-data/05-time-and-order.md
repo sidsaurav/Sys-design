@@ -1,6 +1,6 @@
 # 5.5 Time and order
 
-[Syllabus](../SYLLABUS.md) · Phase 5 · Previous: [5.4 Consistency models and CAP](04-consistency-models-and-cap.md) · Next: 5.6 Consensus and coordination *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 5 · Previous: [5.4 Consistency models and CAP](04-consistency-models-and-cap.md) · Next: [5.6 Consensus and coordination](06-consensus-and-coordination.md)
 
 > **Time:** about 30 minutes to read, 35 minutes of practice.
 > **You need:** leases and split brain from [Chapter 5.1](01-leader-follower-replication.md); last write wins and version vectors from [Chapter 5.2](02-multi-leader-and-leaderless.md). The example needs only Go.
@@ -263,7 +263,7 @@ In all of these the lock, if it is kept, is an optimisation — it saves duplica
 - A fencing token — a number that increases with every grant, checked by the protected resource — makes a stale holder's writes fail. Nothing done by the holder alone can.
 - Where the resource cannot check a token, do not rely on the lock for correctness.
 
-**Next:** 5.6 Consensus and coordination *(planned)* — how several machines agree on one thing, and the services that do it so that you need not.
+**Next:** [5.6 Consensus and coordination](06-consensus-and-coordination.md) — how several machines agree on one thing, and the services that do it so that you need not.
 
 ---
 
