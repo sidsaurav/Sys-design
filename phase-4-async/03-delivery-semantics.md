@@ -1,6 +1,6 @@
 # 4.3 Delivery semantics and idempotent consumers
 
-[Syllabus](../SYLLABUS.md) · Phase 4 · Previous: [4.2 Message queues](02-message-queues.md) · Next: 4.4 Logs and streams *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 4 · Previous: [4.2 Message queues](02-message-queues.md) · Next: [4.4 Logs and streams](04-logs-and-streams.md)
 
 > **Time:** about 35 minutes to read, 40 minutes of practice.
 > **You need:** [Chapter 4.2](02-message-queues.md); idempotency keys from [Chapter 1.5](../phase-1-foundations/05-timeouts-retries-idempotency.md); transactions from [Chapter 2.3](../phase-2-data/03-transactions-and-isolation.md). The example needs the PostgreSQL database of Phase 2.
@@ -273,7 +273,7 @@ Two things to take from the table. **The answer is different for each consumer**
 - The ID must name the thing that should happen once, and the producer chooses it.
 - For effects outside your database, pass the ID on. If the other side will not take it, choose which error you prefer.
 
-**Next:** 4.4 Logs and streams *(planned)* — a different shape of queue, in which messages are not removed when they are read.
+**Next:** [4.4 Logs and streams](04-logs-and-streams.md) — a different shape of queue, in which messages are not removed when they are read.
 
 ---
 
