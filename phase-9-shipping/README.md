@@ -8,8 +8,6 @@ So the phase starts with shipping: how a new version replaces an old one without
 
 **After this phase you can** ship changes to a running system without downtime, decide how to split (or not split) a system into services, plan capacity, and explain what a design costs.
 
-> **Status: in progress.** Chapters 9.1 to 9.9 are written. The final capstone is planned; see the [syllabus](../SYLLABUS.md#phase-9--shipping-and-running-deployment-architecture-and-cost).
-
 ## Chapters
 
 | # | Chapter | The failure it prevents | Runnable example |
@@ -23,7 +21,7 @@ So the phase starts with shipping: how a new version replaces an old one without
 | 9.7 | [Capacity planning and autoscaling](07-capacity-planning-and-autoscaling.md) | Autoscaling is "on" and the site still falls over at the daily peak. | [`ch07-capacity`](code/ch07-capacity/main.go) — a model of a day's load, one second at a time, met by a fixed fleet, by an autoscaler built to the rule that Kubernetes documents, and by a schedule; then the same autoscaler with a signal that misleads it, and with a database that has too few connections for the copies it adds. |
 | 9.8 | [Cost](08-cost.md) | The bill triples and nobody can say which feature did it. | [`ch08-cost`](code/ch08-cost/) — a bill that tripled, read by the provider's lines, by tags, and by owner once shared things are divided by use; the cost of a customer; one row measured by running a real logger; what more redundancy costs against what a nine is worth; and five changes in the order of what each saves. The usage and prices are invented. |
 | 9.9 | [The design process](09-the-design-process.md) | A design is approved because nobody could follow it. | [`ch09-designcheck`](code/ch09-designcheck/) — a program that asks thirteen things of a design document before the design can be judged, run on a bad and a good document for one feature; the arithmetic behind the good document's cost, with its key assumption measured; and a short proposal to review. The documents are invented. |
-| C9 | Final capstone: a ride-hailing backend, end to end | — | *planned* |
+| C9 | [Final capstone: a ride-hailing backend, end to end](capstone-ride-hailing.md) | — | [`capstone-rides`](code/capstone-rides/) — two cities, each a cell, with real concurrent dispatch: the claim on a driver, offers with time limits, the outbox, keyed payments and a check on who may read a ride. Nine things that must be true are checked, and each of seven safeguards can be removed to see which one it was holding up. |
 
 ## What you need
 

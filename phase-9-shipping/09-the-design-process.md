@@ -1,6 +1,6 @@
 # 9.9 The design process
 
-[Syllabus](../SYLLABUS.md) · Phase 9 · Previous: [9.8 Cost](08-cost.md) · Next: Final capstone *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 9 · Previous: [9.8 Cost](08-cost.md) · Next: [Capstone 9: a ride-hailing backend, end to end](capstone-ride-hailing.md)
 
 > **Time:** about 30 minutes to read, 40 minutes of practice.
 > **You need:** requirements as numbers, from [Chapter 1.1](../phase-1-foundations/01-what-production-demands.md); and the rest of the course, because a design document is where all of it meets. The example needs only Go, and runs at once.
@@ -405,7 +405,7 @@ Common mistakes:
 - A review starts with reading, tests the problem before the solution, and ends with a decision by a named person, written down.
 - The record of why outlasts the code and the people. Keep it.
 
-**Next:** Final capstone *(planned)* — one system, from the requirements to the bill, with everything in the nine phases: a ride-hailing backend, written as a design document.
+**Next:** [Capstone 9: a ride-hailing backend, end to end](capstone-ride-hailing.md) — one system, from the requirements to the bill, with everything in the nine phases: a ride-hailing backend, written as a design document.
 
 ---
 
