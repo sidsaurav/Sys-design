@@ -23,7 +23,7 @@ By the end you should be able to take a product requirement and produce a design
 | 3 | [Scaling out: load balancing, caching, read scaling](phase-3-scaling-out/README.md) | Go from one server to many and put the right cache in the right place. | **Written** |
 | 4 | [Asynchronous systems: queues, streams, events](phase-4-async/README.md) | Move work off the request path without losing or duplicating it. | **Written** |
 | 5 | [Distributed data: replication, partitioning, consistency](phase-5-distributed-data/README.md) | Say precisely what a replicated or sharded store guarantees. | **Written** |
-| 6 | [Reliability: designing for failure](phase-6-reliability/README.md) | Stop one failure from becoming an outage. | In progress |
+| 6 | [Reliability: designing for failure](phase-6-reliability/README.md) | Stop one failure from becoming an outage. | **Written** |
 | 7 | Observability and operations | See what the system is doing, alert on what matters, run an incident. | Planned |
 | 8 | Security | Find the trust boundaries and get authentication, authorization and data protection right. | Planned |
 | 9 | Shipping and running: deployment, architecture, cost | Ship without downtime, choose service boundaries, plan capacity, explain the bill. | Planned |
@@ -97,7 +97,7 @@ phase-2-data/             the same layout: nine chapters, a capstone, and code/
 phase-3-scaling-out/      the same layout
 phase-4-async/            the same layout
 phase-5-distributed-data/ the same layout
-phase-6-reliability/       the same layout; in progress
+phase-6-reliability/       the same layout
 tools/
   check_links.py          checks that every link in every chapter resolves
   check_quotes.py         checks that quoted text appears in the page it cites

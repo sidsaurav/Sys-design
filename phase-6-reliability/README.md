@@ -8,8 +8,6 @@ This phase is about failures that the system makes for itself. A dependency slow
 
 **After this phase you can** predict how a system fails before it does, stop one slow dependency from taking everything down, and plan for the loss of a zone or a region.
 
-> **Status: in progress.** Chapters 6.1 to 6.7 are written. The capstone is planned. The rest are planned; see the [syllabus](../SYLLABUS.md#phase-6--reliability-designing-for-failure).
-
 ## Chapters
 
 | # | Chapter | The failure it prevents | Runnable example |
@@ -21,14 +19,14 @@ This phase is about failures that the system makes for itself. A dependency slow
 | 6.5 | [Redundancy and failure domains](05-redundancy-and-failure-domains.md) | Three replicas, one rack, one power failure. | [`ch05-domains`](code/ch05-domains/main.go) — a model: three copies in one rack, three racks and three zones over fifty simulated years; the capacity to lose a zone, with and without having to ask for it; and how far one customer's fault reaches with cells and with shuffle shards |
 | 6.6 | [Multi-region architectures](06-multi-region.md) | The failover runbook is tried for the first time during the outage. | [`ch06-regions`](code/ch06-regions/main.go) — a model: what a failover to another region loses and what losing nothing costs; how long users take to move, by DNS and by a balancer, and what is waiting for them; and the stranded writes of a failback |
 | 6.7 | [Disaster recovery and resilience testing](07-disaster-recovery-and-resilience-testing.md) | A recovery plan that exists only as a document. | [`ch07-gameday`](code/ch07-gameday/main.go) — a game day over real HTTP: four fault-injection experiments on a small shop, each with a hypothesis and a guard; two are disproved, the shop is changed, and they are run again |
-| C6 | Capstone: a payments API that survives dependency and zone failures | — | *planned* |
+| C6 | [Capstone: a payments API that survives dependency and zone failures](capstone-payments-api.md) | — | [`capstone-payments`](code/capstone-payments/main.go) — six instances in three zones over real HTTP, a PostgreSQL ledger and a stand-in bank that is slow, refuses and loses answers; a zone lost and a sale; then what shops were told is checked against what the bank charged. Each safeguard can be switched off |
 
 ## What you need
 
-**Go 1.22 or newer**, and nothing else so far. Chapter 6.1's example is a model with no network and no database; those of Chapters 6.2 and 6.3 also start HTTP servers inside their own process. Each runs with one command:
+**Go 1.22 or newer.** The chapters' examples are models, or start HTTP servers inside their own process, and need nothing else. Each runs with one command:
 
 ```bash
 go run ./phase-6-reliability/code/ch01-failures
 ```
 
-Later chapters say at the top what they need.
+The capstone's reference implementation needs the PostgreSQL database of Phase 2 ([setup](../phase-2-data/README.md)).

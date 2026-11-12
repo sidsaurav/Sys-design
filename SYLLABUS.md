@@ -13,7 +13,7 @@ Every chapter is anchored on **one production failure** — the thing that goes 
 | 3 | [Scaling out: load balancing, caching, read scaling](#phase-3--scaling-out-load-balancing-caching-and-read-scaling) | 7 + capstone | **Written** |
 | 4 | [Asynchronous systems: queues, streams, events](#phase-4--asynchronous-systems-queues-streams-and-events) | 7 + capstone | **Written** |
 | 5 | [Distributed data: replication, partitioning, consistency](#phase-5--distributed-data-replication-partitioning-and-consistency) | 7 + capstone | **Written** |
-| 6 | [Reliability: designing for failure](#phase-6--reliability-designing-for-failure) | 7 + capstone | In progress (6.1–6.7 written) |
+| 6 | [Reliability: designing for failure](#phase-6--reliability-designing-for-failure) | 7 + capstone | **Written** |
 | 7 | [Observability and operations](#phase-7--observability-and-operations) | 6 + capstone | Planned |
 | 8 | [Security](#phase-8--security) | 6 + capstone | Planned |
 | 9 | [Shipping and running: deployment, architecture, cost](#phase-9--shipping-and-running-deployment-architecture-and-cost) | 9 + final capstone | Planned |
@@ -120,7 +120,7 @@ Every chapter is anchored on **one production failure** — the thing that goes 
 | 6.5 | [Redundancy and failure domains](phase-6-reliability/05-redundancy-and-failure-domains.md) | Three replicas, one rack, one power failure. | Zones and regions; correlated failure; static stability; cells and blast radius. |
 | 6.6 | [Multi-region architectures](phase-6-reliability/06-multi-region.md) | The failover runbook is tried for the first time during the outage. | Active–passive vs active–active; what each costs in data consistency; failing over and failing back. |
 | 6.7 | [Disaster recovery and resilience testing](phase-6-reliability/07-disaster-recovery-and-resilience-testing.md) | A recovery plan that exists only as a document. | RPO and RTO as design inputs; restore drills; fault injection and game days. |
-| C6 | Capstone: a payments API that survives dependency and zone failures | — | Timeouts, idempotency, breakers, shedding and redundancy applied to one money-moving service. |
+| C6 | [Capstone: a payments API that survives dependency and zone failures](phase-6-reliability/capstone-payments-api.md) | — | Timeouts, idempotency, breakers, shedding and redundancy applied to one money-moving service. |
 
 ---
 

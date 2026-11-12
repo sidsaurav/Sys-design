@@ -1,6 +1,6 @@
 # 6.7 Disaster recovery and resilience testing
 
-[Syllabus](../SYLLABUS.md) · Phase 6 · Previous: [6.6 Multi-region architectures](06-multi-region.md) · Next: Capstone 6 *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 6 · Previous: [6.6 Multi-region architectures](06-multi-region.md) · Next: [Capstone 6: a payments API](capstone-payments-api.md)
 
 > **Time:** about 30 minutes to read, 45 minutes of practice.
 > **You need:** recovery objectives and the restore drill of [Chapter 2.9](../phase-2-data/09-durability-backups-restore.md); the protections of [Chapter 6.3](03-circuit-breakers-bulkheads-degradation.md); zones and regions from Chapters [6.5](05-redundancy-and-failure-domains.md) and [6.6](06-multi-region.md). The example needs only Go, and takes about 25 seconds to run.
@@ -344,7 +344,7 @@ Plan a game day of three experiments. For each: the fault; the steady state and 
 - Game days test the alerts, the dashboards, the runbooks and the people. Their findings are bugs, to be fixed and tested again.
 - The useful result is the hypothesis that fails. Test what you believe is protected.
 
-**Next:** Capstone 6 *(planned)* — a payments API that survives the failure of its dependencies and of a zone: deadlines, idempotency, budgets, breakers, limits and spare capacity, in one service that moves money.
+**Next:** [Capstone 6: a payments API](capstone-payments-api.md) — a service that survives the failure of its dependencies and of a zone: deadlines, idempotency, budgets, breakers, limits and spare capacity, in one service that moves money.
 
 ---
 
