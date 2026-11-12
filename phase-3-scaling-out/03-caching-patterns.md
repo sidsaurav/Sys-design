@@ -1,6 +1,6 @@
 # 3.3 Caching patterns
 
-[Syllabus](../SYLLABUS.md) · Phase 3 · Previous: [3.2 Load balancing](02-load-balancing.md) · Next: 3.4 Cache failure modes *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 3 · Previous: [3.2 Load balancing](02-load-balancing.md) · Next: [3.4 Cache failure modes](04-cache-failure-modes.md)
 
 > **Time:** about 45 minutes to read, 45 minutes of practice.
 > **You need:** [Chapter 2.2](../phase-2-data/02-indexes-and-query-plans.md) (a cache is not a substitute for an index), [Chapter 2.8](../phase-2-data/08-choosing-a-datastore.md) (system of record and derived data), and percentiles from [Chapter 1.1](../phase-1-foundations/01-what-production-demands.md). The example is plain Go.
@@ -343,7 +343,7 @@ For each: should it be cached? Under what key, for how long, and invalidated how
 - Delete instead of updating, because deletes can arrive in any order. A reader can still store an old value after a delete: leases or versions prevent it, and a TTL limits it.
 - Cache only what can be rebuilt, key it by everything it depends on, and never make a decision from it that the business must stand behind.
 
-**Next:** 3.4 Cache failure modes *(planned)* — what happens when the cache is empty, when one key is too popular, and when it fills up.
+**Next:** [3.4 Cache failure modes](04-cache-failure-modes.md) — what happens when the cache is empty, when one key is too popular, and when it fills up.
 
 ---
 
