@@ -1,6 +1,6 @@
 # 4.6 Operating queues
 
-[Syllabus](../SYLLABUS.md) · Phase 4 · Previous: [4.5 The dual-write problem](05-dual-writes-outbox-cdc.md) · Next: 4.7 Event-driven design *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 4 · Previous: [4.5 The dual-write problem](05-dual-writes-outbox-cdc.md) · Next: [4.7 Event-driven design](07-event-driven-design.md)
 
 > **Time:** about 30 minutes to read, 40 minutes of practice.
 > **You need:** [Chapters 4.1 to 4.4](README.md), and queueing from [Chapter 1.6](../phase-1-foundations/06-concurrency-pools-queues.md). The example needs only Go.
@@ -295,7 +295,7 @@ Design how this queue is operated: the queues and workers; what is monitored and
 - On a log, one record that cannot be handled stops its partition until the reader is given a way past it.
 - Urgent work needs its own queue and its own workers. Scheduled work belongs in the database until it is due.
 
-**Next:** 4.7 Event-driven design *(planned)* — what to put in an event, and how forty services can share them without becoming one.
+**Next:** [4.7 Event-driven design](07-event-driven-design.md) — what to put in an event, and how forty services can share them without becoming one.
 
 ---
 
