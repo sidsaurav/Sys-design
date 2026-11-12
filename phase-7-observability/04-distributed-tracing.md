@@ -1,6 +1,6 @@
 # 7.4 Distributed tracing and context propagation
 
-[Syllabus](../SYLLABUS.md) · Phase 7 · Previous: [7.3 Alerting](03-alerting.md) · Next: 7.5 Debugging production *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 7 · Previous: [7.3 Alerting](03-alerting.md) · Next: [7.5 Debugging production](05-debugging-production.md)
 
 > **Time:** about 35 minutes to read, 45 minutes of practice.
 > **You need:** the three signals from [Chapter 7.1](01-telemetry.md); Go's `context` as [Chapter 6.2](../phase-6-reliability/02-timeouts-and-retries-at-scale.md) used it to carry a deadline; the N+1 pattern from [Chapter 2.2](../phase-2-data/02-indexes-and-query-plans.md). The main example needs only Go and takes about seven seconds. A second, small example uses OpenTelemetry and fetches its modules the first time it runs.
@@ -500,7 +500,7 @@ Two details differ from a call. The worker's span starts long after its parent e
 - Instrument the shared libraries, not each service. OpenTelemetry provides the wrappers, the header and the collector.
 - One trace explains one request. The questions that matter are asked of many.
 
-**Next:** 7.5 Debugging production *(planned)* — the trace says that inventory's own work took 300 ms. Finding out what that work was needs a method, and a profiler.
+**Next:** [7.5 Debugging production](05-debugging-production.md) — the trace says that inventory's own work took 300 ms. Finding out what that work was needs a method, and a profiler.
 
 ---
 

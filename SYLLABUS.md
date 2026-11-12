@@ -14,7 +14,7 @@ Every chapter is anchored on **one production failure** — the thing that goes 
 | 4 | [Asynchronous systems: queues, streams, events](#phase-4--asynchronous-systems-queues-streams-and-events) | 7 + capstone | **Written** |
 | 5 | [Distributed data: replication, partitioning, consistency](#phase-5--distributed-data-replication-partitioning-and-consistency) | 7 + capstone | **Written** |
 | 6 | [Reliability: designing for failure](#phase-6--reliability-designing-for-failure) | 7 + capstone | **Written** |
-| 7 | [Observability and operations](#phase-7--observability-and-operations) | 6 + capstone | In progress (7.1–7.4 written) |
+| 7 | [Observability and operations](#phase-7--observability-and-operations) | 6 + capstone | In progress (7.1–7.5 written) |
 | 8 | [Security](#phase-8--security) | 6 + capstone | Planned |
 | 9 | [Shipping and running: deployment, architecture, cost](#phase-9--shipping-and-running-deployment-architecture-and-cost) | 9 + final capstone | Planned |
 
@@ -134,7 +134,7 @@ Every chapter is anchored on **one production failure** — the thing that goes 
 | 7.2 | [SLIs, SLOs, and error budgets in practice](phase-7-observability/02-slis-slos-error-budgets.md) | "Five nines" on a slide, no measurement behind it. | Choosing indicators; windows; turning an objective into an error budget and a release policy. |
 | 7.3 | [Alerting](phase-7-observability/03-alerting.md) | Two hundred alerts a week, all ignored — including the real one. | Paging on symptoms; burn-rate alerts; alert fatigue; what belongs on a dashboard instead. |
 | 7.4 | [Distributed tracing and context propagation](phase-7-observability/04-distributed-tracing.md) | A slow request crosses nine services and nobody knows which one was slow. | Spans and traces; propagation; sampling strategies; OpenTelemetry. |
-| 7.5 | Debugging production | Guessing, restarting, and hoping. | A repeatable method for latency, error and saturation problems; profiling live systems. |
+| 7.5 | [Debugging production](phase-7-observability/05-debugging-production.md) | Guessing, restarting, and hoping. | A repeatable method for latency, error and saturation problems; profiling live systems. |
 | 7.6 | Incidents | An outage with twelve people in a call and nobody in charge. | Roles; communication; mitigation before diagnosis; blameless postmortems; sustainable on-call. |
 | C7 | Capstone: make a service operable | — | SLOs, dashboards, alerts and a runbook for an earlier capstone, then a written incident walkthrough. |
 
