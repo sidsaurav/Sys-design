@@ -1,6 +1,6 @@
 # 7.6 Incidents
 
-[Syllabus](../SYLLABUS.md) · Phase 7 · Previous: [7.5 Debugging production](05-debugging-production.md) · Next: Capstone 7 *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 7 · Previous: [7.5 Debugging production](05-debugging-production.md) · Next: [Capstone 7](capstone-operable-payments.md)
 
 > **Time:** about 35 minutes to read, 45 minutes of practice.
 > **You need:** pages and tickets from [Chapter 7.3](03-alerting.md); *stop the harm, keep the evidence* from [Chapter 7.5](05-debugging-production.md); the error budget policy from [Chapter 7.2](02-slis-slos-error-budgets.md). The example is a calculator, needs only Go, and runs at once.
@@ -363,7 +363,7 @@ And under *where we got lucky*: the fault was in the newest release, so the roll
 - A postmortem blames nobody, because blame dries up the information that the next incident will need. Its actions change systems, and each has an owner and a date.
 - People can do this well only if the rota is large enough and the pager is quiet enough. Both can be counted.
 
-**Next:** Capstone 7 *(planned)* — everything in this phase, applied to one service: its objectives, its dashboard, its alerts, its runbook, and an incident from the first page to the postmortem.
+**Next:** [Capstone 7](capstone-operable-payments.md) — everything in this phase, applied to one service: its objectives, its dashboard, its alerts, its runbook, and an incident from the first page to the postmortem.
 
 ---
 

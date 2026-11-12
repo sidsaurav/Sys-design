@@ -8,8 +8,6 @@ Its subject is what a team knows about its own system while it is running, and w
 
 **After this phase you can** instrument a service so that its failures are visible, set objectives that match what users feel, get paged only for things that matter, and run an incident.
 
-> **Status: in progress.** Chapters 7.1 to 7.6 are written. The capstone is planned; see the [syllabus](../SYLLABUS.md#phase-7--observability-and-operations).
-
 ## Chapters
 
 | # | Chapter | The failure it prevents | Runnable example |
@@ -20,7 +18,7 @@ Its subject is what a team knows about its own system while it is running, and w
 | 7.4 | [Distributed tracing and context propagation](04-distributed-tracing.md) | A slow request crosses nine services and nobody knows which one was slow. | [`ch04-tracing`](code/ch04-tracing/main.go) — nine real HTTP services and a tracer of a hundred lines: nine dashboards against one trace, a service that drops the header, and two ways to sample. [`ch04-otel`](code/ch04-otel/main.go) — one traced call with OpenTelemetry. |
 | 7.5 | [Debugging production](05-debugging-production.md) | Guessing, restarting, and hoping. | [`ch05-debug`](code/ch05-debug/main.go) — a service process with one of three faults, and an engineer process that questions it over HTTP: the dashboard, a CPU profile read with `go tool pprof`, a goroutine dump, and a leak watched through a restart. |
 | 7.6 | [Incidents](06-incidents.md) | An outage with twelve people in a call and nobody in charge. | [`ch06-oncall`](code/ch06-oncall/main.go) — a calculator for a rota: the share of the year each person is on call, what a rate of incidents costs in hours, and the two pagers of Chapter 7.3 in broken nights. The chapter's main example is Cloudflare's account of its outage of 2 July 2019. |
-| C7 | Capstone: make a service operable | — | *planned* |
+| C7 | [Capstone: make a service operable](capstone-operable-payments.md) | — | [`capstone-operable`](code/capstone-operable/main.go) — four weeks of Capstone 6's payments API with eight incidents of different kinds, the worked design's objectives and alert rules evaluated over them, the dashboard at three moments of one incident, and each part of the design removable. |
 
 ## What you need
 
