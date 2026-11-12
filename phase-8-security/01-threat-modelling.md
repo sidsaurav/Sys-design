@@ -1,6 +1,6 @@
 # 8.1 Threat modelling and trust boundaries
 
-[Syllabus](../SYLLABUS.md) · Phase 8 · Previous: [Capstone 7](../phase-7-observability/capstone-operable-payments.md) · Next: 8.2 Authentication *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 8 · Previous: [Capstone 7](../phase-7-observability/capstone-operable-payments.md) · Next: [8.2 Authentication](02-authentication.md)
 
 > **Time:** about 30 minutes to read, 45 minutes of practice.
 > **You need:** the path of a request from [Chapter 1.2](../phase-1-foundations/02-life-of-a-request.md); the idea of a tenant, which is one customer's data in a system that many customers share. The example needs only Go, and runs in under a second.
@@ -371,7 +371,7 @@ The invoicing product gets a new feature. *A customer can share an invoice with 
 - Least privilege, complete mediation and fail-safe defaults settle most findings.
 - Count the independent controls on each path to what matters. One is too few.
 
-**Next:** 8.2 Authentication *(planned)* — every control in this chapter began with knowing who is asking. How a service comes to know that, and how it gets it wrong.
+**Next:** [8.2 Authentication](02-authentication.md) — every control in this chapter began with knowing who is asking. How a service comes to know that, and how it gets it wrong.
 
 ---
 
