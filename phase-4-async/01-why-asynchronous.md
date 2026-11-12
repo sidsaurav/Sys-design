@@ -1,6 +1,6 @@
 # 4.1 Why go asynchronous
 
-[Syllabus](../SYLLABUS.md) · Phase 4 · Previous: [Capstone 3](../phase-3-scaling-out/capstone-photo-sharing.md) · Next: 4.2 Message queues *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 4 · Previous: [Capstone 3](../phase-3-scaling-out/capstone-photo-sharing.md) · Next: [4.2 Message queues](02-message-queues.md)
 
 > **Time:** about 30 minutes to read, 40 minutes of practice.
 > **You need:** timeouts, retries and idempotency from [Chapter 1.5](../phase-1-foundations/05-timeouts-retries-idempotency.md), and queues inside a server from [Chapter 1.6](../phase-1-foundations/06-concurrency-pools-queues.md). The example needs only Go.
@@ -280,7 +280,7 @@ For each step, decide: before the answer, or after? For each one after, say what
 - Work that the response reports, or whose failure the user must act on, stays in the request.
 - A list in memory is not a queue for work that matters. The work must be written where a restart cannot lose it, and the jobs must be safe to repeat.
 
-**Next:** 4.2 Message queues *(planned)* — where a job lives between *accepted* and *done*, and what happens to it when a worker dies half-way.
+**Next:** [4.2 Message queues](02-message-queues.md) — where a job lives between *accepted* and *done*, and what happens to it when a worker dies half-way.
 
 ---
 
