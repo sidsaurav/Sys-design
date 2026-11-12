@@ -1,6 +1,6 @@
 # 9.2 CI/CD and progressive delivery
 
-[Syllabus](../SYLLABUS.md) · Phase 9 · Previous: [9.1 Containers and orchestration](01-containers-and-orchestration.md) · Next: 9.3 Backward compatibility across deploys *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 9 · Previous: [9.1 Containers and orchestration](01-containers-and-orchestration.md) · Next: [9.3 Backward compatibility across deploys](03-backward-compatibility.md)
 
 > **Time:** about 35 minutes to read, 40 minutes of practice.
 > **You need:** the rolling deploy of [Chapter 9.1](01-containers-and-orchestration.md), and the burn-rate page of [Chapter 7.3](../phase-7-observability/03-alerting.md). The example needs only Go, and takes about two seconds.
@@ -321,7 +321,7 @@ Common mistakes:
 - Undo first, automatically, and investigate afterwards. Know which changes cannot be undone.
 - A feature flag releases without a deploy and is the fastest rollback. It is decided for each user, it is a release in its own right, and it should be removed.
 
-**Next:** 9.3 Backward compatibility across deploys *(planned)* — every technique in this chapter runs two versions of the code at once. That is safe only if each can live with what the other writes.
+**Next:** [9.3 Backward compatibility across deploys](03-backward-compatibility.md) — every technique in this chapter runs two versions of the code at once. That is safe only if each can live with what the other writes.
 
 ---
 
