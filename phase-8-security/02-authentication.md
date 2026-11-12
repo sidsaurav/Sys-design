@@ -1,6 +1,6 @@
 # 8.2 Authentication
 
-[Syllabus](../SYLLABUS.md) · Phase 8 · Previous: [8.1 Threat modelling and trust boundaries](01-threat-modelling.md) · Next: 8.3 Authorization *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 8 · Previous: [8.1 Threat modelling and trust boundaries](01-threat-modelling.md) · Next: [8.3 Authorization](03-authorization.md)
 
 > **Time:** about 35 minutes to read, 45 minutes of practice.
 > **You need:** trust boundaries from [Chapter 8.1](01-threat-modelling.md); HTTP headers and cookies from [Chapter 1.3](../phase-1-foundations/03-http-for-backend-engineers.md). The example needs only Go, and the `golang.org/x/crypto` module, which Go fetches the first time. It takes about three seconds.
@@ -394,7 +394,7 @@ After login the browser holds a **session ID**, in a cookie that is `Secure`, `H
 - A signed token is safe only if the verifier fixes the algorithm and checks the expiry and the audience.
 - OAuth 2.0 delegates access without sharing a password. OpenID Connect says who signed in. Use the code flow with PKCE, and an existing server.
 
-**Next:** 8.3 Authorization *(planned)* — the service now knows who is asking. Whether they may have what they asked for is a separate question, and it is the one that fails most often.
+**Next:** [8.3 Authorization](03-authorization.md) — the service now knows who is asking. Whether they may have what they asked for is a separate question, and it is the one that fails most often.
 
 ---
 
