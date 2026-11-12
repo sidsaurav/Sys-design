@@ -8,8 +8,6 @@ Its subject is trust: who is asking, how the service knows, what they are allowe
 
 **After this phase you can** find the trust boundaries in a design, get authentication and authorization right, protect data in transit and at rest, and review an API for the vulnerabilities that actually get exploited.
 
-> **Status: in progress.** Chapters 8.1 to 8.6 are written. The capstone is planned; see the [syllabus](../SYLLABUS.md#phase-8--security).
-
 ## Chapters
 
 | # | Chapter | The failure it prevents | Runnable example |
@@ -20,7 +18,7 @@ Its subject is trust: who is asking, how the service knows, what they are allowe
 | 8.4 | [Protecting data](04-protecting-data.md) | A database snapshot is copied to a public bucket. | [`ch04-data`](code/ch04-data/main.go) — real HTTPS servers with certificates made on the spot: a client that verifies and one that does not, facing an impostor; mutual TLS between services; a leaked snapshot under three ways of storing a secret column, with envelope encryption and a small key service; and ciphertext moved between rows. |
 | 8.5 | [Backend vulnerabilities](05-backend-vulnerabilities.md) | A "fetch this URL" feature reads the cloud metadata service. | [`ch05-vulns`](code/ch05-vulns/main.go) — a feature that fetches URLs, written four ways and given six URLs; a request that names more fields than its caller may change; a search box against PostgreSQL, with the query joined, with parameters, and by a limited role; and a handler with six faults to review. |
 | 8.6 | [Abuse and operational security](06-abuse-and-operations.md) | A leaked CI token with admin rights. | [`ch06-ops`](code/ch06-ops/main.go) — an hour of requests to a paid action under six limits; a leaked pipeline token under three designs, tried five minutes and three days later; an audit log altered four ways, with and without a hash chain; and a library replaced at its registry, against three ways of asking for it. |
-| C8 | Capstone: security review of a multi-tenant SaaS API | — | *planned* |
+| C8 | [Capstone: security review of a multi-tenant SaaS API](capstone-security-review.md) | — | [`capstone-review`](code/capstone-review/main.go) — the invoicing API with the seventeen controls of the worked design and eight attacks: all eight succeed against the design in the brief, none against the reviewed one, and for each the program finds the fewest controls that must fail. Any control can be removed. |
 
 ## What you need
 

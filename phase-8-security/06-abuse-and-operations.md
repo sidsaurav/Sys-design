@@ -1,6 +1,6 @@
 # 8.6 Abuse and operational security
 
-[Syllabus](../SYLLABUS.md) · Phase 8 · Previous: [8.5 Backend vulnerabilities](05-backend-vulnerabilities.md) · Next: Capstone 8 *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 8 · Previous: [8.5 Backend vulnerabilities](05-backend-vulnerabilities.md) · Next: [Capstone 8](capstone-security-review.md)
 
 > **Time:** about 40 minutes to read, 45 minutes of practice.
 > **You need:** rate limiting from [Chapter 6.4](../phase-6-reliability/04-overload.md); tokens and their lifetimes from [Chapter 8.2](02-authentication.md); secrets from [Chapter 8.4](04-protecting-data.md). The example needs only Go, and takes under a second.
@@ -366,7 +366,7 @@ Common mistakes:
 - An audit log is evidence only if those it records cannot change it. Chain its entries, and keep the latest hash out of their reach.
 - A name can be made to mean something else, and a hash cannot. Pin dependencies, pipeline steps and images by hash, and keep secrets away from the steps where other people's code runs.
 
-**Next:** Capstone 8 *(planned)* — a security review of a multi-tenant API: one product, reviewed from its threat model to its audit log, with every chapter of this phase.
+**Next:** [Capstone 8](capstone-security-review.md) — a security review of a multi-tenant API: one product, reviewed from its threat model to its audit log, with every chapter of this phase.
 
 ---
 
