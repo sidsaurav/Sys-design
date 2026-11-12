@@ -1,6 +1,6 @@
 # 9.8 Cost
 
-[Syllabus](../SYLLABUS.md) · Phase 9 · Previous: [9.7 Capacity planning and autoscaling](07-capacity-planning-and-autoscaling.md) · Next: 9.9 The design process *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 9 · Previous: [9.7 Capacity planning and autoscaling](07-capacity-planning-and-autoscaling.md) · Next: [9.9 The design process](09-the-design-process.md)
 
 > **Time:** about 30 minutes to read, 35 minutes of practice.
 > **You need:** availability as a number, from [Chapter 1.1](../phase-1-foundations/01-what-production-demands.md); zones and regions, from [Chapter 6.5](../phase-6-reliability/05-redundancy-and-failure-domains.md); and copies, headroom and schedules, from [Chapter 9.7](07-capacity-planning-and-autoscaling.md). The example needs only Go, and runs at once.
@@ -393,7 +393,7 @@ Common mistakes:
 - Save in this order: stop doing it, do less, right size, follow the load, pay less, and only then change the architecture.
 - Cost is a requirement. Put a number in the design, and an alert on the bill.
 
-**Next:** 9.9 The design process *(planned)* — every chapter so far has ended in a decision between designs. Writing the decision down so that other people can test it, and surviving their test, is the last skill.
+**Next:** [9.9 The design process](09-the-design-process.md) — every chapter so far has ended in a decision between designs. Writing the decision down so that other people can test it, and surviving their test, is the last skill.
 
 ---
 

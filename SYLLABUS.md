@@ -16,7 +16,7 @@ Every chapter is anchored on **one production failure** — the thing that goes 
 | 6 | [Reliability: designing for failure](#phase-6--reliability-designing-for-failure) | 7 + capstone | **Written** |
 | 7 | [Observability and operations](#phase-7--observability-and-operations) | 6 + capstone | **Written** |
 | 8 | [Security](#phase-8--security) | 6 + capstone | **Written** |
-| 9 | [Shipping and running: deployment, architecture, cost](#phase-9--shipping-and-running-deployment-architecture-and-cost) | 9 + final capstone | In progress (9.1–9.8 written) |
+| 9 | [Shipping and running: deployment, architecture, cost](#phase-9--shipping-and-running-deployment-architecture-and-cost) | 9 + final capstone | In progress (9.1–9.9 written) |
 
 ---
 
@@ -170,5 +170,5 @@ Every chapter is anchored on **one production failure** — the thing that goes 
 | 9.6 | [Service-to-service communication](phase-9-shipping/06-service-to-service-communication.md) | Hard-coded hostnames and a retry policy copied into forty codebases. | Service discovery; gRPC; API gateways; what a service mesh moves out of your code. |
 | 9.7 | [Capacity planning and autoscaling](phase-9-shipping/07-capacity-planning-and-autoscaling.md) | Autoscaling is "on" and the site still falls over at the daily peak. | Forecasting; headroom; what autoscaling can and cannot react to; load testing as a planning tool. |
 | 9.8 | [Cost](phase-9-shipping/08-cost.md) | The bill triples and nobody can say which feature did it. | The anatomy of a cloud bill; unit economics; the price of each extra nine; cost-aware design. |
-| 9.9 | The design process | A design is approved because nobody could follow it. | Writing a design doc; stating trade-offs; running and surviving a design review. |
+| 9.9 | [The design process](phase-9-shipping/09-the-design-process.md) | A design is approved because nobody could follow it. | Writing a design doc; stating trade-offs; running and surviving a design review. |
 | C9 | Final capstone: a ride-hailing backend, end to end | — | Requirements, APIs, data, scaling, async, consistency, reliability, observability, security, rollout and cost — one system, every phase. |

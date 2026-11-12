@@ -8,7 +8,7 @@ So the phase starts with shipping: how a new version replaces an old one without
 
 **After this phase you can** ship changes to a running system without downtime, decide how to split (or not split) a system into services, plan capacity, and explain what a design costs.
 
-> **Status: in progress.** Chapters 9.1 to 9.8 are written. The rest are planned; see the [syllabus](../SYLLABUS.md#phase-9--shipping-and-running-deployment-architecture-and-cost).
+> **Status: in progress.** Chapters 9.1 to 9.9 are written. The final capstone is planned; see the [syllabus](../SYLLABUS.md#phase-9--shipping-and-running-deployment-architecture-and-cost).
 
 ## Chapters
 
@@ -22,7 +22,7 @@ So the phase starts with shipping: how a new version replaces an old one without
 | 9.6 | [Service-to-service communication](06-service-to-service-communication.md) | Hard-coded hostnames and a retry policy copied into forty codebases. | [`ch06-calls`](code/ch06-calls/) — four ways for a caller to find a service while its copies are replaced and one dies, against a registry with heartbeats; and forty callers, each behind a proxy of its own, that take one retry rule from a control plane, with the double charges that the wrong rule makes. |
 | 9.7 | [Capacity planning and autoscaling](07-capacity-planning-and-autoscaling.md) | Autoscaling is "on" and the site still falls over at the daily peak. | [`ch07-capacity`](code/ch07-capacity/main.go) — a model of a day's load, one second at a time, met by a fixed fleet, by an autoscaler built to the rule that Kubernetes documents, and by a schedule; then the same autoscaler with a signal that misleads it, and with a database that has too few connections for the copies it adds. |
 | 9.8 | [Cost](08-cost.md) | The bill triples and nobody can say which feature did it. | [`ch08-cost`](code/ch08-cost/) — a bill that tripled, read by the provider's lines, by tags, and by owner once shared things are divided by use; the cost of a customer; one row measured by running a real logger; what more redundancy costs against what a nine is worth; and five changes in the order of what each saves. The usage and prices are invented. |
-| 9.9 | The design process | A design is approved because nobody could follow it. | *planned* |
+| 9.9 | [The design process](09-the-design-process.md) | A design is approved because nobody could follow it. | [`ch09-designcheck`](code/ch09-designcheck/) — a program that asks thirteen things of a design document before the design can be judged, run on a bad and a good document for one feature; the arithmetic behind the good document's cost, with its key assumption measured; and a short proposal to review. The documents are invented. |
 | C9 | Final capstone: a ride-hailing backend, end to end | — | *planned* |
 
 ## What you need
