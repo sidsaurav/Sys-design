@@ -1,6 +1,6 @@
 # 6.5 Redundancy and failure domains
 
-[Syllabus](../SYLLABUS.md) · Phase 6 · Previous: [6.4 Overload](04-overload.md) · Next: 6.6 Multi-region architectures *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 6 · Previous: [6.4 Overload](04-overload.md) · Next: [6.6 Multi-region architectures](06-multi-region.md)
 
 > **Time:** about 30 minutes to read, 40 minutes of practice.
 > **You need:** cascading failure from [Chapter 6.1](01-how-distributed-systems-fail.md); bulkheads from [Chapter 6.3](03-circuit-breakers-bulkheads-degradation.md); replication and failover from [Chapter 5.1](../phase-5-distributed-data/01-leader-follower-replication.md). The example needs only Go.
@@ -349,7 +349,7 @@ Then prove it: take a zone out of service on an ordinary afternoon (Chapter 6.7)
 - A control plane changes things, and a data plane does the daily work. Control planes fail more often, and most of all during large failures. Recovery should not depend on one.
 - Cells and shuffle sharding limit how far a fault that follows the traffic or the software can reach.
 
-**Next:** 6.6 Multi-region architectures *(planned)* — when a region is the failure domain: active–passive and active–active, what each costs in consistency, and failing over and back.
+**Next:** [6.6 Multi-region architectures](06-multi-region.md) — when a region is the failure domain: active–passive and active–active, what each costs in consistency, and failing over and back.
 
 ---
 
