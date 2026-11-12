@@ -1,6 +1,6 @@
 # 9.3 Backward compatibility across deploys
 
-[Syllabus](../SYLLABUS.md) · Phase 9 · Previous: [9.2 CI/CD and progressive delivery](02-cicd-and-progressive-delivery.md) · Next: 9.4 Configuration and infrastructure as code *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 9 · Previous: [9.2 CI/CD and progressive delivery](02-cicd-and-progressive-delivery.md) · Next: [9.4 Configuration and infrastructure as code](04-configuration-and-infrastructure.md)
 
 > **Time:** about 30 minutes to read, 40 minutes of practice.
 > **You need:** the rolling deploy of [Chapter 9.1](01-containers-and-orchestration.md), rollback from [Chapter 9.2](02-cicd-and-progressive-delivery.md), and the schema changes of [Chapter 2.7](../phase-2-data/07-schema-changes.md). The example needs only Go, and runs at once.
@@ -338,7 +338,7 @@ Common mistakes:
 - Readers first, then writers.
 - For callers that you cannot deploy, add and do not change, version what must break, and measure before removing.
 
-**Next:** 9.4 Configuration and infrastructure as code *(planned)* — code now changes safely. The other half of what runs in production is not code, and it is usually changed with far less care.
+**Next:** [9.4 Configuration and infrastructure as code](04-configuration-and-infrastructure.md) — code now changes safely. The other half of what runs in production is not code, and it is usually changed with far less care.
 
 ---
 
