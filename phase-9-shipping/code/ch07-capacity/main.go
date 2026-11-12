@@ -42,10 +42,17 @@ func clock(s string) int {
 	return h*3600 + m*60
 }
 
+// The times of the curve's points, in seconds of the day.
+var at = func() (seconds []int) {
+	for _, point := range curve {
+		seconds = append(seconds, clock(point.at))
+	}
+	return seconds
+}()
+
 func demand(t int) float64 {
 	for i := 1; i < len(curve); i++ {
-		a, b := clock(curve[i-1].at), clock(curve[i].at)
-		if t <= b {
+		if a, b := at[i-1], at[i]; t <= b {
 			return curve[i-1].rps + (curve[i].rps-curve[i-1].rps)*float64(t-a)/float64(b-a)
 		}
 	}
@@ -86,6 +93,7 @@ func run(d design) result {
 	var served [60]float64     // the load that was carried in each second of the last minute
 	var wanted [300 / look]int // what the autoscaler wanted at each look in the last five minutes
 	failedThisMinute, line := 0.0, ""
+	before, after, from, evening := clock("08:55"), clock("09:11"), clock(d.from), clock("18:00")
 
 	for t := 0; t < day; t++ {
 		for len(starting) > 0 && starting[0] <= t {
@@ -105,14 +113,14 @@ func run(d design) result {
 		r.total += load
 		r.copyHours += float64(ready+len(starting)) / 3600
 		r.most = max(r.most, ready)
-		if t == clock("08:55") {
+		if t == before {
 			r.before = ready
 		}
 		if t%60 == 0 {
 			line = fmt.Sprintf("    %02d:%02d %8.0f %14d %10d", t/3600, t%3600/60, load, ready, len(starting))
 		}
 		if t%60 == 59 {
-			if t >= clock("08:55") && t < clock("09:11") {
+			if t >= before && t < after {
 				r.trace = append(r.trace, fmt.Sprintf("%s %22s", line, commas(failedThisMinute)))
 			}
 			failedThisMinute = 0
@@ -134,7 +142,7 @@ func run(d design) result {
 			want = int(math.Ceil(float64(ready) * ratio)) // copies that are starting count as idle
 		}
 		want = max(want, fewest)
-		if d.floor > 0 && t >= clock(d.from) && t < clock("18:00") {
+		if d.floor > 0 && t >= from && t < evening {
 			want = max(want, d.floor)
 		}
 		wanted[t/look%len(wanted)] = want
