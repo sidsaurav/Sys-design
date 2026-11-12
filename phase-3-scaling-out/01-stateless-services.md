@@ -1,6 +1,6 @@
 # 3.1 Scaling up vs scaling out: stateless services
 
-[Syllabus](../SYLLABUS.md) · Phase 3 · Previous: [Capstone 2: ticket booking](../phase-2-data/capstone-ticket-booking.md) · Next: 3.2 Load balancing *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 3 · Previous: [Capstone 2: ticket booking](../phase-2-data/capstone-ticket-booking.md) · Next: [3.2 Load balancing](02-load-balancing.md)
 
 > **Time:** about 35 minutes to read, 40 minutes of practice.
 > **You need:** Phase 1 — especially [Chapter 1.6](../phase-1-foundations/06-concurrency-pools-queues.md) — and [Chapter 2.8](../phase-2-data/08-choosing-a-datastore.md) for object storage. The example is plain Go and needs nothing else.
@@ -298,7 +298,7 @@ Three things to notice about the answer.
 - A session can be an ID looked up in a store, which the server can end at any moment, or a signed token, which needs no store and cannot be taken back.
 - Stateless instances are disposable. The hard scaling problem that remains is the data.
 
-**Next:** 3.2 Load balancing *(planned)* — how requests are spread over instances, how a dead one is noticed, and how a deploy avoids dropping the requests in flight.
+**Next:** [3.2 Load balancing](02-load-balancing.md) — how requests are spread over instances, how a dead one is noticed, and how a deploy avoids dropping the requests in flight.
 
 ---
 
