@@ -1,6 +1,6 @@
 # 4.5 The dual-write problem: outbox and change data capture
 
-[Syllabus](../SYLLABUS.md) · Phase 4 · Previous: [4.4 Logs and streams](04-logs-and-streams.md) · Next: 4.6 Operating queues *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 4 · Previous: [4.4 Logs and streams](04-logs-and-streams.md) · Next: [4.6 Operating queues](06-operating-queues.md)
 
 > **Time:** about 30 minutes to read, 40 minutes of practice.
 > **You need:** transactions from [Chapter 2.3](../phase-2-data/03-transactions-and-isolation.md); the write-ahead log from [Chapter 2.1](../phase-2-data/01-how-databases-store-data.md); idempotent consumers from [Chapter 4.3](03-delivery-semantics.md). The example needs the PostgreSQL database of Phase 2.
@@ -289,7 +289,7 @@ One relay runs at a time; a second instance stands by, and takes over only if it
 - Capture a designed outbox, not the business tables, to keep the schema private.
 - The same rule covers caches, search indexes and other services: one record, and everything else derived from it by something that retries.
 
-**Next:** 4.6 Operating queues *(planned)* — how to tell that a queue is falling behind before the users do.
+**Next:** [4.6 Operating queues](06-operating-queues.md) — how to tell that a queue is falling behind before the users do.
 
 ---
 

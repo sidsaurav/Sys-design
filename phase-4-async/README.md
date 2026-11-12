@@ -8,7 +8,7 @@ That machinery buys a great deal: faster answers, independence from other system
 
 **After this phase you can** move work off the request path without losing or duplicating it, choose between a queue and a log, and keep a database and a message stream consistent with each other.
 
-> **Status: in progress.** Chapters 4.1 to 4.5 are written. The rest are planned; see the [syllabus](../SYLLABUS.md#phase-4--asynchronous-systems-queues-streams-and-events).
+> **Status: in progress.** Chapters 4.1 to 4.6 are written. The rest are planned; see the [syllabus](../SYLLABUS.md#phase-4--asynchronous-systems-queues-streams-and-events).
 
 ## Chapters
 
@@ -19,7 +19,7 @@ That machinery buys a great deal: faster answers, independence from other system
 | 4.3 | [Delivery semantics and idempotent consumers](03-delivery-semantics.md) | "Exactly once" in the brochure, two welcome emails in the inbox. | [`ch03-idempotent`](code/ch03-idempotent/main.go) — 1,000 messages delivered 1,213 times to five consumers; which ID to recognise duplicates by; an email that cannot join a transaction |
 | 4.4 | [Logs and streams: Kafka's model](04-logs-and-streams.md) | A queue is used where replay and multiple independent readers were needed. | [`ch04-log`](code/ch04-log/main.go) — a model of a partitioned log: independent readers and replay, keys and order, committing offsets, retention and compaction |
 | 4.5 | [The dual-write problem: outbox and change data capture](05-dual-writes-outbox-cdc.md) | The order is saved but the "order placed" event never arrives. | [`ch05-outbox`](code/ch05-outbox/main.go) — 1,000 orders saved and announced three ways, with failures between the two writes; then the changes read from PostgreSQL's own log |
-| 4.6 | Operating queues | The queue grows for six hours before anyone notices; one bad message blocks a partition. | *planned* |
+| 4.6 | [Operating queues](06-operating-queues.md) | The queue grows for six hours before anyone notices; one bad message blocks a partition. | [`ch06-backlog`](code/ch06-backlog/main.go) — the arithmetic of a backlog, stepped through: a burst, four ways to recover, a limit, a poison record, and urgent work behind bulk |
 | 4.7 | Event-driven design | Forty services coupled through events nobody can change. | *planned* |
 | C4 | Capstone: a notification platform | — | *planned* |
 
