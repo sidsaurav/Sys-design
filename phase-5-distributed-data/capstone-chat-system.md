@@ -616,4 +616,4 @@ This capstone applies the chapters of Phase 5, where the sources for each techni
 
 All output shown was produced by the reference implementation; that of its second part, on PostgreSQL 16 on a four-core machine.
 
-**Next:** Phase 6 — Reliability: designing for failure *(planned; see the [syllabus](../SYLLABUS.md#phase-6--reliability-designing-for-failure))*. This phase asked what a system may promise about its data when machines fail. The next asks how it keeps answering at all: timeouts and retries at scale, overload, and the failures that spread.
+**Next:** [Phase 6 — Reliability: designing for failure](../phase-6-reliability/README.md). This phase asked what a system may promise about its data when machines fail. The next asks how it keeps answering at all: timeouts and retries at scale, overload, and the failures that spread. It begins with [6.1 How distributed systems fail](../phase-6-reliability/01-how-distributed-systems-fail.md).
