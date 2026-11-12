@@ -1,6 +1,6 @@
 # 7.5 Debugging production
 
-[Syllabus](../SYLLABUS.md) · Phase 7 · Previous: [7.4 Distributed tracing and context propagation](04-distributed-tracing.md) · Next: 7.6 Incidents *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 7 · Previous: [7.4 Distributed tracing and context propagation](04-distributed-tracing.md) · Next: [7.6 Incidents](06-incidents.md)
 
 > **Time:** about 35 minutes to read, 45 minutes of practice.
 > **You need:** the RED and USE checklists from [Chapter 7.1](01-telemetry.md); own time from [Chapter 7.4](04-distributed-tracing.md); pools and queues from [Chapter 1.6](../phase-1-foundations/06-concurrency-pools-queues.md). The example needs only Go, including `go tool pprof`, which comes with it. It takes about 18 seconds.
@@ -426,7 +426,7 @@ Orders now wait for their own queries and not for each other's. With this change
 - A leak is a slope. A restart moves you back down it and does not flatten it.
 - Experience proposes hypotheses. Only a test decides between them.
 
-**Next:** 7.6 Incidents *(planned)* — the tools are in hand. An outage also needs people: who decides, who talks to customers, and what is written down afterwards.
+**Next:** [7.6 Incidents](06-incidents.md) — the tools are in hand. An outage also needs people: who decides, who talks to customers, and what is written down afterwards.
 
 ---
 
