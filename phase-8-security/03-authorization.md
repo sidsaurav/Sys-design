@@ -1,6 +1,6 @@
 # 8.3 Authorization
 
-[Syllabus](../SYLLABUS.md) · Phase 8 · Previous: [8.2 Authentication](02-authentication.md) · Next: 8.4 Protecting data *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 8 · Previous: [8.2 Authentication](02-authentication.md) · Next: [8.4 Protecting data](04-protecting-data.md)
 
 > **Time:** about 40 minutes to read, 45 minutes of practice.
 > **You need:** sessions from [Chapter 8.2](02-authentication.md), and the controls called *object* and *scope* in [Chapter 8.1](01-threat-modelling.md). The first two parts of the example need only Go and take under a second. The third needs the PostgreSQL of [Phase 2](../phase-2-data/README.md), and is skipped without it.
@@ -552,7 +552,7 @@ Common mistakes:
 - In a shared database, row-level security makes the database apply the tenant rule to the query that forgot. It does nothing for the table's owner or a superuser, and the tenant must be set for the transaction.
 - Every decision is as old as the facts that it was made from. Choose that age for each action.
 
-**Next:** 8.4 Protecting data *(planned)* — the right people are now the only ones who can ask. The data still has to cross networks, sit on disks and be copied into backups, and each of those is a place where it can be read without asking anyone.
+**Next:** [8.4 Protecting data](04-protecting-data.md) — the right people are now the only ones who can ask. The data still has to cross networks, sit on disks and be copied into backups, and each of those is a place where it can be read without asking anyone.
 
 ---
 
