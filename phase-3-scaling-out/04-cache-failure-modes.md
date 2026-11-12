@@ -1,6 +1,6 @@
 # 3.4 Cache failure modes
 
-[Syllabus](../SYLLABUS.md) · Phase 3 · Previous: [3.3 Caching patterns](03-caching-patterns.md) · Next: 3.5 HTTP caching and CDNs *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 3 · Previous: [3.3 Caching patterns](03-caching-patterns.md) · Next: [3.5 HTTP caching and CDNs](05-http-caching-and-cdns.md)
 
 > **Time:** about 45 minutes to read, 45 minutes of practice.
 > **You need:** [Chapter 3.3](03-caching-patterns.md), and queues and overload from [Chapter 1.6](../phase-1-foundations/06-concurrency-pools-queues.md). The example is plain Go.
@@ -334,7 +334,7 @@ Find the risks, and give the fix for each, in the order you would do them.
 - Things that do not exist are never cached unless you cache their absence. That helps only when the same absences recur.
 - Size a cache for the popular set. Give it a limit and a least-recently-used policy, and watch hit ratio and evictions together.
 
-**Next:** 3.5 HTTP caching and CDNs *(planned)* — the caches you do not run: browsers, proxies and the edge.
+**Next:** [3.5 HTTP caching and CDNs](05-http-caching-and-cdns.md) — the caches you do not run: browsers, proxies and the edge.
 
 ---
 
