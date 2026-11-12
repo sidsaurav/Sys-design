@@ -1,6 +1,6 @@
 # 7.3 Alerting
 
-[Syllabus](../SYLLABUS.md) · Phase 7 · Previous: [7.2 SLIs, SLOs, and error budgets in practice](02-slis-slos-error-budgets.md) · Next: 7.4 Distributed tracing and context propagation *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 7 · Previous: [7.2 SLIs, SLOs, and error budgets in practice](02-slis-slos-error-budgets.md) · Next: [7.4 Distributed tracing and context propagation](04-distributed-tracing.md)
 
 > **Time:** about 35 minutes to read, 45 minutes of practice.
 > **You need:** the error budget, and where an indicator is counted, from [Chapter 7.2](02-slis-slos-error-budgets.md); symptoms and causes from [Chapter 7.1](01-telemetry.md). The example needs only Go, and runs in under a second.
@@ -468,7 +468,7 @@ Still missing: a ticket when a certificate has fourteen days left, which would h
 - A rule on an error rate is blind when nothing arrives. Add a probe, a rule on traffic, and a check on the monitoring itself.
 - A pager is believed only while it is nearly always right. Review every page, and delete rules as readily as you add them.
 
-**Next:** 7.4 Distributed tracing and context propagation *(planned)* — the page says that checkout is slow. A request crosses nine services, and something has to say which one.
+**Next:** [7.4 Distributed tracing and context propagation](04-distributed-tracing.md) — the page says that checkout is slow. A request crosses nine services, and something has to say which one.
 
 ---
 
