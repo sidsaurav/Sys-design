@@ -535,4 +535,4 @@ This capstone applies the chapters of Phase 2, where the sources for each techni
 
 All output shown was produced by the reference implementation on PostgreSQL 16.
 
-**Next:** Phase 3 — Scaling out *(planned)*: load balancing, caching and read replicas — beginning with the first two items of this capstone's *what breaks first*.
+**Next:** [Phase 3 — Scaling out](../phase-3-scaling-out/README.md): load balancing, caching and read replicas, which take on the first items of this capstone's *what breaks first*. It begins with [3.1 Scaling up vs scaling out](../phase-3-scaling-out/01-stateless-services.md).
