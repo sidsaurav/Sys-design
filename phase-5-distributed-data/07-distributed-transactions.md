@@ -1,6 +1,6 @@
 # 5.7 Distributed transactions
 
-[Syllabus](../SYLLABUS.md) · Phase 5 · Previous: [5.6 Consensus and coordination](06-consensus-and-coordination.md) · Next: Capstone 5 *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 5 · Previous: [5.6 Consensus and coordination](06-consensus-and-coordination.md) · Next: [Capstone 5: a chat system](capstone-chat-system.md)
 
 > **Time:** about 35 minutes to read, 40 minutes of practice.
 > **You need:** transactions from [Chapter 2.3](../phase-2-data/03-transactions-and-isolation.md); the dual write and the outbox from [Chapter 4.5](../phase-4-async/05-dual-writes-outbox-cdc.md); idempotent consumers from [Chapter 4.3](../phase-4-async/03-delivery-semantics.md). The example needs the PostgreSQL database of Phase 2.
@@ -243,7 +243,7 @@ Design the conversion from the opening scenario. The rewards service holds point
 - Compensation is a new action, not an erasure. Order steps so that refusals come early and irreversible effects come last.
 - The best distributed transaction is the one designed away: data that changes together kept together, or one side made the record and the other a follower.
 
-**Next:** Capstone 5 *(planned)* — a chat system: ordering messages, delivering them, partitioning their storage, and knowing who is online.
+**Next:** [Capstone 5: a chat system](capstone-chat-system.md) — ordering messages, delivering them, partitioning their storage, and knowing who is online.
 
 ---
 

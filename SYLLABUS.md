@@ -12,7 +12,7 @@ Every chapter is anchored on **one production failure** — the thing that goes 
 | 2 | [Data: correct and fast on one node](#phase-2--data-correct-and-fast-on-one-node) | 9 + capstone | **Written** |
 | 3 | [Scaling out: load balancing, caching, read scaling](#phase-3--scaling-out-load-balancing-caching-and-read-scaling) | 7 + capstone | **Written** |
 | 4 | [Asynchronous systems: queues, streams, events](#phase-4--asynchronous-systems-queues-streams-and-events) | 7 + capstone | **Written** |
-| 5 | [Distributed data: replication, partitioning, consistency](#phase-5--distributed-data-replication-partitioning-and-consistency) | 7 + capstone | In progress (5.1–5.7 written) |
+| 5 | [Distributed data: replication, partitioning, consistency](#phase-5--distributed-data-replication-partitioning-and-consistency) | 7 + capstone | **Written** |
 | 6 | [Reliability: designing for failure](#phase-6--reliability-designing-for-failure) | 7 + capstone | Planned |
 | 7 | [Observability and operations](#phase-7--observability-and-operations) | 6 + capstone | Planned |
 | 8 | [Security](#phase-8--security) | 6 + capstone | Planned |
@@ -103,7 +103,7 @@ Every chapter is anchored on **one production failure** — the thing that goes 
 | 5.5 | [Time and order](phase-5-distributed-data/05-time-and-order.md) | A lock "held" by a paused process corrupts data. | Clock skew; logical clocks; leases; fencing tokens; why distributed locks are harder than they look. |
 | 5.6 | [Consensus and coordination](phase-5-distributed-data/06-consensus-and-coordination.md) | A home-made leader election elects two leaders. | What Raft provides; leader election and configuration stores; when to use etcd or ZooKeeper and when not to. |
 | 5.7 | [Distributed transactions](phase-5-distributed-data/07-distributed-transactions.md) | Money leaves one service and never arrives in the other. | Two-phase commit and its failure modes; sagas and compensation; designing so you need neither. |
-| C5 | Capstone: a chat system | — | Message ordering, delivery guarantees, storage partitioning and presence. |
+| C5 | [Capstone: a chat system](phase-5-distributed-data/capstone-chat-system.md) | — | Message ordering, delivery guarantees, storage partitioning and presence. |
 
 ---
 
