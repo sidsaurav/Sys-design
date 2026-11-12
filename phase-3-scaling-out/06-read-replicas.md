@@ -1,6 +1,6 @@
 # 3.6 Read replicas and replication lag
 
-[Syllabus](../SYLLABUS.md) · Phase 3 · Previous: [3.5 HTTP caching and CDNs](05-http-caching-and-cdns.md) · Next: 3.7 Long-lived connections *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 3 · Previous: [3.5 HTTP caching and CDNs](05-http-caching-and-cdns.md) · Next: [3.7 Long-lived connections](07-long-lived-connections.md)
 
 > **Time:** about 40 minutes to read, 45 minutes of practice.
 > **You need:** the write-ahead log from [Chapter 2.1](../phase-2-data/01-how-databases-store-data.md) and [Chapter 2.9](../phase-2-data/09-durability-backups-restore.md), and [Chapter 3.3](03-caching-patterns.md) on staleness. The example runs a real PostgreSQL primary with two replicas; it needs PostgreSQL's server programs, as Chapter 2.9's did.
@@ -307,7 +307,7 @@ Step 5 is what makes steps 2 and 4 honest. During the nightly job's lag spike, r
 - Never make a decision to write from a replica's data.
 - Replicas multiply read capacity. They do nothing for writes.
 
-**Next:** 3.7 Long-lived connections *(planned)* — when the server needs to tell the client something, and polling is not good enough.
+**Next:** [3.7 Long-lived connections](07-long-lived-connections.md) — when the server needs to tell the client something, and polling is not good enough.
 
 ---
 
