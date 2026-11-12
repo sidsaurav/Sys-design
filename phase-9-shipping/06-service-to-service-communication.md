@@ -1,6 +1,6 @@
 # 9.6 Service-to-service communication
 
-[Syllabus](../SYLLABUS.md) · Phase 9 · Previous: [9.5 Service architecture](05-service-architecture.md) · Next: 9.7 Capacity planning and autoscaling *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 9 · Previous: [9.5 Service architecture](05-service-architecture.md) · Next: [9.7 Capacity planning and autoscaling](07-capacity-planning-and-autoscaling.md)
 
 > **Time:** about 35 minutes to read, 40 minutes of practice.
 > **You need:** retries and idempotency keys from [Chapter 1.5](../phase-1-foundations/05-timeouts-retries-idempotency.md), balancing requests and not connections from [Chapter 3.2](../phase-3-scaling-out/02-load-balancing.md), and the copy that drains before it stops from [Chapter 9.1](01-containers-and-orchestration.md). The example needs only Go, and takes about four seconds.
@@ -419,7 +419,7 @@ Common mistakes:
 - A proxy cannot know what a request means. Whether it may be repeated has to be in the request: an idempotent method, or a key.
 - A gateway is the front door for outside callers: identity, limits and routing. Business logic stays in services.
 
-**Next:** 9.7 Capacity planning and autoscaling *(planned)* — the services can find and call each other. How many copies of each are needed, and what happens when the answer changes at nine in the morning, is next.
+**Next:** [9.7 Capacity planning and autoscaling](07-capacity-planning-and-autoscaling.md) — the services can find and call each other. How many copies of each are needed, and what happens when the answer changes at nine in the morning, is next.
 
 ---
 
