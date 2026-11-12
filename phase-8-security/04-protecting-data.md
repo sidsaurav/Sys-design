@@ -1,6 +1,6 @@
 # 8.4 Protecting data
 
-[Syllabus](../SYLLABUS.md) · Phase 8 · Previous: [8.3 Authorization](03-authorization.md) · Next: 8.5 Backend vulnerabilities *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 8 · Previous: [8.3 Authorization](03-authorization.md) · Next: [8.5 Backend vulnerabilities](05-backend-vulnerabilities.md)
 
 > **Time:** about 40 minutes to read, 45 minutes of practice.
 > **You need:** the TLS handshake from [Chapter 1.2](../phase-1-foundations/02-life-of-a-request.md); trust boundaries from [Chapter 8.1](01-threat-modelling.md); tenants from [Chapter 8.3](03-authorization.md). The example needs only Go, and takes about a second.
@@ -454,7 +454,7 @@ Common mistakes:
 - Envelope encryption keeps data keys beside the data and the key that wraps them in a key service, which decides who may ask and records who did.
 - Encryption turns the protection of data into the protection of secrets. Keep them out of code, prefer ones that expire, and make replacing them routine.
 
-**Next:** 8.5 Backend vulnerabilities *(planned)* — the design is now sound. The code that implements it still takes input from strangers, and some of that input is written to make the code do something else.
+**Next:** [8.5 Backend vulnerabilities](05-backend-vulnerabilities.md) — the design is now sound. The code that implements it still takes input from strangers, and some of that input is written to make the code do something else.
 
 ---
 
