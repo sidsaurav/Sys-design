@@ -16,7 +16,7 @@ Every chapter is anchored on **one production failure** — the thing that goes 
 | 6 | [Reliability: designing for failure](#phase-6--reliability-designing-for-failure) | 7 + capstone | **Written** |
 | 7 | [Observability and operations](#phase-7--observability-and-operations) | 6 + capstone | **Written** |
 | 8 | [Security](#phase-8--security) | 6 + capstone | **Written** |
-| 9 | [Shipping and running: deployment, architecture, cost](#phase-9--shipping-and-running-deployment-architecture-and-cost) | 9 + final capstone | Planned |
+| 9 | [Shipping and running: deployment, architecture, cost](#phase-9--shipping-and-running-deployment-architecture-and-cost) | 9 + final capstone | In progress (9.1 written) |
 
 ---
 
@@ -162,7 +162,7 @@ Every chapter is anchored on **one production failure** — the thing that goes 
 
 | # | Chapter | The failure it prevents | What you learn |
 |---|---|---|---|
-| 9.1 | Containers and orchestration | Every deploy drops requests because the process is killed mid-flight. | What an orchestrator does for you; health probes; graceful shutdown; resource requests and limits. |
+| 9.1 | [Containers and orchestration](phase-9-shipping/01-containers-and-orchestration.md) | Every deploy drops requests because the process is killed mid-flight. | What an orchestrator does for you; health probes; graceful shutdown; resource requests and limits. |
 | 9.2 | CI/CD and progressive delivery | A bad build reaches 100% of users in four minutes. | Rolling, blue-green and canary releases; feature flags; automated rollback. |
 | 9.3 | Backward compatibility across deploys | Version N+1 writes data that version N cannot read, mid-rollout. | Evolving APIs, events and schemas when old and new code run side by side. |
 | 9.4 | Configuration and infrastructure as code | A one-line config change causes a global outage. | Treating config as code; staged rollout of configuration; reproducible infrastructure. |
