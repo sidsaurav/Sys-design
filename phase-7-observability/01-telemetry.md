@@ -1,6 +1,6 @@
 # 7.1 Telemetry: metrics, logs, and traces
 
-[Syllabus](../SYLLABUS.md) · Phase 7 · Previous: [Capstone 6](../phase-6-reliability/capstone-payments-api.md) · Next: 7.2 SLIs, SLOs, and error budgets in practice *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 7 · Previous: [Capstone 6](../phase-6-reliability/capstone-payments-api.md) · Next: [7.2 SLIs, SLOs, and error budgets in practice](02-slis-slos-error-budgets.md)
 
 > **Time:** about 30 minutes to read, 40 minutes of practice.
 > **You need:** the four golden signals, percentiles and histograms from [Chapter 1.7](../phase-1-foundations/07-measuring-performance.md); grey failure from [Chapter 6.1](../phase-6-reliability/01-how-distributed-systems-fail.md). The example needs only Go, and takes about 12 seconds to run.
@@ -299,7 +299,7 @@ About 75 series before buckets. The shop is not a label: there are thousands. `i
 - A structured log is a table that you can query: one wide line for each request, with consistent names.
 - Sample by keeping failures and slow requests. Count with metrics, never with a sample.
 
-**Next:** 7.2 SLIs, SLOs, and error budgets in practice *(planned)* — turning *is it working?* into a number, a target, and a rule for what to do when the target is missed.
+**Next:** [7.2 SLIs, SLOs, and error budgets in practice](02-slis-slos-error-budgets.md) — turning *is it working?* into a number, a target, and a rule for what to do when the target is missed.
 
 ---
 
