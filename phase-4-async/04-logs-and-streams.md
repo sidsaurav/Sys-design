@@ -1,6 +1,6 @@
 # 4.4 Logs and streams: Kafka's model
 
-[Syllabus](../SYLLABUS.md) · Phase 4 · Previous: [4.3 Delivery semantics and idempotent consumers](03-delivery-semantics.md) · Next: 4.5 The dual-write problem *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 4 · Previous: [4.3 Delivery semantics and idempotent consumers](03-delivery-semantics.md) · Next: [4.5 The dual-write problem](05-dual-writes-outbox-cdc.md)
 
 > **Time:** about 35 minutes to read, 40 minutes of practice.
 > **You need:** [Chapters 4.2](02-message-queues.md) and [4.3](03-delivery-semantics.md). The example needs only Go.
@@ -295,7 +295,7 @@ The pattern: **1, 3 and 6 are jobs** — each is done once, by anyone, and each 
 - Retention drops old records whether or not they were read. Compaction keeps the latest record per key.
 - Jobs go on queues. Events go on logs.
 
-**Next:** 4.5 The dual-write problem *(planned)* — saving to the database and publishing an event are two writes, and one of them can fail.
+**Next:** [4.5 The dual-write problem](05-dual-writes-outbox-cdc.md) — saving to the database and publishing an event are two writes, and one of them can fail.
 
 ---
 
