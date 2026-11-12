@@ -11,7 +11,7 @@ Every chapter is anchored on **one production failure** — the thing that goes 
 | 1 | [Foundations: one server, one request](#phase-1--foundations-one-server-one-request) | 7 + capstone | **Written** |
 | 2 | [Data: correct and fast on one node](#phase-2--data-correct-and-fast-on-one-node) | 9 + capstone | **Written** |
 | 3 | [Scaling out: load balancing, caching, read scaling](#phase-3--scaling-out-load-balancing-caching-and-read-scaling) | 7 + capstone | **Written** |
-| 4 | [Asynchronous systems: queues, streams, events](#phase-4--asynchronous-systems-queues-streams-and-events) | 7 + capstone | In progress (4.1–4.2 written) |
+| 4 | [Asynchronous systems: queues, streams, events](#phase-4--asynchronous-systems-queues-streams-and-events) | 7 + capstone | In progress (4.1–4.3 written) |
 | 5 | [Distributed data: replication, partitioning, consistency](#phase-5--distributed-data-replication-partitioning-and-consistency) | 7 + capstone | Planned |
 | 6 | [Reliability: designing for failure](#phase-6--reliability-designing-for-failure) | 7 + capstone | Planned |
 | 7 | [Observability and operations](#phase-7--observability-and-operations) | 6 + capstone | Planned |
@@ -81,7 +81,7 @@ Every chapter is anchored on **one production failure** — the thing that goes 
 |---|---|---|---|
 | 4.1 | [Why go asynchronous](phase-4-async/01-why-asynchronous.md) | Sign-up takes eight seconds because it sends three emails and resizes an avatar inline. | Background jobs; decoupling; load levelling; what you give up (immediacy, simple error handling). |
 | 4.2 | [Message queues](phase-4-async/02-message-queues.md) | A worker crashes mid-job and the job is gone — or runs forever. | Acknowledgements; visibility timeouts; redelivery; dead-letter queues; ordering guarantees and their price. |
-| 4.3 | Delivery semantics and idempotent consumers | "Exactly once" in the brochure, two welcome emails in the inbox. | At-most-once vs at-least-once; why exactly-once delivery is not on offer and exactly-once *effect* is; deduplication. |
+| 4.3 | [Delivery semantics and idempotent consumers](phase-4-async/03-delivery-semantics.md) | "Exactly once" in the brochure, two welcome emails in the inbox. | At-most-once vs at-least-once; why exactly-once delivery is not on offer and exactly-once *effect* is; deduplication. |
 | 4.4 | Logs and streams: Kafka's model | A queue is used where replay and multiple independent readers were needed. | The append-only log; partitions and ordering; offsets and consumer groups; retention and compaction; queue vs log. |
 | 4.5 | The dual-write problem: outbox and change data capture | The order is saved but the "order placed" event never arrives. | Why writing to two systems cannot be atomic; the transactional outbox; change data capture. |
 | 4.6 | Operating queues | The queue grows for six hours before anyone notices; one bad message blocks a partition. | Backlog and lag as signals; backpressure; poison messages; priorities; delayed and scheduled work. |

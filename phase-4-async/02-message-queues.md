@@ -1,6 +1,6 @@
 # 4.2 Message queues
 
-[Syllabus](../SYLLABUS.md) · Phase 4 · Previous: [4.1 Why go asynchronous](01-why-asynchronous.md) · Next: 4.3 Delivery semantics and idempotent consumers *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 4 · Previous: [4.1 Why go asynchronous](01-why-asynchronous.md) · Next: [4.3 Delivery semantics and idempotent consumers](03-delivery-semantics.md)
 
 > **Time:** about 40 minutes to read, 45 minutes of practice.
 > **You need:** [Chapter 4.1](01-why-asynchronous.md); retries and backoff from [Chapter 1.5](../phase-1-foundations/05-timeouts-retries-idempotency.md); row locks from [Chapter 2.4](../phase-2-data/04-concurrency-control.md). The example needs the PostgreSQL database of Phase 2.
@@ -295,7 +295,7 @@ Three things to notice.
 - Many workers finish jobs out of order. Ordering by key restores it for each key, at the price of working through each key one job at a time.
 - A table with `SKIP LOCKED` is a real queue, and the simplest one to start with.
 
-**Next:** 4.3 Delivery semantics and idempotent consumers *(planned)* — if every job may arrive twice, how to make twice the same as once.
+**Next:** [4.3 Delivery semantics and idempotent consumers](03-delivery-semantics.md) — if every job may arrive twice, how to make twice the same as once.
 
 ---
 
