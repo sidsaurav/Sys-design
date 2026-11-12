@@ -6,7 +6,8 @@
 
 Relative links must point at a file that exists. External links must answer
 HTTP 200. Some sites refuse automated clients (403/429); those are listed
-separately so a person can open them in a browser.
+separately so a person can open them in a browser. A link that does not
+answer, or answers with a server error, is tried twice more after a pause.
 
 Uses only the Python standard library plus the `curl` command.
 """
@@ -15,6 +16,7 @@ import pathlib
 import re
 import subprocess
 import sys
+import time
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 LINK = re.compile(r"\]\(([^)\s]+)\)")
@@ -71,7 +73,15 @@ def main():
         sys.exit(1 if failed else 0)
 
     with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
-        results = sorted(pool.map(fetch, external))
+        results = dict(pool.map(fetch, external))
+    # A site that is asked for many pages at once may drop some connections. Ask again,
+    # one page at a time and after a pause, before calling a link broken.
+    for attempt in (1, 2):
+        again = [u for u, code in results.items() if code == "000" or code.startswith("5")]
+        for url in again:
+            time.sleep(2 * attempt)
+            results[url] = fetch(url)[1]
+    results = sorted(results.items())
     ok = [u for u, code in results if code == "200"]
     blocked = [(u, code) for u, code in results if code in ("403", "429")]
     bad = [(u, code) for u, code in results if code not in ("200", "403", "429")]

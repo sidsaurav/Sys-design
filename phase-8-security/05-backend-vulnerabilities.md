@@ -1,6 +1,6 @@
 # 8.5 Backend vulnerabilities
 
-[Syllabus](../SYLLABUS.md) · Phase 8 · Previous: [8.4 Protecting data](04-protecting-data.md) · Next: 8.6 Abuse and operational security *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 8 · Previous: [8.4 Protecting data](04-protecting-data.md) · Next: [8.6 Abuse and operational security](06-abuse-and-operations.md)
 
 > **Time:** about 40 minutes to read, 45 minutes of practice.
 > **You need:** trust boundaries from [Chapter 8.1](01-threat-modelling.md), the object check from [Chapter 8.3](03-authorization.md), and enough SQL to read a `WHERE` clause. The first two parts of the example need only Go. The third needs the PostgreSQL of [Phase 2](../phase-2-data/README.md), and is skipped without it.
@@ -475,7 +475,7 @@ Common mistakes:
 - A request must not decide which fields are written. Use a type for what comes in and another for what goes out.
 - One of these will be missed. A narrow database role, a narrow cloud role and a network with nothing to reach decide what the mistake costs.
 
-**Next:** 8.6 Abuse and operational security *(planned)* — every request is now authenticated, authorized and safely handled. Some callers will still send a million of them, and some of the most powerful credentials in the company belong to its own tools.
+**Next:** [8.6 Abuse and operational security](06-abuse-and-operations.md) — every request is now authenticated, authorized and safely handled. Some callers will still send a million of them, and some of the most powerful credentials in the company belong to its own tools.
 
 ---
 

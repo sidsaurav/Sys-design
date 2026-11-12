@@ -15,7 +15,7 @@ Every chapter is anchored on **one production failure** — the thing that goes 
 | 5 | [Distributed data: replication, partitioning, consistency](#phase-5--distributed-data-replication-partitioning-and-consistency) | 7 + capstone | **Written** |
 | 6 | [Reliability: designing for failure](#phase-6--reliability-designing-for-failure) | 7 + capstone | **Written** |
 | 7 | [Observability and operations](#phase-7--observability-and-operations) | 6 + capstone | **Written** |
-| 8 | [Security](#phase-8--security) | 6 + capstone | In progress (8.1–8.5 written) |
+| 8 | [Security](#phase-8--security) | 6 + capstone | In progress (8.1–8.6 written) |
 | 9 | [Shipping and running: deployment, architecture, cost](#phase-9--shipping-and-running-deployment-architecture-and-cost) | 9 + final capstone | Planned |
 
 ---
@@ -151,7 +151,7 @@ Every chapter is anchored on **one production failure** — the thing that goes 
 | 8.3 | [Authorization](phase-8-security/03-authorization.md) | Changing an ID in the URL shows another customer's invoice. | Roles and attributes; object-level checks; tenant isolation. |
 | 8.4 | [Protecting data](phase-8-security/04-protecting-data.md) | A database snapshot is copied to a public bucket. | TLS and mutual TLS; encryption at rest; key management; secrets handling. |
 | 8.5 | [Backend vulnerabilities](phase-8-security/05-backend-vulnerabilities.md) | A "fetch this URL" feature reads the cloud metadata service. | Injection; SSRF; unsafe deserialisation; mass assignment; the OWASP API Security Top 10. |
-| 8.6 | Abuse and operational security | A leaked CI token with admin rights. | Abuse limits; audit logs; least privilege; dependency and supply-chain hygiene. |
+| 8.6 | [Abuse and operational security](phase-8-security/06-abuse-and-operations.md) | A leaked CI token with admin rights. | Abuse limits; audit logs; least privilege; dependency and supply-chain hygiene. |
 | C8 | Capstone: security review of a multi-tenant SaaS API | — | A full review: threat model, authn/authz design, data protection and abuse controls. |
 
 ---

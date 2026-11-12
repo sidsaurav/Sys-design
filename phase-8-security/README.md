@@ -8,7 +8,7 @@ Its subject is trust: who is asking, how the service knows, what they are allowe
 
 **After this phase you can** find the trust boundaries in a design, get authentication and authorization right, protect data in transit and at rest, and review an API for the vulnerabilities that actually get exploited.
 
-> **Status: in progress.** Chapters 8.1 to 8.5 are written. The rest are planned; see the [syllabus](../SYLLABUS.md#phase-8--security).
+> **Status: in progress.** Chapters 8.1 to 8.6 are written. The capstone is planned; see the [syllabus](../SYLLABUS.md#phase-8--security).
 
 ## Chapters
 
@@ -19,7 +19,7 @@ Its subject is trust: who is asking, how the service knows, what they are allowe
 | 8.3 | [Authorization](03-authorization.md) | Changing an ID in the URL shows another customer's invoice. | [`ch03-authz`](code/ch03-authz/main.go) — an invoicing API in three versions, each tested against one authorization matrix of six callers and five requests; what one unchecked handler gives away; and the tenant rule as row-level security in PostgreSQL. |
 | 8.4 | [Protecting data](04-protecting-data.md) | A database snapshot is copied to a public bucket. | [`ch04-data`](code/ch04-data/main.go) — real HTTPS servers with certificates made on the spot: a client that verifies and one that does not, facing an impostor; mutual TLS between services; a leaked snapshot under three ways of storing a secret column, with envelope encryption and a small key service; and ciphertext moved between rows. |
 | 8.5 | [Backend vulnerabilities](05-backend-vulnerabilities.md) | A "fetch this URL" feature reads the cloud metadata service. | [`ch05-vulns`](code/ch05-vulns/main.go) — a feature that fetches URLs, written four ways and given six URLs; a request that names more fields than its caller may change; a search box against PostgreSQL, with the query joined, with parameters, and by a limited role; and a handler with six faults to review. |
-| 8.6 | Abuse and operational security | A leaked CI token with admin rights. | *planned* |
+| 8.6 | [Abuse and operational security](06-abuse-and-operations.md) | A leaked CI token with admin rights. | [`ch06-ops`](code/ch06-ops/main.go) — an hour of requests to a paid action under six limits; a leaked pipeline token under three designs, tried five minutes and three days later; an audit log altered four ways, with and without a hash chain; and a library replaced at its registry, against three ways of asking for it. |
 | C8 | Capstone: security review of a multi-tenant SaaS API | — | *planned* |
 
 ## What you need
