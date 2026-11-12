@@ -1,6 +1,6 @@
 # 5.6 Consensus and coordination
 
-[Syllabus](../SYLLABUS.md) · Phase 5 · Previous: [5.5 Time and order](05-time-and-order.md) · Next: 5.7 Distributed transactions *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 5 · Previous: [5.5 Time and order](05-time-and-order.md) · Next: [5.7 Distributed transactions](07-distributed-transactions.md)
 
 > **Time:** about 35 minutes to read, 40 minutes of practice.
 > **You need:** failover and split brain from [Chapter 5.1](01-leader-follower-replication.md); linearizability and CAP from [Chapter 5.4](04-consistency-models-and-cap.md); leases and fencing tokens from [Chapter 5.5](05-time-and-order.md). The example needs only Go.
@@ -286,7 +286,7 @@ A coordination service earns its place when there is no such store — when the 
 - Consensus costs a majority round trip per write and gives no service without a majority. It is for a small number of critical decisions.
 - Use a coordination service rather than an algorithm of your own — and first check whether a conditional write in a database you already run makes the decision for you.
 
-**Next:** 5.7 Distributed transactions *(planned)* — when one change must happen in two places, or in neither.
+**Next:** [5.7 Distributed transactions](07-distributed-transactions.md) — when one change must happen in two places, or in neither.
 
 ---
 

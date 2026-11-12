@@ -8,7 +8,7 @@ Its subject is data that lives on more than one machine *as the record* — not 
 
 **After this phase you can** say precisely what a replicated or sharded store guarantees, choose a partition key, and recognise the designs that need consensus and the ones that only think they do.
 
-> **Status: in progress.** Chapters 5.1 to 5.6 are written. The rest are planned; see the [syllabus](../SYLLABUS.md#phase-5--distributed-data-replication-partitioning-and-consistency).
+> **Status: in progress.** Chapters 5.1 to 5.7 are written. The capstone is planned; see the [syllabus](../SYLLABUS.md#phase-5--distributed-data-replication-partitioning-and-consistency).
 
 ## Chapters
 
@@ -20,7 +20,7 @@ Its subject is data that lives on more than one machine *as the record* — not 
 | 5.4 | [Consistency models and CAP](04-consistency-models-and-cap.md) | "Eventually consistent" is accepted in a design review and nobody can say what users will see. | [`ch04-consistency`](code/ch04-consistency/main.go) — a model: what a reader observes under three ways of reading, and the two choices when the network splits |
 | 5.5 | [Time and order](05-time-and-order.md) | A lock "held" by a paused process corrupts data. | [`ch05-time`](code/ch05-time/main.go) — a lease, a paused client and a fencing token; a duration measured across a clock correction; a merged log ordered by wall clocks and by a counter |
 | 5.6 | [Consensus and coordination](06-consensus-and-coordination.md) | A home-made leader election elects two leaders. | [`ch06-election`](code/ch06-election/main.go) — a model of five nodes and a network that splits: a home-made election against terms, votes and majorities, in one split and in 500 random histories |
-| 5.7 | Distributed transactions | Money leaves one service and never arrives in the other. | *planned* |
+| 5.7 | [Distributed transactions](07-distributed-transactions.md) | Money leaves one service and never arrives in the other. | [`ch07-transfers`](code/ch07-transfers/main.go) — 2,000 transfers between two banks in PostgreSQL, four ways: two commits, two-phase commit, a saga, and one transaction, with an auditor adding up the money throughout |
 | C5 | Capstone: a chat system | — | *planned* |
 
 ## What you need
@@ -33,4 +33,4 @@ go run ./phase-5-distributed-data/code/ch01-failover
 bash phase-3-scaling-out/code/ch06-replicas/cluster.sh stop
 ```
 
-The examples of Chapters 5.2 to 5.6 need only Go. Later chapters say at the top what they need.
+The examples of Chapters 5.2 to 5.6 need only Go. Chapter 5.7's needs the PostgreSQL database of Phase 2 ([setup](../phase-2-data/README.md)), and one setting that the program explains. Later chapters say at the top what they need.
