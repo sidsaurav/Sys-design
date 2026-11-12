@@ -1,6 +1,6 @@
 # 5.1 Leader–follower replication
 
-[Syllabus](../SYLLABUS.md) · Phase 5 · Previous: [Capstone 4](../phase-4-async/capstone-notification-platform.md) · Next: 5.2 Multi-leader and leaderless replication *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 5 · Previous: [Capstone 4](../phase-4-async/capstone-notification-platform.md) · Next: [5.2 Multi-leader and leaderless replication](02-multi-leader-and-leaderless.md)
 
 > **Time:** about 35 minutes to read, 40 minutes of practice.
 > **You need:** read replicas and lag from [Chapter 3.6](../phase-3-scaling-out/06-read-replicas.md); recovery objectives from [Chapter 2.9](../phase-2-data/09-durability-backups-restore.md). The example runs on Chapter 3.6's three PostgreSQL servers.
@@ -260,7 +260,7 @@ Repeat them on a schedule. A failover that has not been exercised this quarter i
 - A leader that is unreachable is not necessarily dead. If it is alive and reachable by anyone after a promotion, there are two leaders, and their histories cannot be merged.
 - Make automatic failover's mistakes survivable — synchronous replication, a majority to decide, fencing — before making it automatic.
 
-**Next:** 5.2 Multi-leader and leaderless replication *(planned)* — what changes when more than one server is allowed to accept writes on purpose.
+**Next:** [5.2 Multi-leader and leaderless replication](02-multi-leader-and-leaderless.md) — what changes when more than one server is allowed to accept writes on purpose.
 
 ---
 

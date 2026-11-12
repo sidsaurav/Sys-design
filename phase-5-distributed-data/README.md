@@ -8,14 +8,14 @@ Its subject is data that lives on more than one machine *as the record* — not 
 
 **After this phase you can** say precisely what a replicated or sharded store guarantees, choose a partition key, and recognise the designs that need consensus and the ones that only think they do.
 
-> **Status: in progress.** Chapter 5.1 is written. The rest are planned; see the [syllabus](../SYLLABUS.md#phase-5--distributed-data-replication-partitioning-and-consistency).
+> **Status: in progress.** Chapters 5.1 and 5.2 are written. The rest are planned; see the [syllabus](../SYLLABUS.md#phase-5--distributed-data-replication-partitioning-and-consistency).
 
 ## Chapters
 
 | # | Chapter | The failure it prevents | Runnable example |
 |---|---|---|---|
 | 5.1 | [Leader–follower replication](01-leader-follower-replication.md) | A failover promotes a stale follower and an hour of writes disappears. | [`ch01-failover`](code/ch01-failover/main.go) — on a real primary and two replicas: what a failover loses, two primaries at once, and the same failover with synchronous replication |
-| 5.2 | Multi-leader and leaderless replication | Two regions accept conflicting writes and one silently wins. | *planned* |
+| 5.2 | [Multi-leader and leaderless replication](02-multi-leader-and-leaderless.md) | Two regions accept conflicting writes and one silently wins. | [`ch02-conflicts`](code/ch02-conflicts/main.go) — a model of two regions: three stories under last-write-wins and under version vectors; and read and write quorums on three replicas |
 | 5.3 | Partitioning (sharding) | One shard holds the celebrity account and melts while the others idle. | *planned* |
 | 5.4 | Consistency models and CAP | "Eventually consistent" is accepted in a design review and nobody can say what users will see. | *planned* |
 | 5.5 | Time and order | A lock "held" by a paused process corrupts data. | *planned* |
@@ -33,4 +33,4 @@ go run ./phase-5-distributed-data/code/ch01-failover
 bash phase-3-scaling-out/code/ch06-replicas/cluster.sh stop
 ```
 
-Later chapters say at the top what they need.
+Chapter 5.2's example needs only Go. Later chapters say at the top what they need.
