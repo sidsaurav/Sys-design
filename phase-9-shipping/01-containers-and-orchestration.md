@@ -1,6 +1,6 @@
 # 9.1 Containers and orchestration
 
-[Syllabus](../SYLLABUS.md) · Phase 9 · Previous: [Capstone 8](../phase-8-security/capstone-security-review.md) · Next: 9.2 CI/CD and progressive delivery *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 9 · Previous: [Capstone 8](../phase-8-security/capstone-security-review.md) · Next: [9.2 CI/CD and progressive delivery](02-cicd-and-progressive-delivery.md)
 
 > **Time:** about 35 minutes to read, 40 minutes of practice.
 > **You need:** load balancers and health checks from [Chapter 3.2](../phase-3-scaling-out/02-load-balancing.md), and stateless services from [Chapter 3.1](../phase-3-scaling-out/01-stateless-services.md). The example needs only Go and takes about three seconds. It sends a signal to its own child processes, so it runs on Linux and macOS and not on Windows.
@@ -340,7 +340,7 @@ Common mistakes:
 - To stop cleanly: say *not ready*, go on serving until the news has travelled, finish what is in flight, and exit before the grace period ends.
 - A request is a promise that is used to place the copy. A limit is enforced: a copy over its CPU limit is slowed, and a copy over its memory limit is killed.
 
-**Next:** 9.2 CI/CD and progressive delivery *(planned)* — the deploy no longer drops requests. Whether the new version should have been deployed at all is the next question, and the way to find out is to show it to a few users first.
+**Next:** [9.2 CI/CD and progressive delivery](02-cicd-and-progressive-delivery.md) — the deploy no longer drops requests. Whether the new version should have been deployed at all is the next question, and the way to find out is to show it to a few users first.
 
 ---
 
