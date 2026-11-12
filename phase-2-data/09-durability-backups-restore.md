@@ -1,6 +1,6 @@
 # 2.9 Durability, backups, and restore
 
-[Syllabus](../SYLLABUS.md) · Phase 2 · Previous: [2.8 Choosing a datastore](08-choosing-a-datastore.md) · Next: Capstone 2 *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 2 · Previous: [2.8 Choosing a datastore](08-choosing-a-datastore.md) · Next: [Capstone 2: ticket booking](capstone-ticket-booking.md)
 
 > **Time:** about 45 minutes to read, 60 minutes of practice.
 > **You need:** [Chapter 2.1](01-how-databases-store-data.md) (the write-ahead log) and [Chapter 2.6](06-database-as-shared-resource.md). The examples need PostgreSQL's server programs; with the Docker container from [the phase overview](README.md) each is one command.
@@ -355,7 +355,7 @@ The replica and the archive are not alternatives. The replica makes hardware fai
 - A backup counts only once it has been restored. Drill regularly, measure the time, and alert when the drill does not run.
 - Restore beside the damaged database, never over it.
 
-**Next:** Capstone 2 *(planned)* — ticket booking: never sell the same seat twice.
+**Next:** [Capstone 2: ticket booking](capstone-ticket-booking.md) — never sell the same seat twice.
 
 ---
 
