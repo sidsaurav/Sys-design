@@ -10,7 +10,7 @@ Every chapter is anchored on **one production failure** — the thing that goes 
 |---|---|---|---|
 | 1 | [Foundations: one server, one request](#phase-1--foundations-one-server-one-request) | 7 + capstone | **Written** |
 | 2 | [Data: correct and fast on one node](#phase-2--data-correct-and-fast-on-one-node) | 9 + capstone | **Written** |
-| 3 | [Scaling out: load balancing, caching, read scaling](#phase-3--scaling-out-load-balancing-caching-and-read-scaling) | 7 + capstone | In progress (3.1–3.7 written) |
+| 3 | [Scaling out: load balancing, caching, read scaling](#phase-3--scaling-out-load-balancing-caching-and-read-scaling) | 7 + capstone | **Written** |
 | 4 | [Asynchronous systems: queues, streams, events](#phase-4--asynchronous-systems-queues-streams-and-events) | 7 + capstone | Planned |
 | 5 | [Distributed data: replication, partitioning, consistency](#phase-5--distributed-data-replication-partitioning-and-consistency) | 7 + capstone | Planned |
 | 6 | [Reliability: designing for failure](#phase-6--reliability-designing-for-failure) | 7 + capstone | Planned |
@@ -69,7 +69,7 @@ Every chapter is anchored on **one production failure** — the thing that goes 
 | 3.5 | [HTTP caching and CDNs](phase-3-scaling-out/05-http-caching-and-cdns.md) | Users in another continent wait two seconds for a logo; a "private" page is served to the wrong user from a shared cache. | `Cache-Control`, validators, `Vary`; shared vs private caches; edge caching; purging; signed URLs. |
 | 3.6 | [Read replicas and replication lag](phase-3-scaling-out/06-read-replicas.md) | A user saves their profile, the page reloads, and the old value is back. | Scaling reads with replicas; replication lag; read-your-writes and monotonic reads; routing reads safely. |
 | 3.7 | [Long-lived connections: WebSockets, SSE, and long polling](phase-3-scaling-out/07-long-lived-connections.md) | A feature that needs push updates is built on a one-second polling loop. | Polling vs long polling vs server-sent events vs WebSockets; what stateful connections do to load balancing and deploys. |
-| C3 | Capstone: the read path of a photo-sharing app | — | Load balancing, caches, CDN, object storage and replicas for a read-heavy product, with a staleness budget for every hop. |
+| C3 | [Capstone: the read path of a photo-sharing app](phase-3-scaling-out/capstone-photo-sharing.md) | — | Load balancing, caches, CDN, object storage and replicas for a read-heavy product, with a staleness budget for every hop. |
 
 ---
 

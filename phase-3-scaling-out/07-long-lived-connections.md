@@ -1,6 +1,6 @@
 # 3.7 Long-lived connections: WebSockets, SSE, and long polling
 
-[Syllabus](../SYLLABUS.md) · Phase 3 · Previous: [3.6 Read replicas and replication lag](06-read-replicas.md) · Next: Capstone 3 *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 3 · Previous: [3.6 Read replicas and replication lag](06-read-replicas.md) · Next: [Capstone 3](capstone-photo-sharing.md)
 
 > **Time:** about 45 minutes to read, 45 minutes of practice.
 > **You need:** HTTP from [Chapter 1.3](../phase-1-foundations/03-http-for-backend-engineers.md); backoff and jitter from [Chapter 1.5](../phase-1-foundations/05-timeouts-retries-idempotency.md); stateless instances and graceful shutdown from [Chapters 3.1](01-stateless-services.md) and [3.2](02-load-balancing.md). The example needs only Go; it fetches one library the first time it runs.
@@ -453,7 +453,7 @@ The real-time service is separate because it differs from the API in the two way
 - Every deploy and every network failure is a mass reconnection. Spread it with jitter and gradual draining, and make each reconnection cheap.
 - A quiet connection costs memory and a file descriptor. Connecting and broadcasting are what cost CPU.
 
-**Next:** Capstone 3 *(planned)* — the read path of a photo-sharing app: load balancing, caches, a CDN, object storage and replicas, with a staleness budget for every hop.
+**Next:** [Capstone 3](capstone-photo-sharing.md) — the read path of a photo-sharing app: load balancing, caches, a CDN, object storage and replicas, with a staleness budget for every hop.
 
 ---
 
