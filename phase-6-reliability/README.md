@@ -8,14 +8,14 @@ This phase is about failures that the system makes for itself. A dependency slow
 
 **After this phase you can** predict how a system fails before it does, stop one slow dependency from taking everything down, and plan for the loss of a zone or a region.
 
-> **Status: in progress.** Chapter 6.1 is written. The rest are planned; see the [syllabus](../SYLLABUS.md#phase-6--reliability-designing-for-failure).
+> **Status: in progress.** Chapters 6.1 and 6.2 are written. The rest are planned; see the [syllabus](../SYLLABUS.md#phase-6--reliability-designing-for-failure).
 
 ## Chapters
 
 | # | Chapter | The failure it prevents | Runnable example |
 |---|---|---|---|
 | 6.1 | [How distributed systems fail](01-how-distributed-systems-fail.md) | A 30-second blip becomes a four-hour outage. | [`ch01-failures`](code/ch01-failures/main.go) — a model: a slow server that passes its health check, the loss of one server in five at three loads, and a 30-second stall with and without retries |
-| 6.2 | Timeouts and retries at scale | Every layer retries three times and the database sees 27× the load. | *planned* |
+| 6.2 | [Timeouts and retries at scale](02-timeouts-and-retries-at-scale.md) | Every layer retries three times and the database sees 27× the load. | [`ch02-deadlines`](code/ch02-deadlines/main.go) — three services over real HTTP: who retries, and what a deadline passed down saves; then two models: the stall of 6.1 with backoff, a retry budget and deadlines, and a page that needs 100 servers, with and without hedging |
 | 6.3 | Circuit breakers, bulkheads, and graceful degradation | The recommendations service is slow, so checkout is down. | *planned* |
 | 6.4 | Overload: rate limiting, load shedding, and admission control | The service accepts every request and completes none. | *planned* |
 | 6.5 | Redundancy and failure domains | Three replicas, one rack, one power failure. | *planned* |
@@ -25,7 +25,7 @@ This phase is about failures that the system makes for itself. A dependency slow
 
 ## What you need
 
-**Go 1.22 or newer.** Chapter 6.1's example is a model with no network and no database, and runs with one command:
+**Go 1.22 or newer**, and nothing else so far. Chapter 6.1's example is a model with no network and no database; Chapter 6.2's also starts HTTP servers inside its own process. Each runs with one command:
 
 ```bash
 go run ./phase-6-reliability/code/ch01-failures

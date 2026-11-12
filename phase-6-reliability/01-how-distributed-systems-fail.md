@@ -1,6 +1,6 @@
 # 6.1 How distributed systems fail
 
-[Syllabus](../SYLLABUS.md) · Phase 6 · Previous: [Capstone 5](../phase-5-distributed-data/capstone-chat-system.md) · Next: 6.2 Timeouts and retries at scale *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 6 · Previous: [Capstone 5](../phase-5-distributed-data/capstone-chat-system.md) · Next: [6.2 Timeouts and retries at scale](02-timeouts-and-retries-at-scale.md)
 
 > **Time:** about 35 minutes to read, 40 minutes of practice.
 > **You need:** timeouts and retries from [Chapter 1.5](../phase-1-foundations/05-timeouts-retries-idempotency.md); queues and utilisation from [Chapter 1.6](../phase-1-foundations/06-concurrency-pools-queues.md); health checks from [Chapter 3.2](../phase-3-scaling-out/02-load-balancing.md). The example needs only Go.
@@ -339,7 +339,7 @@ At 300 a second the service does recover — at about second 310, more than four
 - A metastable failure has a trigger and a sustaining effect. Removing the trigger does not end it. Cutting the load does, and the load must fall below the level at which the trouble began.
 - Know your system's loops before they run, and have a tested way to cut load.
 
-**Next:** 6.2 Timeouts and retries at scale *(planned)* — deadlines that travel with a request, budgets that limit retries, and where in a stack of services a retry belongs.
+**Next:** [6.2 Timeouts and retries at scale](02-timeouts-and-retries-at-scale.md) — deadlines that travel with a request, budgets that limit retries, and where in a stack of services a retry belongs.
 
 ---
 
