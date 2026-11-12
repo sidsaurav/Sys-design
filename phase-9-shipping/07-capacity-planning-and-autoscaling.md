@@ -1,6 +1,6 @@
 # 9.7 Capacity planning and autoscaling
 
-[Syllabus](../SYLLABUS.md) · Phase 9 · Previous: [9.6 Service-to-service communication](06-service-to-service-communication.md) · Next: 9.8 Cost *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 9 · Previous: [9.6 Service-to-service communication](06-service-to-service-communication.md) · Next: [9.8 Cost](08-cost.md)
 
 > **Time:** about 35 minutes to read, 40 minutes of practice.
 > **You need:** load tests and percentiles from [Chapter 1.7](../phase-1-foundations/07-measuring-performance.md), pools and queues from [Chapter 1.6](../phase-1-foundations/06-concurrency-pools-queues.md), and zones from [Chapter 6.5](../phase-6-reliability/05-redundancy-and-failure-domains.md). The example needs only Go, and runs at once.
@@ -376,7 +376,7 @@ Common mistakes:
 - Scale on the thing that runs out first. Put what you know on a schedule. Make copies start faster before lowering the target.
 - Use load tests to find the number, the next bottleneck, and whether scaling works at the speed of real load.
 
-**Next:** 9.8 Cost *(planned)* — every copy-hour in this chapter's tables is on a bill. Reading that bill, and deciding what each part of a design is worth, is next.
+**Next:** [9.8 Cost](08-cost.md) — every copy-hour in this chapter's tables is on a bill. Reading that bill, and deciding what each part of a design is worth, is next.
 
 ---
 
