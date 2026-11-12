@@ -1,6 +1,6 @@
 # 5.4 Consistency models and CAP
 
-[Syllabus](../SYLLABUS.md) · Phase 5 · Previous: [5.3 Partitioning](03-partitioning.md) · Next: 5.5 Time and order *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 5 · Previous: [5.3 Partitioning](03-partitioning.md) · Next: [5.5 Time and order](05-time-and-order.md)
 
 > **Time:** about 30 minutes to read, 35 minutes of practice.
 > **You need:** [Chapters 5.1](01-leader-follower-replication.md) and [5.2](02-multi-leader-and-leaderless.md); read-your-writes and monotonic reads from [Chapter 3.6](../phase-3-scaling-out/06-read-replicas.md). The example needs only Go.
@@ -247,7 +247,7 @@ What the table shows:
 - When there is no partition, the trade is between consistency and latency.
 - Choose the level for each operation by what a wrong answer costs, and decide beforehand what it does when the network splits.
 
-**Next:** 5.5 Time and order *(planned)* — why *the latest write* and *I still hold the lock* are harder to know than they sound.
+**Next:** [5.5 Time and order](05-time-and-order.md) — why *the latest write* and *I still hold the lock* are harder to know than they sound.
 
 ---
 
