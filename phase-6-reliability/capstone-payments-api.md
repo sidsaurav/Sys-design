@@ -500,4 +500,4 @@ Check your design against these. Each is a mistake that an experienced reviewer 
 
 This capstone applies the chapters of Phase 6, where the sources for each technique are given. All output shown was produced by the reference implementation on PostgreSQL 16.
 
-**Next:** Phase 7 — Observability and operations *(planned; see the [syllabus](../SYLLABUS.md#phase-7--observability-and-operations))*. This phase kept asking for things to be measured: goodput, the age of the oldest unsettled payment, places busy with a zone gone. The next is about measuring them, deciding which of them should wake someone, and what that person does next.
+**Next:** [Phase 7 — Observability and operations](../phase-7-observability/README.md). This phase kept asking for things to be measured: goodput, the age of the oldest unsettled payment, places busy with a zone gone. The next is about measuring them, deciding which of them should wake someone, and what that person does next. It begins with [7.1 Telemetry](../phase-7-observability/01-telemetry.md).
