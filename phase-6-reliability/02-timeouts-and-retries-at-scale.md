@@ -1,6 +1,6 @@
 # 6.2 Timeouts and retries at scale
 
-[Syllabus](../SYLLABUS.md) · Phase 6 · Previous: [6.1 How distributed systems fail](01-how-distributed-systems-fail.md) · Next: 6.3 Circuit breakers, bulkheads, and graceful degradation *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 6 · Previous: [6.1 How distributed systems fail](01-how-distributed-systems-fail.md) · Next: [6.3 Circuit breakers, bulkheads, and graceful degradation](03-circuit-breakers-bulkheads-degradation.md)
 
 > **Time:** about 35 minutes to read, 45 minutes of practice.
 > **You need:** timeouts, retries, backoff and idempotency for one call, from [Chapter 1.5](../phase-1-foundations/05-timeouts-retries-idempotency.md); retry storms and metastable failures from [Chapter 6.1](01-how-distributed-systems-fail.md). The example needs only Go.
@@ -362,7 +362,7 @@ The bank is called **once**, and everything has stopped by 2.0 s.
 - A budget limits what arrives at a struggling service; a deadline limits the work done on it. Recovery needs both.
 - A hedged request cuts tail latency for a few per cent more load, as long as slowness is independent between servers and the request is safe to repeat.
 
-**Next:** 6.3 Circuit breakers, bulkheads, and graceful degradation *(planned)* — what a caller does when a dependency is failing, so that one slow service does not take the others with it.
+**Next:** [6.3 Circuit breakers, bulkheads, and graceful degradation](03-circuit-breakers-bulkheads-degradation.md) — what a caller does when a dependency is failing, so that one slow service does not take the others with it.
 
 ---
 
