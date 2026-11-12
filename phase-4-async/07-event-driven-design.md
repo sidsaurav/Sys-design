@@ -1,6 +1,6 @@
 # 4.7 Event-driven design
 
-[Syllabus](../SYLLABUS.md) · Phase 4 · Previous: [4.6 Operating queues](06-operating-queues.md) · Next: Capstone 4 *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 4 · Previous: [4.6 Operating queues](06-operating-queues.md) · Next: [Capstone 4](capstone-notification-platform.md)
 
 > **Time:** about 35 minutes to read, 40 minutes of practice.
 > **You need:** logs from [Chapter 4.4](04-logs-and-streams.md), the outbox from [Chapter 4.5](05-dual-writes-outbox-cdc.md), and expand–migrate–contract from [Chapter 2.7](../phase-2-data/07-schema-changes.md). The example needs only Go.
@@ -330,7 +330,7 @@ If some reader really does need the whole current customer — a search index, a
 - Events arrive later than they happen, and out of order. Counting by event time is correct, and forces a choice between waiting and being incomplete.
 - Carry IDs and versions on every event, and keep a catalogue of events and their readers.
 
-**Next:** Capstone 4 *(planned)* — a notification platform: several channels, retries, deduplication, rate limits for each provider, and what users have asked not to receive.
+**Next:** [Capstone 4](capstone-notification-platform.md) — a notification platform: several channels, retries, deduplication, rate limits for each provider, and what users have asked not to receive.
 
 ---
 

@@ -8,8 +8,6 @@ That machinery buys a great deal: faster answers, independence from other system
 
 **After this phase you can** move work off the request path without losing or duplicating it, choose between a queue and a log, and keep a database and a message stream consistent with each other.
 
-> **Status: in progress.** Chapters 4.1 to 4.7 are written. The capstone is planned; see the [syllabus](../SYLLABUS.md#phase-4--asynchronous-systems-queues-streams-and-events).
-
 ## Chapters
 
 | # | Chapter | The failure it prevents | Runnable example |
@@ -21,7 +19,7 @@ That machinery buys a great deal: faster answers, independence from other system
 | 4.5 | [The dual-write problem: outbox and change data capture](05-dual-writes-outbox-cdc.md) | The order is saved but the "order placed" event never arrives. | [`ch05-outbox`](code/ch05-outbox/main.go) — 1,000 orders saved and announced three ways, with failures between the two writes; then the changes read from PostgreSQL's own log |
 | 4.6 | [Operating queues](06-operating-queues.md) | The queue grows for six hours before anyone notices; one bad message blocks a partition. | [`ch06-backlog`](code/ch06-backlog/main.go) — the arithmetic of a backlog, stepped through: a burst, four ways to recover, a limit, a poison record, and urgent work behind bulk |
 | 4.7 | [Event-driven design](07-event-driven-design.md) | Forty services coupled through events nobody can change. | [`ch07-events`](code/ch07-events/main.go) — a renamed field that zeroes a revenue total, a declined payment under choreography and orchestration, and counting per minute when events arrive late |
-| C4 | Capstone: a notification platform | — | *planned* |
+| C4 | [Capstone: a notification platform](capstone-notification-platform.md) | — | [`capstone-notify`](code/capstone-notify/main.go) — requests accepted once, deliveries queued in PostgreSQL and sent through three rate-limited providers that fail; a campaign, opt-outs and two outages, then checks; each safeguard can be switched off |
 
 ## What you need
 
@@ -31,4 +29,4 @@ That machinery buys a great deal: faster answers, independence from other system
 go run ./phase-4-async/code/ch01-background
 ```
 
-Chapters 4.2, 4.3 and 4.5 use PostgreSQL, so they need the database of Phase 2 ([setup](../phase-2-data/README.md)). Later chapters say at the top what else they need.
+Chapters 4.2, 4.3 and 4.5 and the capstone use PostgreSQL, so they need the database of Phase 2 ([setup](../phase-2-data/README.md)). The second part of Chapter 4.5's example needs one PostgreSQL setting, which the program explains. The other examples — 4.1, 4.4, 4.6 and 4.7 — need only Go.

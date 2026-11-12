@@ -11,7 +11,7 @@ Every chapter is anchored on **one production failure** — the thing that goes 
 | 1 | [Foundations: one server, one request](#phase-1--foundations-one-server-one-request) | 7 + capstone | **Written** |
 | 2 | [Data: correct and fast on one node](#phase-2--data-correct-and-fast-on-one-node) | 9 + capstone | **Written** |
 | 3 | [Scaling out: load balancing, caching, read scaling](#phase-3--scaling-out-load-balancing-caching-and-read-scaling) | 7 + capstone | **Written** |
-| 4 | [Asynchronous systems: queues, streams, events](#phase-4--asynchronous-systems-queues-streams-and-events) | 7 + capstone | In progress (4.1–4.7 written) |
+| 4 | [Asynchronous systems: queues, streams, events](#phase-4--asynchronous-systems-queues-streams-and-events) | 7 + capstone | **Written** |
 | 5 | [Distributed data: replication, partitioning, consistency](#phase-5--distributed-data-replication-partitioning-and-consistency) | 7 + capstone | Planned |
 | 6 | [Reliability: designing for failure](#phase-6--reliability-designing-for-failure) | 7 + capstone | Planned |
 | 7 | [Observability and operations](#phase-7--observability-and-operations) | 6 + capstone | Planned |
@@ -86,7 +86,7 @@ Every chapter is anchored on **one production failure** — the thing that goes 
 | 4.5 | [The dual-write problem: outbox and change data capture](phase-4-async/05-dual-writes-outbox-cdc.md) | The order is saved but the "order placed" event never arrives. | Why writing to two systems cannot be atomic; the transactional outbox; change data capture. |
 | 4.6 | [Operating queues](phase-4-async/06-operating-queues.md) | The queue grows for six hours before anyone notices; one bad message blocks a partition. | Backlog and lag as signals; backpressure; poison messages; priorities; delayed and scheduled work. |
 | 4.7 | [Event-driven design](phase-4-async/07-event-driven-design.md) | Forty services coupled through events nobody can change. | Events vs commands; schemas and their evolution; choreography vs orchestration; stream processing in one sitting. |
-| C4 | Capstone: a notification platform | — | Multi-channel delivery with retries, deduplication, per-provider rate limits and user preferences. |
+| C4 | [Capstone: a notification platform](phase-4-async/capstone-notification-platform.md) | — | Multi-channel delivery with retries, deduplication, per-provider rate limits and user preferences. |
 
 ---
 

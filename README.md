@@ -21,7 +21,7 @@ By the end you should be able to take a product requirement and produce a design
 | 1 | [Foundations: one server, one request](phase-1-foundations/README.md) | Follow a request end to end, design an API that survives retries, and say with numbers what one server can do. | **Written** |
 | 2 | [Data: correct and fast on one node](phase-2-data/README.md) | Make queries fast, pick isolation levels on purpose, migrate schemas live, restore from backup. | **Written** |
 | 3 | [Scaling out: load balancing, caching, read scaling](phase-3-scaling-out/README.md) | Go from one server to many and put the right cache in the right place. | **Written** |
-| 4 | [Asynchronous systems: queues, streams, events](phase-4-async/README.md) | Move work off the request path without losing or duplicating it. | In progress |
+| 4 | [Asynchronous systems: queues, streams, events](phase-4-async/README.md) | Move work off the request path without losing or duplicating it. | **Written** |
 | 5 | Distributed data: replication, partitioning, consistency | Say precisely what a replicated or sharded store guarantees. | Planned |
 | 6 | Reliability: designing for failure | Stop one failure from becoming an outage. | Planned |
 | 7 | Observability and operations | See what the system is doing, alert on what matters, run an incident. | Planned |
@@ -95,7 +95,7 @@ phase-1-foundations/
 phase-2-data/             the same layout: nine chapters, a capstone, and code/
                           (Go programs, SQL scripts and two shell scripts)
 phase-3-scaling-out/      the same layout
-phase-4-async/            the same layout; in progress
+phase-4-async/            the same layout
 tools/
   check_links.py          checks that every link in every chapter resolves
   check_quotes.py         checks that quoted text appears in the page it cites
