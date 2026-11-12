@@ -1,6 +1,6 @@
 # 3.5 HTTP caching and CDNs
 
-[Syllabus](../SYLLABUS.md) · Phase 3 · Previous: [3.4 Cache failure modes](04-cache-failure-modes.md) · Next: 3.6 Read replicas and replication lag *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 3 · Previous: [3.4 Cache failure modes](04-cache-failure-modes.md) · Next: [3.6 Read replicas and replication lag](06-read-replicas.md)
 
 > **Time:** about 45 minutes to read, 45 minutes of practice.
 > **You need:** [Chapter 1.2](../phase-1-foundations/02-life-of-a-request.md) (round trips), [Chapter 1.3](../phase-1-foundations/03-http-for-backend-engineers.md) (`ETag` and conditional requests) and [Chapter 3.3](03-caching-patterns.md). The example is plain Go.
@@ -343,7 +343,7 @@ You are putting a CDN in front of a news site. Decide the caching for each kind 
 - To change cached content, purge it — which cannot reach browsers — or, better, give every version its own URL.
 - A signed URL lets a cache or object store serve a private file without a session. It cannot be revoked, so make it short-lived.
 
-**Next:** 3.6 Read replicas and replication lag *(planned)* — taking read traffic off the primary database, and what users see when a replica is behind.
+**Next:** [3.6 Read replicas and replication lag](06-read-replicas.md) — taking read traffic off the primary database, and what users see when a replica is behind.
 
 ---
 
