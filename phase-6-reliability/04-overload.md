@@ -1,6 +1,6 @@
 # 6.4 Overload: rate limiting, load shedding, and admission control
 
-[Syllabus](../SYLLABUS.md) · Phase 6 · Previous: [6.3 Circuit breakers, bulkheads, and graceful degradation](03-circuit-breakers-bulkheads-degradation.md) · Next: 6.5 Redundancy and failure domains *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 6 · Previous: [6.3 Circuit breakers, bulkheads, and graceful degradation](03-circuit-breakers-bulkheads-degradation.md) · Next: [6.5 Redundancy and failure domains](05-redundancy-and-failure-domains.md)
 
 > **Time:** about 30 minutes to read, 40 minutes of practice.
 > **You need:** queues and utilisation from [Chapter 1.6](../phase-1-foundations/06-concurrency-pools-queues.md); retry budgets and deadlines from [Chapter 6.2](02-timeouts-and-retries-at-scale.md). The example needs only Go.
@@ -333,7 +333,7 @@ Tell the customers what to expect: `503` with `Retry-After` for the reads that a
 - When everything is too much, shed by priority, with few levels, set at the edge.
 - A limit on the rate is a guess about capacity. A limit on requests in progress follows the capacity when it changes. Use the first for fairness, and the second for survival.
 
-**Next:** 6.5 Redundancy and failure domains *(planned)* — three copies that fail together are one copy: zones, regions, correlated failure, and how much of the system one fault may reach.
+**Next:** [6.5 Redundancy and failure domains](05-redundancy-and-failure-domains.md) — three copies that fail together are one copy: zones, regions, correlated failure, and how much of the system one fault may reach.
 
 ---
 

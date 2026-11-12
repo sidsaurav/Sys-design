@@ -13,7 +13,7 @@ Every chapter is anchored on **one production failure** — the thing that goes 
 | 3 | [Scaling out: load balancing, caching, read scaling](#phase-3--scaling-out-load-balancing-caching-and-read-scaling) | 7 + capstone | **Written** |
 | 4 | [Asynchronous systems: queues, streams, events](#phase-4--asynchronous-systems-queues-streams-and-events) | 7 + capstone | **Written** |
 | 5 | [Distributed data: replication, partitioning, consistency](#phase-5--distributed-data-replication-partitioning-and-consistency) | 7 + capstone | **Written** |
-| 6 | [Reliability: designing for failure](#phase-6--reliability-designing-for-failure) | 7 + capstone | In progress (6.1–6.4 written) |
+| 6 | [Reliability: designing for failure](#phase-6--reliability-designing-for-failure) | 7 + capstone | In progress (6.1–6.5 written) |
 | 7 | [Observability and operations](#phase-7--observability-and-operations) | 6 + capstone | Planned |
 | 8 | [Security](#phase-8--security) | 6 + capstone | Planned |
 | 9 | [Shipping and running: deployment, architecture, cost](#phase-9--shipping-and-running-deployment-architecture-and-cost) | 9 + final capstone | Planned |
@@ -117,7 +117,7 @@ Every chapter is anchored on **one production failure** — the thing that goes 
 | 6.2 | [Timeouts and retries at scale](phase-6-reliability/02-timeouts-and-retries-at-scale.md) | Every layer retries three times and the database sees 27× the load. | Deadline propagation; retry budgets; hedged requests; where in the stack to retry. |
 | 6.3 | [Circuit breakers, bulkheads, and graceful degradation](phase-6-reliability/03-circuit-breakers-bulkheads-degradation.md) | The recommendations service is slow, so checkout is down. | Failing fast; isolating resources per dependency; serving a degraded answer on purpose. |
 | 6.4 | [Overload: rate limiting, load shedding, and admission control](phase-6-reliability/04-overload.md) | The service accepts every request and completes none. | Token bucket and friends; per-client limits; shedding by priority; concurrency limits. |
-| 6.5 | Redundancy and failure domains | Three replicas, one rack, one power failure. | Zones and regions; correlated failure; static stability; cells and blast radius. |
+| 6.5 | [Redundancy and failure domains](phase-6-reliability/05-redundancy-and-failure-domains.md) | Three replicas, one rack, one power failure. | Zones and regions; correlated failure; static stability; cells and blast radius. |
 | 6.6 | Multi-region architectures | The failover runbook is tried for the first time during the outage. | Active–passive vs active–active; what each costs in data consistency; failing over and failing back. |
 | 6.7 | Disaster recovery and resilience testing | A recovery plan that exists only as a document. | RPO and RTO as design inputs; restore drills; fault injection and game days. |
 | C6 | Capstone: a payments API that survives dependency and zone failures | — | Timeouts, idempotency, breakers, shedding and redundancy applied to one money-moving service. |
