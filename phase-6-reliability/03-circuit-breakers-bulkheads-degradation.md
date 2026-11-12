@@ -1,6 +1,6 @@
 # 6.3 Circuit breakers, bulkheads, and graceful degradation
 
-[Syllabus](../SYLLABUS.md) · Phase 6 · Previous: [6.2 Timeouts and retries at scale](02-timeouts-and-retries-at-scale.md) · Next: 6.4 Overload: rate limiting, load shedding, and admission control *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 6 · Previous: [6.2 Timeouts and retries at scale](02-timeouts-and-retries-at-scale.md) · Next: [6.4 Overload: rate limiting, load shedding, and admission control](04-overload.md)
 
 > **Time:** about 30 minutes to read, 40 minutes of practice.
 > **You need:** pools and Little's law from [Chapter 1.6](../phase-1-foundations/06-concurrency-pools-queues.md); deadlines and retry budgets from [Chapter 6.2](02-timeouts-and-retries-at-scale.md). The example needs only Go, and takes about 20 seconds to run.
@@ -316,7 +316,7 @@ On a normal day the page takes 175 ms and uses 300 × 0.175 = 53 of the 60 worke
 - Degrade by doing less. A fallback that reaches the same answer by a heavier road adds load at the worst moment, and has never been run.
 - A degraded path that is not exercised does not work.
 
-**Next:** 6.4 Overload: rate limiting, load shedding, and admission control *(planned)* — what a service does when more arrives than it can do, so that it finishes what it accepts.
+**Next:** [6.4 Overload: rate limiting, load shedding, and admission control](04-overload.md) — what a service does when more arrives than it can do, so that it finishes what it accepts.
 
 ---
 

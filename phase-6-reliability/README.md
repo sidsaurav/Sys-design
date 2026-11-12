@@ -8,7 +8,7 @@ This phase is about failures that the system makes for itself. A dependency slow
 
 **After this phase you can** predict how a system fails before it does, stop one slow dependency from taking everything down, and plan for the loss of a zone or a region.
 
-> **Status: in progress.** Chapters 6.1 to 6.3 are written. The rest are planned; see the [syllabus](../SYLLABUS.md#phase-6--reliability-designing-for-failure).
+> **Status: in progress.** Chapters 6.1 to 6.4 are written. The rest are planned; see the [syllabus](../SYLLABUS.md#phase-6--reliability-designing-for-failure).
 
 ## Chapters
 
@@ -17,7 +17,7 @@ This phase is about failures that the system makes for itself. A dependency slow
 | 6.1 | [How distributed systems fail](01-how-distributed-systems-fail.md) | A 30-second blip becomes a four-hour outage. | [`ch01-failures`](code/ch01-failures/main.go) — a model: a slow server that passes its health check, the loss of one server in five at three loads, and a 30-second stall with and without retries |
 | 6.2 | [Timeouts and retries at scale](02-timeouts-and-retries-at-scale.md) | Every layer retries three times and the database sees 27× the load. | [`ch02-deadlines`](code/ch02-deadlines/main.go) — three services over real HTTP: who retries, and what a deadline passed down saves; then two models: the stall of 6.1 with backoff, a retry budget and deadlines, and a page that needs 100 servers, with and without hedging |
 | 6.3 | [Circuit breakers, bulkheads, and graceful degradation](03-circuit-breakers-bulkheads-degradation.md) | The recommendations service is slow, so checkout is down. | [`ch03-breaker`](code/ch03-breaker/main.go) — three real HTTP services: a checkout page whose optional dependency becomes slow, with nothing, a timeout, a bulkhead and a circuit breaker |
-| 6.4 | Overload: rate limiting, load shedding, and admission control | The service accepts every request and completes none. | *planned* |
+| 6.4 | [Overload: rate limiting, load shedding, and admission control](04-overload.md) | The service accepts every request and completes none. | [`ch04-overload`](code/ch04-overload/main.go) — a model of a service sent more than it can do: queueing, dropping and refusing; a limit for each client; shedding by priority; a rate limit against a limit on requests in progress; and that limit as Go middleware |
 | 6.5 | Redundancy and failure domains | Three replicas, one rack, one power failure. | *planned* |
 | 6.6 | Multi-region architectures | The failover runbook is tried for the first time during the outage. | *planned* |
 | 6.7 | Disaster recovery and resilience testing | A recovery plan that exists only as a document. | *planned* |
