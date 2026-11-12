@@ -10,7 +10,7 @@ Every chapter is anchored on **one production failure** — the thing that goes 
 |---|---|---|---|
 | 1 | [Foundations: one server, one request](#phase-1--foundations-one-server-one-request) | 7 + capstone | **Written** |
 | 2 | [Data: correct and fast on one node](#phase-2--data-correct-and-fast-on-one-node) | 9 + capstone | **Written** |
-| 3 | [Scaling out: load balancing, caching, read scaling](#phase-3--scaling-out-load-balancing-caching-and-read-scaling) | 7 + capstone | In progress (3.1–3.2 written) |
+| 3 | [Scaling out: load balancing, caching, read scaling](#phase-3--scaling-out-load-balancing-caching-and-read-scaling) | 7 + capstone | In progress (3.1–3.3 written) |
 | 4 | [Asynchronous systems: queues, streams, events](#phase-4--asynchronous-systems-queues-streams-and-events) | 7 + capstone | Planned |
 | 5 | [Distributed data: replication, partitioning, consistency](#phase-5--distributed-data-replication-partitioning-and-consistency) | 7 + capstone | Planned |
 | 6 | [Reliability: designing for failure](#phase-6--reliability-designing-for-failure) | 7 + capstone | Planned |
@@ -64,7 +64,7 @@ Every chapter is anchored on **one production failure** — the thing that goes 
 |---|---|---|---|
 | 3.1 | [Scaling up vs scaling out: stateless services](phase-3-scaling-out/01-stateless-services.md) | A second server is added and half the users are logged out on every other request. | Vertical vs horizontal scaling; where session and upload state must live; what "stateless" actually requires. |
 | 3.2 | [Load balancing](phase-3-scaling-out/02-load-balancing.md) | A dead server keeps receiving a third of the traffic; a deploy drops in-flight requests. | Layer 4 vs layer 7; balancing algorithms; health checks; connection draining; why long-lived connections unbalance. |
-| 3.3 | Caching patterns | The database is at 95% CPU serving the same 1,000 rows. | Cache-aside, read-through, write-through, write-behind; TTLs; invalidation; what is safe to cache. |
+| 3.3 | [Caching patterns](phase-3-scaling-out/03-caching-patterns.md) | The database is at 95% CPU serving the same 1,000 rows. | Cache-aside, read-through, write-through, write-behind; TTLs; invalidation; what is safe to cache. |
 | 3.4 | Cache failure modes | The cache restarts and the database dies under the stampede. | Stampedes and how to stop them; hot keys; negative caching; stale-while-revalidate; eviction policies; running Redis in production. |
 | 3.5 | HTTP caching and CDNs | Users in another continent wait two seconds for a logo; a "private" page is served to the wrong user from a shared cache. | `Cache-Control`, validators, `Vary`; shared vs private caches; edge caching; purging; signed URLs. |
 | 3.6 | Read replicas and replication lag | A user saves their profile, the page reloads, and the old value is back. | Scaling reads with replicas; replication lag; read-your-writes and monotonic reads; routing reads safely. |

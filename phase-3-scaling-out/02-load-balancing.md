@@ -1,6 +1,6 @@
 # 3.2 Load balancing
 
-[Syllabus](../SYLLABUS.md) · Phase 3 · Previous: [3.1 Scaling up vs scaling out](01-stateless-services.md) · Next: 3.3 Caching patterns *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 3 · Previous: [3.1 Scaling up vs scaling out](01-stateless-services.md) · Next: [3.3 Caching patterns](03-caching-patterns.md)
 
 > **Time:** about 45 minutes to read, 45 minutes of practice.
 > **You need:** [Chapter 3.1](01-stateless-services.md), and from Phase 1 connections (1.2), timeouts and idempotency (1.5), and open-loop load (1.7). The examples are plain Go.
@@ -366,7 +366,7 @@ The wait in step 2 feels wasteful, and it is the step most often left out. Witho
 - To stop an instance: fail the health check, keep serving until the balancer has noticed, finish the requests in progress, then exit.
 - Long-lived connections make connection-level balancing uneven and leave new instances idle. Balance per request, or limit how long connections live.
 
-**Next:** 3.3 Caching patterns *(planned)* — keeping the database from doing the same work again and again.
+**Next:** [3.3 Caching patterns](03-caching-patterns.md) — keeping the database from doing the same work again and again.
 
 ---
 

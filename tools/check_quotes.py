@@ -23,6 +23,7 @@ import re
 import subprocess
 import sys
 import tempfile
+import unicodedata
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 CACHE = pathlib.Path(tempfile.gettempdir()) / "course-quote-cache"
@@ -63,7 +64,13 @@ class TextExtractor(html.parser.HTMLParser):
 
 
 def squash(text):
-    """Lower-case and keep only letters and digits."""
+    """Lower-case and keep only letters and digits.
+
+    Text is first decomposed (NFKD), so that a typeset ligature such as the
+    single character "ﬁ" in a PDF compares equal to the letters "fi", and an
+    accented letter to its base letter.
+    """
+    text = unicodedata.normalize("NFKD", text)
     return re.sub(r"[^a-z0-9]+", "", text.lower())
 
 
