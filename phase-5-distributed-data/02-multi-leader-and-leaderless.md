@@ -1,6 +1,6 @@
 # 5.2 Multi-leader and leaderless replication
 
-[Syllabus](../SYLLABUS.md) · Phase 5 · Previous: [5.1 Leader–follower replication](01-leader-follower-replication.md) · Next: 5.3 Partitioning *(planned)*
+[Syllabus](../SYLLABUS.md) · Phase 5 · Previous: [5.1 Leader–follower replication](01-leader-follower-replication.md) · Next: [5.3 Partitioning](03-partitioning.md)
 
 > **Time:** about 35 minutes to read, 40 minutes of practice.
 > **You need:** [Chapter 5.1](01-leader-follower-replication.md); lost updates from [Chapter 2.4](../phase-2-data/04-concurrency-control.md); versions for late messages from [Chapter 4.3](../phase-4-async/03-delivery-semantics.md). The example needs only Go.
@@ -260,7 +260,7 @@ Most data in most products is of the fourth kind, which is why *one leader per r
 - In a leaderless store, W + R > N makes a read overlap the latest confirmed write. Majorities are the setting that also survives a failure.
 - Uniqueness and other constraints across writes need one decision-maker, however many regions there are.
 
-**Next:** 5.3 Partitioning *(planned)* — when the data no longer fits on one machine, and has to be divided.
+**Next:** [5.3 Partitioning](03-partitioning.md) — when the data no longer fits on one machine, and has to be divided.
 
 ---
 
